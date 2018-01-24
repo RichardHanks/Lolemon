@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="view" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="553.0" prefWidth="888.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <VBox alignment="CENTER" spacing="5.0" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+         <children>
+            <HBox alignment="CENTER" spacing="5.0">
+               <children>
+                  <Button fx:id="atrasbutton" mnemonicParsing="false" text="&lt;-" />
+                  <ComboBox fx:id="filtroBusquedaCombo" prefWidth="150.0" promptText="Filtro" styleClass="button" />
+               </children>
+            </HBox>
+            <ListView fx:id="campeonesList" styleClass="lista" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </ListView>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="5.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER" fillWidth="false" spacing="5.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <ImageView fx:id="campeonImage" disable="true" fitHeight="549.0" fitWidth="270.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS">
+                     <image>
+                        <Image url="@if_password_2639882.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <HBox.margin>
+                  <Insets top="35.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox fillWidth="false" minHeight="-Infinity" minWidth="-Infinity" spacing="18.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label styleClass="labelProject" text="Estadísticas" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <HBox spacing="5.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label styleClass="labelProject" text="Vida" HBox.hgrow="ALWAYS" />
+                        <Label fx:id="vidaLabel" styleClass="labelProject" text="0" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <HBox spacing="5.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label styleClass="labelProject" text="Mana" HBox.hgrow="ALWAYS" />
+                        <Label fx:id="manaLabel" styleClass="labelProject" text="0" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <HBox spacing="5.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label styleClass="labelProject" text="Defensa" HBox.hgrow="ALWAYS" />
+                        <Label fx:id="defensaLabel" styleClass="labelProject" text="0" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <HBox spacing="5.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label styleClass="labelProject" text="Velocidad" HBox.hgrow="ALWAYS" />
+                        <Label fx:id="velocidadLabel" styleClass="labelProject" text="0" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <Label styleClass="labelProject" text="Habilidades" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label styleClass="labelProject" text="Q" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <HBox spacing="5.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="habilidad1Label" styleClass="labelProject" text="Pega mucho. Coste 50. Daño 100" wrapText="true" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <Label styleClass="labelProject" text="W" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <HBox fillHeight="false" spacing="5.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="habilidad2Label" styleClass="labelProject" text="Recupera 100 de vida. Coste 100" wrapText="true" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <Label styleClass="labelProject" text="E" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <HBox fillHeight="false" spacing="5.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="habilidad3Label" styleClass="labelProject" text="Pega poco. Coste 20. Daño 25 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" wrapText="true" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <Label styleClass="labelProject" text="R" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <HBox spacing="5.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="habilidad4Label" styleClass="labelProject" text="Despierta a los zombies. Coste 120. Daño 220 jajajajajajajaja" wrapText="true" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+               </children>
+               <HBox.margin>
+                  <Insets right="10.0" top="35.0" />
+               </HBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </VBox>
+         </children>
+      </HBox>
+   </center>
+</BorderPane>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="view" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="553.0" prefWidth="911.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <VBox alignment="CENTER" spacing="10.0">
+         <children>
+            <Label fx:id="lolemonLabel" text="LOLEMON" textFill="WHITE">
+               <font>
+                  <Font name="Bauhaus 93" size="21.0" />
+               </font></Label>
+            <HBox alignment="CENTER" spacing="5.0">
+               <children>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@if_user-01_186382.png" />
+                     </image>
+                  </ImageView>
+                  <TextField fx:id="usuarioText" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="Usuario" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" spacing="5.0">
+               <children>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@if_password_2639882.png" />
+                     </image>
+                  </ImageView>
+                  <PasswordField fx:id="passwordText" promptText="Contraseña" />
+               </children>
+            </HBox>
+            <Button fx:id="loginButton" defaultButton="true" mnemonicParsing="false" text="Entrar" />
+         </children>
+      </VBox>
+   </center>
+   <bottom>
+      <HBox alignment="TOP_RIGHT" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="¿No tienes cuenta? " textFill="#fffefe">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Button fx:id="registrarseButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Registrarse" />
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </HBox>
+   </bottom>
+</BorderPane>

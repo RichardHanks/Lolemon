@@ -1,0 +1,60 @@
+.root{
+	-fx-background-image: url("/application/fondo0.jpg");
+	-fx-background-size: 1200;
+	
+}
+
+.button{
+	-fx-background-color: white;
+}
+
+.button:hover{
+	-fx-background-color: grey;
+	-fx-text-fill: white;
+}
+
+.labelProject{
+	-fx-text-fill: white;
+}
+
+.lista
+{
+ -fx-focus-color: transparent; 
+  -fx-font: 15pt "Arial";
+  -fx-text-alignment: center;
+}
+
+
+.list-view .list-cell:even{
+-fx-background-image: url("/application/fondo0.jpg");
+-fx-background-position: top;
+ -fx-text-alignment: center;
+-fx-text-fill: white;
+
+}
+
+.list-view .list-cell:odd {
+-fx-background-image: url("/application/fondo0.jpg");
+-fx-background-position: top;
+ -fx-text-alignment: center;
+-fx-text-fill: white;
+}
+
+.list-view .list-cell:even:focused{
+-fx-background-image: null;
+-fx-background-color: #2f4ae3;
+-fx-background-position: top;
+ -fx-text-alignment: center;
+-fx-text-fill: white;
+
+}
+
+.list-view .list-cell:odd:focused{
+	-fx-background-image: null;
+	-fx-background-color: #2f4ae3;
+-fx-background-position: top;
+ -fx-text-alignment: center;
+-fx-text-fill: white;
+}
+
+
