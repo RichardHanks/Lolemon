@@ -92,13 +92,7 @@ public class IniciarSesionController implements Initializable {
 	private void login(ActionEvent e) {
 		try {
 			usuario.set(con.getUsuario(usuarioText.getText()));
-			UsuarioModel u = new UsuarioModel();
-			u.setContraseña(usuario.get().getContraseña());
-			u.setHistorial(usuario.get().getHistorial());
-			u.setInventario(usuario.get().getInventario());
-			u.setNombre(usuario.get().getNombre());
-			u.setPersonajes(FXCollections.observableArrayList(usuario.get().getPersonajes()));
-			u.setPuntos(usuario.get().getPuntos());
+			UsuarioModel u = convertirEnUsuarioModel();
 			usuarioModel.set(u);
 			if (usuario.get().getContraseña().equals(passwordText.getText())) {
 				Main.getPrimaryStage().getScene().setRoot(controller.get().getView());
@@ -110,6 +104,17 @@ public class IniciarSesionController implements Initializable {
 			e2.printStackTrace();
 
 		}
+	}
+
+	private UsuarioModel convertirEnUsuarioModel() {
+		UsuarioModel u = new UsuarioModel();
+		u.setContraseña(usuario.get().getContraseña());
+		u.setHistorial(usuario.get().getHistorial());
+		u.setInventario(usuario.get().getInventario());
+		u.setNombre(usuario.get().getNombre());
+		u.setPersonajes(FXCollections.observableArrayList(usuario.get().getPersonajes()));
+		u.setPuntos(usuario.get().getPuntos());
+		return u;
 	}
 
 	private void animarMenu() {

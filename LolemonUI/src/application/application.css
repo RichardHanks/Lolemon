@@ -24,23 +24,17 @@
   -fx-text-alignment: center;
 }
 
-
-.list-view .list-cell:even{
--fx-background-image: url("/application/fondo0.jpg");
+.list-view .list-cell {
+	-fx-background-image: url("/application/fondo0.jpg");
 -fx-background-position: top;
  -fx-text-alignment: center;
 -fx-text-fill: white;
+} 
 
-}
 
-.list-view .list-cell:odd {
--fx-background-image: url("/application/fondo0.jpg");
--fx-background-position: top;
- -fx-text-alignment: center;
--fx-text-fill: white;
-}
 
-.list-view .list-cell:even:focused{
+
+.list-view .list-cell:even:selected{
 -fx-background-image: null;
 -fx-background-color: #2f4ae3;
 -fx-background-position: top;
@@ -49,7 +43,7 @@
 
 }
 
-.list-view .list-cell:odd:focused{
+.list-view .list-cell:odd:selected{
 	-fx-background-image: null;
 	-fx-background-color: #2f4ae3;
 -fx-background-position: top;

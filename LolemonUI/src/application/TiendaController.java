@@ -65,7 +65,9 @@ public class TiendaController implements Initializable {
 		loader.setController(this);
 		loader.load();
 		usuarioModel.addListener((o, ov, nv)->{
+			
 			list.get().addAll(con.getCampeonesBloqueados(usuarioModel.get().getNombre()));
+			
 		});
 	}
 

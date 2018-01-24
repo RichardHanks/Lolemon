@@ -1,12 +1,11 @@
 package lolemon.logicaDeNegocio.Clases;
 
-import java.io.IOException;
-
-import javax.swing.plaf.synth.SynthSpinnerUI;
 
 import lolemon.persistencia.modelo.Habilidad;
 import lolemon.persistencia.modelo.Personaje;
 import lolemon.persistencia.modelo.TiposRobosVida;
+
+
 
 
 public class Combate {
