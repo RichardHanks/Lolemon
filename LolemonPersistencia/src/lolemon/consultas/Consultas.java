@@ -214,6 +214,11 @@ public class Consultas {
 	
 	public void editarUsuario(Usuario u) {
 		em.getTransaction().begin();
+		
+		Usuario us=em.find(Usuario.class,u.getNombre());
+		u.setPersonajes((ArrayList<Personaje>) u.getPersonajes());
+		u.setInventario(u.getInventario());
+		
 		em.merge(u);
 		em.getTransaction().commit();
 	}
