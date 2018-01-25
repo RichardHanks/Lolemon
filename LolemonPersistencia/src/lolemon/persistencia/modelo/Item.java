@@ -14,6 +14,7 @@ public class Item extends Movimiento implements Serializable {
 	
 	private Integer incremento;
 	private Tipo tipo;
+	private int coste;
 	
 	public Item() {
 		
@@ -42,6 +43,16 @@ public class Item extends Movimiento implements Serializable {
 	public void setTipo(Tipo tipo) {
 		this.tipo = tipo;
 	}
+
+	public int getCoste() {
+		return coste;
+	}
+
+	public void setCoste(int coste) {
+		this.coste = coste;
+	}
+	
+	
 
 	
 	
