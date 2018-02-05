@@ -4,16 +4,16 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="view" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="view" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="449.0" prefWidth="606.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <left>
       <VBox alignment="TOP_CENTER" spacing="30.0" BorderPane.alignment="TOP_CENTER">
          <children>
-            <Button fx:id="atrasButton" mnemonicParsing="false" text="&lt;-" />
             <TextField fx:id="nombreText" promptText="Nombre" />
             <ComboBox fx:id="habilidad1Combo" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="Q" />
             <ComboBox fx:id="habilidad2Combo" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="W" />
@@ -57,4 +57,18 @@
          </padding>
       </HBox>
    </right>
+   <top>
+      <Button fx:id="atrasButton" mnemonicParsing="false" BorderPane.alignment="TOP_LEFT">
+         <BorderPane.margin>
+            <Insets left="5.0" top="5.0" />
+         </BorderPane.margin>
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@previous.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </top>
 </BorderPane>

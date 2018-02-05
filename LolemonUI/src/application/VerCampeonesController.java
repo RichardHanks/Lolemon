@@ -76,18 +76,22 @@ public class VerCampeonesController implements Initializable {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/VistaCampeonesView.fxml"));
 		loader.setController(this);
 		loader.load();
+		init();
+
+	}
+
+	private void init() {
+		list.clear();
 		list.setAll(consultas.getCampeones());
 		filtroBusquedaCombo.getItems().add("Todos");
 		filtroBusquedaCombo.getItems().add("En posesion");
 		filtroBusquedaCombo.getItems().add("No en posesión");
 		filtroBusquedaCombo.getItems().add("Creaciones propias");
-
 	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		campeonesList.itemsProperty().bind(list);
-		//campeonesList.setOrientation(Orientation.HORIZONTAL);
 		campeonesList.setCellFactory(new Callback<ListView<Personaje>, ListCell<Personaje>>() {
 
 			@Override
@@ -126,6 +130,7 @@ public class VerCampeonesController implements Initializable {
 	}
 
 	private void atras(ActionEvent e) {
+		init();
 		Main.getPrimaryStage().getScene().setRoot(controller.get().getView());
 	}
 

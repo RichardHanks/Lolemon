@@ -54,8 +54,7 @@ public class LolemonController implements Initializable {
 			"crear Champs controller");
 	private ObjectProperty<TiendaController> tiendaController = new SimpleObjectProperty<>(this,
 			"tienda controller");
-
-
+	private ObjectProperty<ChampSelectController> champselectcontroller = new SimpleObjectProperty<>(this, "");
 
 	private ObjectProperty<UsuarioModel> usuarioModel = new SimpleObjectProperty<>(this, "usuario", new UsuarioModel());
 
@@ -68,7 +67,7 @@ public class LolemonController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-
+		jugarButton.setOnAction(e->jugar(e));
 		verCampeonesButton.setOnAction(e -> verCampeones(e));
 		crearCampeonButton.setOnAction(e -> crearCampeones(e));
 		tiendaButton.setOnAction(e -> verTienda(e));
@@ -82,7 +81,9 @@ public class LolemonController implements Initializable {
 
 	}
 
-	
+	private void jugar(ActionEvent e) {
+		Main.getPrimaryStage().getScene().setRoot((champselectcontroller.get().getView()));
+	}
 
 	private void verTienda(ActionEvent e) {
 		try {
@@ -104,7 +105,6 @@ public class LolemonController implements Initializable {
 
 	private void verCampeones(ActionEvent e) {
 		try {
-			// verCampeonesController.get().usuarioProperty().bind(usuario);
 
 			Main.getPrimaryStage().getScene().setRoot(verCampeonesController.get().getView());
 
@@ -118,17 +118,6 @@ public class LolemonController implements Initializable {
 		return view;
 	}
 
-	/*
-	 * public final ObjectProperty<Usuario> usuarioProperty() { return this.usuario;
-	 * }
-	 * 
-	 * 
-	 * public final Usuario getUsuario() { return this.usuarioProperty().get(); }
-	 * 
-	 * 
-	 * public final void setUsuario(final Usuario usuario) {
-	 * this.usuarioProperty().set(usuario); }
-	 */
 
 	public final ObjectProperty<VerCampeonesController> verCampeonesControllerProperty() {
 		return this.verCampeonesController;
@@ -179,6 +168,21 @@ public class LolemonController implements Initializable {
 	public final void setTiendaController(final TiendaController tiendaController) {
 		this.tiendaControllerProperty().set(tiendaController);
 	}
+
+	public final ObjectProperty<ChampSelectController> champselectcontrollerProperty() {
+		return this.champselectcontroller;
+	}
+	
+
+	public final ChampSelectController getChampselectcontroller() {
+		return this.champselectcontrollerProperty().get();
+	}
+	
+
+	public final void setChampselectcontroller(final ChampSelectController champselectcontroller) {
+		this.champselectcontrollerProperty().set(champselectcontroller);
+	}
+	
 	
 
 	

@@ -65,10 +65,16 @@ public class TiendaController implements Initializable {
 		loader.setController(this);
 		loader.load();
 		usuarioModel.addListener((o, ov, nv)->{
-			
-			list.get().addAll(con.getCampeonesBloqueados(usuarioModel.get().getNombre()));
+			init(nv);
 			
 		});
+		
+		
+	}
+
+	private void init(UsuarioModel nv) {
+		list.clear();
+		list.get().addAll(con.getCampeonesBloqueados(nv.getNombre()));
 	}
 
 	@Override
@@ -105,10 +111,13 @@ public class TiendaController implements Initializable {
 		});
 		
 		seleccionado.addListener((o, ov, nv)->{
-			if(nv!=null)
-			nombreCampeonLabel.setText(nv.getNombre()+" "+nv.getCoste());
+			if(nv!=null) {
+			nombreCampeonLabel.setText(nv.getNombre());
+			precioCampeonLabel.setText("Precio: "+nv.getCoste());
+			}
 			else {
 				nombreCampeonLabel.setText("");
+				precioCampeonLabel.setText("");
 			}
 		});
 		
@@ -117,6 +126,7 @@ public class TiendaController implements Initializable {
 	}
 	
 	private void atras() {
+		init(usuarioModel.get());
 		Main.getPrimaryStage().getScene().setRoot(controller.get().getView());
 	}
 

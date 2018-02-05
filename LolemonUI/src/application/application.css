@@ -1,15 +1,16 @@
 .root{
-	-fx-background-image: url("/application/fondo0.jpg");
-	-fx-background-size: 1200;
+	-fx-background-image: url("/application/fondoOscuro.jpg");
+	-fx-background-size: 2000;
 	
 }
 
 .button{
-	-fx-background-color: white;
+	-fx-background-color: #67daff;
+	-fx-text-fill: black;
 }
 
 .button:hover{
-	-fx-background-color: grey;
+	-fx-background-color: #007ac1;
 	-fx-text-fill: white;
 }
 
@@ -24,31 +25,33 @@
   -fx-text-alignment: center;
 }
 
+
 .list-view .list-cell {
-	-fx-background-image: url("/application/fondo0.jpg");
+-fx-background-image: url("/application/fondoOscuro.jpg");
 -fx-background-position: top;
  -fx-text-alignment: center;
 -fx-text-fill: white;
 } 
 
 
-
-
-.list-view .list-cell:even:selected{
+.list-view .list-cell:hover{
 -fx-background-image: null;
--fx-background-color: #2f4ae3;
+-fx-background-color: grey;
 -fx-background-position: top;
  -fx-text-alignment: center;
 -fx-text-fill: white;
 
 }
 
-.list-view .list-cell:odd:selected{
+
+.list-view .list-cell:selected{
 	-fx-background-image: null;
-	-fx-background-color: #2f4ae3;
+	-fx-background-color: #262626;
 -fx-background-position: top;
  -fx-text-alignment: center;
 -fx-text-fill: white;
 }
+
+
 
 

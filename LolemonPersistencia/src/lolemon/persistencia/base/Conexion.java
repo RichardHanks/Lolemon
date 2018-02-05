@@ -112,7 +112,7 @@ public class Conexion {
 		 	
 		 	ahri.setHabilidades(hs);
 		 	
-		 	 Personaje brand = new Personaje();
+		 	Personaje brand = new Personaje();
 		 	brand.setNombre("Brand");
 		 	brand.setVida(450);
 		 	brand.setEnergia(150);
@@ -176,8 +176,78 @@ public class Conexion {
 			 	
 			 	brand.setHabilidades(hb);
 		
+		Personaje darius = new Personaje();
+		darius.setNombre("Darius");
+		darius.setVida(560);
+		darius.setEnergia(100);
+		darius.setDefensa(35);
+		darius.setRecargo(0.12);
+		darius.setVelocidad(68);
+		darius.setAspecto("/54/darius/splash/darius.jpg");
+		darius.setSprite("/54/darius/sprite/darius.png");
+		darius.setEstaBloqueado(false);
+		
+			//habilidades ligadas al personaje
+		 	Habilidad darius1 = new Habilidad();
+		 	darius1.setNumHabilidad(1);
+		 	darius1.setNombre("Diezmar");
+		 	darius1.setDescripcion("Darius reúne fuerzas y traza un amplio círculo con su hacha.\nDarius se cura con esta habilidad");
+		 	darius1.setDaño(70);
+		 	darius1.setCoste(40);
+		 	darius1.setCritico(0);
+		 	darius1.setDmgverdadero(false);
+		 	darius1.setRobovida(true);
+		 	darius1.setTipoRobovida(TiposRobosVida.VidaFaltantePropia);
+		 	darius1.setPorcentajeRV(0.05);
+		 	darius1.setPrecision(70);
+		 	
+		 	Habilidad darius2 = new Habilidad();
+		 	darius2.setNumHabilidad(2);
+		 	darius2.setNombre("Golpe atroz");
+		 	darius2.setDescripcion("El siguiente ataque de Darius alcanza al enemigo en una arteria vital.");
+		 	darius2.setDaño(55);
+		 	darius2.setCoste(20);
+		 	darius2.setCritico(15);
+		 	darius2.setDmgverdadero(false);
+		 	darius2.setRobovida(false);
+		 	darius2.setPrecision(100);
+		 	
+		 	Habilidad darius3 = new Habilidad();
+		 	darius3.setNumHabilidad(3);
+		 	darius3.setNombre("Atrapar");
+		 	darius3.setDescripcion("Brand lanza un ataque poderoso a su objetivo y le inflige daño mágico.");
+		 	darius3.setDaño(50);
+		 	darius3.setCoste(20);
+		 	darius3.setCritico(0);
+		 	darius3.setDmgverdadero(true);
+		 	darius3.setRobovida(false);
+		 	darius3.setPrecision(80);
+		 	
+		 	Habilidad darius4 = new Habilidad();
+		 	darius4.setNumHabilidad(4);
+		 	darius4.setNombre("hab4");
+		 	darius4.setDescripcion("Darius pone a punto su hacha, lo cual provoca que, de forma pasiva,\nsu daño físico ignore un porcentaje de la armadura de su objetivo");
+		 	darius4.setDaño(150);
+		 	darius4.setCoste(50);
+		 	darius4.setCritico(150);
+		 	darius4.setDmgverdadero(false);
+		 	darius4.setRobovida(true);
+		 	darius4.setTipoRobovida(TiposRobosVida.VidaFaltantePropia);
+		 	darius4.setPorcentajeRV(0.1);
+		 	darius4.setPrecision(80);
+		 	
+		 	ArrayList<Habilidad>hdarius= new ArrayList<>();
+		 	hdarius.add(darius1);
+		 	hdarius.add(darius2);
+		 	hdarius.add(darius3);
+		 	hdarius.add(darius4);
+		 	
+		 	darius.setHabilidades(hdarius);
+		
 		u.getPersonajes().add(ahri);
 		u.getPersonajes().add(brand);
+		u.getPersonajes().add(darius);
+		
 			em.persist(u);
 			
 		 	em.persist(ahri1);
@@ -191,6 +261,12 @@ public class Conexion {
 		 	em.persist(brand3);
 		 	em.persist(brand4);
 		 	em.persist(brand);
+		 	
+		 	em.persist(darius1);
+		 	em.persist(darius2);
+		 	em.persist(darius3);
+		 	em.persist(darius4);
+		 	em.persist(darius);
 
 		 
 		 em.getTransaction().commit();

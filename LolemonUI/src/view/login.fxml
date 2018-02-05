@@ -16,10 +16,11 @@
    <center>
       <VBox alignment="CENTER" spacing="10.0">
          <children>
-            <Label fx:id="lolemonLabel" text="LOLEMON" textFill="WHITE">
-               <font>
-                  <Font name="Bauhaus 93" size="21.0" />
-               </font></Label>
+            <ImageView cache="true" fitHeight="89.0" fitWidth="265.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@79171d3635899cf8caf432a57d0591bf.png" />
+               </image>
+            </ImageView>
             <HBox alignment="CENTER" spacing="5.0">
                <children>
                   <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">

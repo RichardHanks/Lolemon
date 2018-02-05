@@ -21,7 +21,14 @@
          <children>
             <HBox alignment="CENTER" spacing="5.0">
                <children>
-                  <Button fx:id="atrasbutton" mnemonicParsing="false" text="&lt;-" />
+                  <Button fx:id="atrasbutton" mnemonicParsing="false">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@previous.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
                   <ComboBox fx:id="filtroBusquedaCombo" prefWidth="150.0" promptText="Filtro" styleClass="button" />
                </children>
             </HBox>

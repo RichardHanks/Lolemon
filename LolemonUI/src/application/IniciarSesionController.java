@@ -5,6 +5,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.animation.FadeTransition;
+import javafx.animation.PathTransition;
+import javafx.animation.Timeline;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
@@ -12,11 +14,16 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.shape.CubicCurveTo;
+import javafx.scene.shape.MoveTo;
+import javafx.scene.shape.Path;
 import javafx.util.Duration;
 import lolemon.consultas.Consultas;
 import lolemon.persistencia.modelo.Usuario;
@@ -39,9 +46,6 @@ public class IniciarSesionController implements Initializable {
 	@FXML
 	private Button loginButton;
 
-	@FXML
-	private Label lolemonLabel;
-
 	private Consultas con = new Consultas();
 	private ObjectProperty<LolemonController> controller = new SimpleObjectProperty<>(this, "controller",
 			new LolemonController());
@@ -49,7 +53,10 @@ public class IniciarSesionController implements Initializable {
 			"ver champs controller", new VerCampeonesController());
 	private ObjectProperty<CrearCampeonesController> crearChampsController = new SimpleObjectProperty<>(this,
 			"crear Champs controller", new CrearCampeonesController());
-	private ObjectProperty<TiendaController> tiendaController = new SimpleObjectProperty<>(this, "tienda controller", new TiendaController());
+	private ObjectProperty<TiendaController> tiendaController = new SimpleObjectProperty<>(this, "tienda controller",
+			new TiendaController());
+	private ObjectProperty<ChampSelectController> champSelectController = new SimpleObjectProperty<>(this,
+			"champ select", new ChampSelectController());
 
 	private ObjectProperty<Usuario> usuario = new SimpleObjectProperty<>(this, "usuario");
 
@@ -68,42 +75,65 @@ public class IniciarSesionController implements Initializable {
 		loginButton.disableProperty()
 				.bind(usuarioText.textProperty().isEmpty().or(passwordText.textProperty().isEmpty()));
 
+		registrarseButton.setOnAction(e->registrarse());
+		
 		// Bindeos del usuario con properties
 		controller.get().usuarioModelProperty().bindBidirectional(usuarioModel);
 		verChampsController.get().usuarioModelProperty().bindBidirectional(usuarioModel);
 		crearChampsController.get().usuarioModelProperty().bindBidirectional(usuarioModel);
 		tiendaController.get().usuarioModelProperty().bindBidirectional(usuarioModel);
-		
+		champSelectController.get().usuarioModelProperty().bindBidirectional(usuarioModel);
 
-		// Bindeos de controladores
+		// Bindeos de controladores para cambiar la escena entre ellos
 		verChampsController.get().controllerProperty().bindBidirectional(controller);
 		crearChampsController.get().mainControllerProperty().bindBidirectional(controller);
 		tiendaController.get().controllerProperty().bindBidirectional(controller);
+		champSelectController.get().controllerProperty().bindBidirectional(controller);
 
 		controller.get().verCampeonesControllerProperty().bindBidirectional(verChampsController);
 		controller.get().crearChampsControllerProperty().bindBidirectional(crearChampsController);
 		controller.get().tiendaControllerProperty().bindBidirectional(tiendaController);
-		
-		
+		controller.get().champselectcontrollerProperty().bindBidirectional(champSelectController);
 
-		
 	}
 
 	private void login(ActionEvent e) {
-		try {
-			usuario.set(con.getUsuario(usuarioText.getText()));
+
+
+		usuario.set(con.getUsuario(usuarioText.getText()));
+		if (usuario.get() != null) {
 			UsuarioModel u = convertirEnUsuarioModel();
 			usuarioModel.set(u);
 			if (usuario.get().getContraseña().equals(passwordText.getText())) {
 				Main.getPrimaryStage().getScene().setRoot(controller.get().getView());
 				animarMenu();
+			} else
+				error();
 
-			}
-		} catch (Exception e2) {
-			System.out.println("error");
-			e2.printStackTrace();
+		} else
+			error();
 
+	}
+	
+	private void registrarse() {
+		RegistrarseController registrarse;
+		try {
+			registrarse = new RegistrarseController();
+			registrarse.show(Main.getPrimaryStage());
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
+	
+		
+	}
+
+	private void error() {
+		Alert alert = new Alert(AlertType.ERROR);
+		alert.setTitle("Iniciar sesión");
+		alert.setHeaderText("Error al iniciar sesión");
+		alert.setContentText("Compruebe que las credenciales son correctas");
+
+		alert.showAndWait();
 	}
 
 	private UsuarioModel convertirEnUsuarioModel() {
@@ -130,7 +160,5 @@ public class IniciarSesionController implements Initializable {
 	public BorderPane getView() {
 		return view;
 	}
-	
-	
 
 }
