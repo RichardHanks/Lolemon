@@ -56,6 +56,7 @@ public class LolemonController implements Initializable {
 			"tienda controller");
 
 
+
 	private ObjectProperty<UsuarioModel> usuarioModel = new SimpleObjectProperty<>(this, "usuario", new UsuarioModel());
 
 	public LolemonController() throws IOException {
@@ -67,6 +68,7 @@ public class LolemonController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+
 		verCampeonesButton.setOnAction(e -> verCampeones(e));
 		crearCampeonButton.setOnAction(e -> crearCampeones(e));
 		tiendaButton.setOnAction(e -> verTienda(e));
@@ -79,6 +81,8 @@ public class LolemonController implements Initializable {
 	
 
 	}
+
+	
 
 	private void verTienda(ActionEvent e) {
 		try {
