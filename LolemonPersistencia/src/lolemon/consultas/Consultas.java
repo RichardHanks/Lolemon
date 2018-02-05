@@ -107,6 +107,7 @@ public class Consultas {
 			u.setNombre(nombre);
 			u.setContraseña(contraseña);
 			u.setPuntos(6300);
+			u.setPersonajes((ArrayList<Personaje>) getCampeones());
 			em.persist(u);
 			em.getTransaction().commit();
 			registrado=true;

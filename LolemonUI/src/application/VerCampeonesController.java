@@ -83,6 +83,7 @@ public class VerCampeonesController implements Initializable {
 	private void init() {
 		list.clear();
 		list.setAll(consultas.getCampeones());
+		filtroBusquedaCombo.getItems().clear();
 		filtroBusquedaCombo.getItems().add("Todos");
 		filtroBusquedaCombo.getItems().add("En posesion");
 		filtroBusquedaCombo.getItems().add("No en posesión");

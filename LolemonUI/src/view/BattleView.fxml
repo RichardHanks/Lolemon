@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="view" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="botonera" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="250.0" spacing="10.0">
+               <children>
+                  <Button fx:id="btn1" mnemonicParsing="false" text="Button" />
+                  <Button fx:id="btn2" mnemonicParsing="false" text="Button" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="263.0" spacing="10.0">
+               <children>
+                  <Button fx:id="btn3" mnemonicParsing="false" text="Button" />
+                  <Button fx:id="btn4" mnemonicParsing="false" text="Button" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="175.0" spacing="5.0">
+               <children>
+                  <Button fx:id="btnItem1" mnemonicParsing="false" text="Button" />
+                  <Button fx:id="btnItem2" mnemonicParsing="false" text="Button" />
+                  <Button fx:id="btnItem3" mnemonicParsing="false" text="Button" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </bottom>
+   <center>
+      <SplitPane dividerPositions="1.0" BorderPane.alignment="CENTER">
+        <items>
+            <HBox alignment="CENTER" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="314.0" spacing="10.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="labelj1" styleClass="labelProject" text="J1">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Label>
+                        <ProgressBar fx:id="pb1" prefWidth="200.0" progress="0.0" styleClass="progressBar" />
+                        <ProgressBar fx:id="pb2" prefWidth="200.0" progress="0.0" />
+                        <ImageView fx:id="iv1" fitHeight="214.0" fitWidth="179.0" pickOnBounds="true" preserveRatio="true">
+                           <VBox.margin>
+                              <Insets left="10.0" />
+                           </VBox.margin>
+                        </ImageView>
+                     </children>
+                     <padding>
+                        <Insets top="20.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="309.0" spacing="10.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="labelj2" styleClass="labelProject" text="J2" />
+                        <ProgressBar fx:id="pb3" prefWidth="200.0" progress="0.0" />
+                        <ProgressBar fx:id="pb4" prefWidth="200.0" progress="0.0" />
+                        <ImageView fx:id="iv2" fitHeight="191.0" fitWidth="171.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                     <padding>
+                        <Insets top="20.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+            </HBox>
+            <TextArea minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="100.0" />
+        </items>
+      </SplitPane>
+   </center>
+</BorderPane>

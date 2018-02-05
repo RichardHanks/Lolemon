@@ -54,12 +54,15 @@ public class Conexion {
 		 ahri.setDefensa(25);
 		 ahri.setRecargo(0.10);
 		 ahri.setVelocidad(75);
+		 ahri.setVidaTotal(450);
+		 ahri.setEnergiaTotal(120);
+		 ahri.setMensajes(new ArrayList<String>());
 		 ahri.setAspecto("/54/ahri/splash/ahri.jpg");
 		 ahri.setSprite("54/ahri/sprite/ahri.png");
 		 
 		 	//habilidades ligadas al personaje
 		 	Habilidad ahri1 = new Habilidad();
-		 	ahri1.setNumHabilidad(1);
+		 	ahri1.setNumHabilidad(0);
 		 	ahri1.setNombre("Orbe del engaño");
 		 	ahri1.setDescripcion("Ahri lanza y recupera su orbe, infligiendo daño verdadero al recuperarlo.");
 		 	ahri1.setDaño(60);
@@ -70,7 +73,7 @@ public class Conexion {
 		 	ahri1.setPrecision(85);
 		 	
 		 	Habilidad ahri2 = new Habilidad();
-		 	ahri2.setNumHabilidad(2);
+		 	ahri2.setNumHabilidad(1);
 		 	ahri2.setNombre("Fuego zorruno");
 		 	ahri2.setDescripcion("Ahri lanza tres fuegos zorrunos que fijan y \n atacan a los enemigos cercanos");
 		 	ahri2.setDaño(55);
@@ -81,7 +84,7 @@ public class Conexion {
 		 	ahri2.setPrecision(100);
 		 	
 		 	Habilidad ahri3 = new Habilidad();
-		 	ahri3.setNumHabilidad(3);
+		 	ahri3.setNumHabilidad(2);
 		 	ahri3.setNombre("Hechizar");
 		 	ahri3.setDescripcion("Ahri lanza un beso que daña y hechiza al \n enemigo al que alcance primero");
 		 	ahri3.setDaño(45);
@@ -94,7 +97,7 @@ public class Conexion {
 		 	ahri3.setPrecision(100);
 		 	
 		 	Habilidad ahri4 = new Habilidad();
-		 	ahri4.setNumHabilidad(4);
+		 	ahri4.setNumHabilidad(3);
 		 	ahri4.setNombre("Impulso espiritual");
 		 	ahri4.setDescripcion("Ahri corre hacia adelante y dispara rayos de esencia,\n infligiendo daño a enemigos cercanos.");
 		 	ahri4.setDaño(300);
@@ -119,13 +122,16 @@ public class Conexion {
 		 	brand.setDefensa(20);
 		 	brand.setRecargo(0.08);
 		 	brand.setVelocidad(70);
+		 	brand.setVidaTotal(450);
+		 	brand.setEnergiaTotal(150);
+		 	brand.setMensajes(new ArrayList<String>());
 		 	brand.setAspecto("/54/brand/splash/brand.jpg");
 		 	brand.setSprite("/54/brand/sprite/brand.png");
 		 	brand.setEstaBloqueado(true);
 			 
 			 	//habilidades ligadas al personaje
 			 	Habilidad brand1 = new Habilidad();
-			 	brand1.setNumHabilidad(1);
+			 	brand1.setNumHabilidad(0);
 			 	brand1.setNombre("Abrasar");
 			 	brand1.setDescripcion("Brand lanza una bola de fuego que inflige daño mágico");
 			 	brand1.setDaño(80);
@@ -136,7 +142,7 @@ public class Conexion {
 			 	brand1.setPrecision(70);
 			 	
 			 	Habilidad brand2 = new Habilidad();
-			 	brand2.setNumHabilidad(2);
+			 	brand2.setNumHabilidad(1);
 			 	brand2.setNombre("Pilar de llamas");
 			 	brand2.setDescripcion("Brand crea un Pilar de llamas en la ubicación \n del objetivo que inflige daño mágico a las unidades enemigas");
 			 	brand2.setDaño(70);
@@ -147,7 +153,7 @@ public class Conexion {
 			 	brand2.setPrecision(70);
 			 	
 			 	Habilidad brand3 = new Habilidad();
-			 	brand3.setNumHabilidad(3);
+			 	brand3.setNumHabilidad(2);
 			 	brand3.setNombre("Incendio");
 			 	brand3.setDescripcion("Brand lanza un ataque poderoso a su objetivo y le inflige daño mágico.");
 			 	brand3.setDaño(55);
@@ -158,7 +164,7 @@ public class Conexion {
 			 	brand3.setPrecision(85);
 			 	
 			 	Habilidad brand4 = new Habilidad();
-			 	brand4.setNumHabilidad(4);
+			 	brand4.setNumHabilidad(3);
 			 	brand4.setNombre("Detonación ígnea");
 			 	brand4.setDescripcion("Brand libera un devastador torrente de fuego que inflige daño mágico.");
 			 	brand4.setDaño(250);
@@ -183,13 +189,16 @@ public class Conexion {
 		darius.setDefensa(35);
 		darius.setRecargo(0.12);
 		darius.setVelocidad(68);
+		darius.setVidaTotal(560);
+		darius.setEnergiaTotal(100);
+		darius.setMensajes(new ArrayList<String>());
 		darius.setAspecto("/54/darius/splash/darius.jpg");
 		darius.setSprite("/54/darius/sprite/darius.png");
 		darius.setEstaBloqueado(false);
 		
 			//habilidades ligadas al personaje
 		 	Habilidad darius1 = new Habilidad();
-		 	darius1.setNumHabilidad(1);
+		 	darius1.setNumHabilidad(0);
 		 	darius1.setNombre("Diezmar");
 		 	darius1.setDescripcion("Darius reúne fuerzas y traza un amplio círculo con su hacha.\nDarius se cura con esta habilidad");
 		 	darius1.setDaño(70);
@@ -202,7 +211,7 @@ public class Conexion {
 		 	darius1.setPrecision(70);
 		 	
 		 	Habilidad darius2 = new Habilidad();
-		 	darius2.setNumHabilidad(2);
+		 	darius2.setNumHabilidad(1);
 		 	darius2.setNombre("Golpe atroz");
 		 	darius2.setDescripcion("El siguiente ataque de Darius alcanza al enemigo en una arteria vital.");
 		 	darius2.setDaño(55);
@@ -213,7 +222,7 @@ public class Conexion {
 		 	darius2.setPrecision(100);
 		 	
 		 	Habilidad darius3 = new Habilidad();
-		 	darius3.setNumHabilidad(3);
+		 	darius3.setNumHabilidad(2);
 		 	darius3.setNombre("Atrapar");
 		 	darius3.setDescripcion("Brand lanza un ataque poderoso a su objetivo y le inflige daño mágico.");
 		 	darius3.setDaño(50);
@@ -224,7 +233,7 @@ public class Conexion {
 		 	darius3.setPrecision(80);
 		 	
 		 	Habilidad darius4 = new Habilidad();
-		 	darius4.setNumHabilidad(4);
+		 	darius4.setNumHabilidad(3);
 		 	darius4.setNombre("hab4");
 		 	darius4.setDescripcion("Darius pone a punto su hacha, lo cual provoca que, de forma pasiva,\nsu daño físico ignore un porcentaje de la armadura de su objetivo");
 		 	darius4.setDaño(150);
@@ -233,7 +242,7 @@ public class Conexion {
 		 	darius4.setDmgverdadero(false);
 		 	darius4.setRobovida(true);
 		 	darius4.setTipoRobovida(TiposRobosVida.VidaFaltantePropia);
-		 	darius4.setPorcentajeRV(0.1);
+		 	darius4.setPorcentajeRV(0.5);
 		 	darius4.setPrecision(80);
 		 	
 		 	ArrayList<Habilidad>hdarius= new ArrayList<>();

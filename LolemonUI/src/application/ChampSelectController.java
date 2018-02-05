@@ -75,6 +75,7 @@ public class ChampSelectController implements Initializable {
 	private ListProperty<Personaje> listaPersonajes = new SimpleListProperty<>(this, "lista de personajes", FXCollections.observableArrayList());
 	private StringProperty turno = new SimpleStringProperty(this, "turno", "Primera selección");
 	private ObjectProperty<LolemonController> controller = new SimpleObjectProperty<>(this, "");
+	private ObjectProperty<BatallaController> Bcontroller= new SimpleObjectProperty<>(this,"");
 	
 	private Consultas con = new Consultas();
 	private boolean primeraSeleccion=true;
@@ -234,7 +235,16 @@ public class ChampSelectController implements Initializable {
             e -> turno.set(String.valueOf((Integer.valueOf(turno.get()) - 1)))));
         countdown.setCycleCount(startValue);
         countdown.play();
-        countdown.setOnFinished(e->turno.set("BATALLA"));
+        countdown.setOnFinished(e->{
+			try {
+				Bcontroller.set(new BatallaController(champ1.get(), champ2.get()));
+				Main.getPrimaryStage().getScene().setRoot(Bcontroller.get().getView());
+				//System.out.println(champ1.get().getNombre());
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		});
         startValue--;
     }
 		

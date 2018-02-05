@@ -64,7 +64,7 @@ public class Combate {
 					}
 			}
 			p1.setEnergia(p1.getEnergia()-usada.getCoste());
-			recargar(p1);
+			
 			}
 			
 		else {
@@ -73,6 +73,8 @@ public class Combate {
         else {
         	System.out.println("No tiene energía para atacar.");
         }
+       
+        
 		}
 		
 
