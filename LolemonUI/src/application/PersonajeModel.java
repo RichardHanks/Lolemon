@@ -319,7 +319,13 @@ public class PersonajeModel {
 	}
 	
     
-    
+    @Override
+    public String toString() {
+    	return getNombre()+"\nVida Base: "+getVidaTotal()+
+    			"\nEnergía Base: "+getEnergiaTotal()+
+    			"\nVelocidad Base: "+getVelocidad()+
+    			"\nDefensa Base"+getDefensa();
+    }
     
     
 

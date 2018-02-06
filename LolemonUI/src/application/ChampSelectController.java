@@ -30,6 +30,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.control.Tooltip;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -105,7 +106,7 @@ public class ChampSelectController implements Initializable {
 			else champ2.set(nv);
 		});
 		usuarioModel.addListener((o, ov, nv)->{
-			listaPersonajes.setAll(con.getCampeones());
+			listaPersonajes.setAll(con.getCampeonesDesbloqueados(usuarioModel.get().getNombre()));
 		});
 		
 		champ1.addListener((o, ov, nv)->{

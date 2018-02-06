@@ -13,6 +13,7 @@ import javafx.scene.ImageCursor;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -95,7 +96,7 @@ public class BatallaController implements Initializable {
 
 		// Creamos el combate, y lanzamos el inicio de la pelea.
 		combate = new Combate(personaje1, personaje2);
-		combate.turno(personaje1, personaje2);
+		Combate.turno(personaje1, personaje2);
 		Pelea(personaje1, personaje2);
 
 		// Image imagen = new Image("/view/PogChamp.png");
@@ -105,7 +106,6 @@ public class BatallaController implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
 
 		// Asignarle al ObjectProperty<PersonajeModel> el personajeModel
 		// correspondiente, que tendrá sus valores del personaje plano correspondiente.
@@ -130,8 +130,17 @@ public class BatallaController implements Initializable {
 		pb4.progressProperty().bind(
 				seleccionado2.get().energiaProperty().multiply(1.0).divide(seleccionado2.get().getEnergiaTotal()));
 
+		//setea las imagenes a los campeones y los textos de explicacion
 		iv1.setImage(new Image(seleccionado1.get().getSprite()));
+		Tooltip.install(
+				iv1,
+			    new Tooltip(seleccionado1.get().toString())
+			);
 		iv2.setImage(new Image(seleccionado2.get().getSprite()));
+		Tooltip.install(
+				iv2,
+			    new Tooltip(seleccionado2.get().toString())
+			);
 
 		btn1.setOnAction(e -> llamarAtacar(0));
 		btn2.setOnAction(e -> llamarAtacar(1));
@@ -155,6 +164,7 @@ public class BatallaController implements Initializable {
 	private void HacerAtaque(int habilidad, Personaje j1, Personaje j2) {
 
 		combate.Atacar(j1.getHabilidades().get(habilidad).getNumHabilidad(), j1, j2);
+		//ataca y actualiza las vidas y energias de los campeones
 		
 		seleccionado2.get().vidaProperty().set(combate.getJ2().getVida());
 		seleccionado1.get().energiaProperty().set(combate.getJ1().getEnergia());
@@ -162,7 +172,7 @@ public class BatallaController implements Initializable {
 		seleccionado2.get().energiaProperty().set(combate.getJ2().getEnergia());
 		
 		
-		
+		//recarga y luego lo refleja en la vista
 		System.out.println("hora de recargar!");
 		combate.recargar(j1);
 		
@@ -188,8 +198,6 @@ public class BatallaController implements Initializable {
 			System.out.println("Energía de " + p1.getNombre() + p1.getEnergia());
 			System.out.println("Vida de " + p2.getNombre() + " " + p2.getVida());
 			System.out.println("Energía " + p2.getNombre() + " " + p2.getEnergia());
-
-			// show(); --> funcion que lanza la vista con opcion de
 			show();
 			System.out.println("-----------------------");
 
@@ -203,20 +211,43 @@ public class BatallaController implements Initializable {
 	}
 	
 	public void show() {
+		//cambia el texto y el tooltip de los botones segun el turno
 		if(combate.getTurno()) {
 		System.out.println("Turno de "+combate.getJ1().getNombre());
 		
 		btn1.setText(seleccionado1.get().getHabilidades().get(0).getNombre());
+		btn1.setTooltip(new Tooltip("Coste: "+seleccionado1.get().getHabilidades().get(0).getCoste()+
+									"\nDaño: "+seleccionado1.get().getHabilidades().get(0).getDaño()));
+		
 		btn2.setText(seleccionado1.get().getHabilidades().get(1).getNombre());
+		btn2.setTooltip(new Tooltip("Coste: "+seleccionado1.get().getHabilidades().get(1).getCoste()+
+									"\nDaño: "+seleccionado1.get().getHabilidades().get(1).getDaño()));
+		
 		btn3.setText(seleccionado1.get().getHabilidades().get(2).getNombre());
+		btn3.setTooltip(new Tooltip("Coste: "+seleccionado1.get().getHabilidades().get(2).getCoste()+
+									"\nDaño: "+seleccionado1.get().getHabilidades().get(2).getDaño()));
+		
 		btn4.setText(seleccionado1.get().getHabilidades().get(3).getNombre());
+		btn4.setTooltip(new Tooltip("Coste: "+seleccionado1.get().getHabilidades().get(3).getCoste()+
+									"\nDaño: "+seleccionado1.get().getHabilidades().get(3).getDaño()));
 		}
 		else {
 			System.out.println("Turno de "+combate.getJ2().getNombre());
 			btn1.setText(seleccionado2.get().getHabilidades().get(0).getNombre());
+			btn1.setTooltip(new Tooltip("Coste: "+seleccionado2.get().getHabilidades().get(0).getCoste()+
+					"\nDaño: "+seleccionado2.get().getHabilidades().get(0).getDaño()));
+			
 			btn2.setText(seleccionado2.get().getHabilidades().get(1).getNombre());
+			btn1.setTooltip(new Tooltip("Coste: "+seleccionado2.get().getHabilidades().get(1).getCoste()+
+					"\nDaño: "+seleccionado2.get().getHabilidades().get(1).getDaño()));
+			
 			btn3.setText(seleccionado2.get().getHabilidades().get(2).getNombre());
+			btn1.setTooltip(new Tooltip("Coste: "+seleccionado2.get().getHabilidades().get(2).getCoste()+
+					"\nDaño: "+seleccionado2.get().getHabilidades().get(2).getDaño()));
+			
 			btn4.setText(seleccionado2.get().getHabilidades().get(3).getNombre());
+			btn1.setTooltip(new Tooltip("Coste: "+seleccionado2.get().getHabilidades().get(3).getCoste()+
+					"\nDaño: "+seleccionado2.get().getHabilidades().get(3).getDaño()));
 		}
 		
 	}
