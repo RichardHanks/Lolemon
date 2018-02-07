@@ -17,6 +17,7 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import lolemon.logicaDeNegocio.Clases.Combate;
 import lolemon.persistencia.modelo.Personaje;
 import model.UsuarioModel;
@@ -71,6 +72,9 @@ public class BatallaController implements Initializable {
 
 	@FXML
 	private Button btnItem3;
+	
+	@FXML
+	private HBox batallaBox;
 
 	// Elementos de la lógica de negocio
 
@@ -289,6 +293,9 @@ public class BatallaController implements Initializable {
 		this.view = view;
 	}
 	
+	public HBox getBatallaBox() {
+		return batallaBox;
+	}
 	
 
 }

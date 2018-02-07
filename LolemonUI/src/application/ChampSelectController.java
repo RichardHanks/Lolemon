@@ -134,17 +134,14 @@ public class ChampSelectController implements Initializable {
 		mapasCombo.getSelectionModel().selectedItemProperty().addListener((o, ov, nv)->{
 			if(nv=="1") {
 				BackgroundImage myBI= new BackgroundImage(new Image("/application/fondolol.jpg"), null, null, null, null);
-				//then you set to your node
 				view.setBackground(new Background(myBI));
 			}
 			else if(nv=="2"){
 				BackgroundImage myBI= new BackgroundImage(new Image("/application/fondo0.jpg"), null, null, null, null);
-				//then you set to your node
 				view.setBackground(new Background(myBI));
 			}
 			else {
 				BackgroundImage myBI= new BackgroundImage(new Image("/application/fondoOscuro.jpg"), null, null, null, null);
-				//then you set to your node
 				view.setBackground(new Background(myBI));
 			}
 		});
@@ -239,6 +236,7 @@ public class ChampSelectController implements Initializable {
         countdown.setOnFinished(e->{
 			try {
 				Bcontroller.set(new BatallaController(champ1.get(), champ2.get()));
+				Bcontroller.get().getBatallaBox().setBackground(view.getBackground());
 				Main.getPrimaryStage().getScene().setRoot(Bcontroller.get().getView());
 				//System.out.println(champ1.get().getNombre());
 			} catch (Exception e1) {
