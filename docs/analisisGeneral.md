@@ -27,6 +27,9 @@ El resto de observaciones aún están en estudio y su implementación no es defi
 -	Tanto el diseño como el análisis están sujetos a cambios pues se podrán añadir nuevas funcionalidades con lo aprendido en clase.
 
 **Diagramas**
+
 Se presentan a continuación los diagramas ligados al proyecto.
+
 Diagrama de entidad relación.
-![Entidad relacion](https://drive.google.com/file/d/1wyqZC8U9x2XQL5xnUagxFmMKWNR5dZ3v/view)
+
+![Entidad relacion](https://lh5.googleusercontent.com/XKw-IDEsT6z1d-wlCKmVe7qEU4VWFnLVhTX3Lj5aROJniz-N5DnnKMNvBSMxlPgw-tx8G8Xdn0L4J-PaSETm=w1600-h773
