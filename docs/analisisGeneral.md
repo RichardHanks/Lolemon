@@ -32,4 +32,4 @@ Se presentan a continuación los diagramas ligados al proyecto.
 
 Diagrama de entidad relación.
 
-![Entidad relacion](https://imgur.com/a/brcQJ)
+![Entidad relacion](https://i.imgur.com/EQnR3M8.png)
