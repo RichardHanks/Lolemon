@@ -16,10 +16,10 @@
             <Image url="@userRegister.png" />
          </image>
       </ImageView>
-      <Label text="Nuevo Usuario" />
-      <Label text="Usuario" />
+      <Label text="Nuevo Usuario" styleClass="labelProject"/>
+      <Label styleClass="labelProject" text="Usuario" />
       <TextField fx:id="usuarioText" />
-      <Label text="Contraseña" />
+      <Label styleClass="labelProject" text="Contraseña" />
       <PasswordField fx:id="passwordText" />
       <Button fx:id="registrarseButton" defaultButton="true" mnemonicParsing="false" text="Registrarse" />
    </children>

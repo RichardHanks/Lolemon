@@ -63,91 +63,90 @@ public class ChampSelectController implements Initializable {
 	@FXML
 	private Button bloquearButton1;
 	@FXML
-    private Label turnoLabel;
+	private Label turnoLabel;
 	@FXML
 	private Button atrasButton;
-    @FXML
-    private ComboBox<String> mapasCombo;
-	
-	
+	@FXML
+	private ComboBox<String> mapasCombo;
+
 	private ObjectProperty<UsuarioModel> usuarioModel = new SimpleObjectProperty<>(this, "usuario", new UsuarioModel());
 	private ObjectProperty<Personaje> champ1 = new SimpleObjectProperty<>(this, "perosnaje 1", new Personaje());
 	private ObjectProperty<Personaje> champ2 = new SimpleObjectProperty<>(this, "perosnaje 2", new Personaje());
-	private ListProperty<Personaje> listaPersonajes = new SimpleListProperty<>(this, "lista de personajes", FXCollections.observableArrayList());
+	private ListProperty<Personaje> listaPersonajes = new SimpleListProperty<>(this, "lista de personajes",
+			FXCollections.observableArrayList());
 	private StringProperty turno = new SimpleStringProperty(this, "turno", "Primera selección");
 	private ObjectProperty<LolemonController> controller = new SimpleObjectProperty<>(this, "");
-	private ObjectProperty<BatallaController> Bcontroller= new SimpleObjectProperty<>(this,"");
-	
+	private ObjectProperty<BatallaController> Bcontroller = new SimpleObjectProperty<>(this, "");
+
 	private Consultas con = new Consultas();
-	private boolean primeraSeleccion=true;
+	private boolean primeraSeleccion = true;
 
 	public ChampSelectController() throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/ChampSelectView.fxml"));
 		loader.setController(this);
 		loader.load();
-		
-		
+
 	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
+
 		campeonesList.itemsProperty().bind(listaPersonajes);
 		turnoLabel.textProperty().bind(turno);
 		mapasCombo.getItems().addAll("1", "2", "3");
-		bloquearButton1.setOnAction(e->bloqueo());
-		bloquearButton2.setOnAction(e-> bloqueo2(e));
-		atrasButton.setOnAction(e->atras(e));
+		bloquearButton1.setOnAction(e -> bloqueo());
+		bloquearButton2.setOnAction(e -> bloqueo2(e));
+		atrasButton.setOnAction(e -> atras(e));
 		campeonesList.setOrientation(Orientation.HORIZONTAL);
 		campeonesList.setCellFactory(customHorizontalListView());
-		
-		campeonesList.getSelectionModel().selectedItemProperty().addListener((o, ov, nv)->{
-			if(primeraSeleccion) champ1.set(nv);
-			else champ2.set(nv);
+
+		campeonesList.getSelectionModel().selectedItemProperty().addListener((o, ov, nv) -> {
+			if (primeraSeleccion)
+				champ1.set(nv);
+			else
+				champ2.set(nv);
 		});
-		usuarioModel.addListener((o, ov, nv)->{
+		usuarioModel.addListener((o, ov, nv) -> {
 			listaPersonajes.setAll(con.getCampeonesDesbloqueados(usuarioModel.get().getNombre()));
 		});
-		
-		champ1.addListener((o, ov, nv)->{
-			if(nv!=null) {
+
+		champ1.addListener((o, ov, nv) -> {
+			if (nv != null) {
 				champ1Label.setText(nv.getNombre());
 				champ1Foto.setImage(new Image(champ1.get().getAspecto()));
-				}
-				else {
-					champ1Label.setText(null);
-					champ1Foto.setImage(null);
-				}
-		});
-	
-		champ2.addListener((o, ov, nv)->{
-			if(nv!=null) {
-			champ2Label.setText(nv.getNombre());
-			champ2Foto.setImage(new Image(champ2.get().getAspecto()));
+			} else {
+				champ1Label.setText(null);
+				champ1Foto.setImage(null);
 			}
-			else {
+		});
+
+		champ2.addListener((o, ov, nv) -> {
+			if (nv != null) {
+				champ2Label.setText(nv.getNombre());
+				champ2Foto.setImage(new Image(champ2.get().getAspecto()));
+			} else {
 				champ2Label.setText(null);
 				champ2Foto.setImage(null);
 			}
 		});
-		
-		mapasCombo.getSelectionModel().selectedItemProperty().addListener((o, ov, nv)->{
-			if(nv=="1") {
-				BackgroundImage myBI= new BackgroundImage(new Image("/application/fondolol.jpg"), null, null, null, null);
+
+		mapasCombo.getSelectionModel().selectedItemProperty().addListener((o, ov, nv) -> {
+			if (nv == "1") {
+				BackgroundImage myBI = new BackgroundImage(new Image("/application/fondolol.jpg"), null, null, null,
+						null);
 				view.setBackground(new Background(myBI));
-			}
-			else if(nv=="2"){
-				BackgroundImage myBI= new BackgroundImage(new Image("/application/fondo0.jpg"), null, null, null, null);
+			} else if (nv == "2") {
+				BackgroundImage myBI = new BackgroundImage(new Image("/application/fondo0.jpg"), null, null, null,
+						null);
 				view.setBackground(new Background(myBI));
-			}
-			else {
-				BackgroundImage myBI= new BackgroundImage(new Image("/application/fondoOscuro.jpg"), null, null, null, null);
+			} else {
+				BackgroundImage myBI = new BackgroundImage(new Image("/application/fondoOscuro.jpg"), null, null, null,
+						null);
 				view.setBackground(new Background(myBI));
 			}
 		});
-		
+
 		parpadear(-1);
-	
 
 	}
 
@@ -166,7 +165,7 @@ public class ChampSelectController implements Initializable {
 		turno.set("Primera seleccion");
 		primeraSeleccion = true;
 		parpadear(-1);
-		
+
 	}
 
 	private void parpadear(int time) {
@@ -179,7 +178,7 @@ public class ChampSelectController implements Initializable {
 
 	private Callback<ListView<Personaje>, ListCell<Personaje>> customHorizontalListView() {
 		return new Callback<ListView<Personaje>, ListCell<Personaje>>() {
-			
+
 			@Override
 			public ListCell<Personaje> call(ListView<Personaje> param) {
 
@@ -193,7 +192,7 @@ public class ChampSelectController implements Initializable {
 							i.setFitHeight(80);
 							i.setFitWidth(80);
 							setGraphic(i);
-						
+
 						} else {
 							setText("");
 							setGraphic(null);
@@ -214,54 +213,59 @@ public class ChampSelectController implements Initializable {
 		turno.set("Segunda selección");
 	}
 
-
-
 	private void bloqueo2(ActionEvent e) {
-		brilloImagen(champ2Foto);	
+		brilloImagen(champ2Foto);
 		campeonesList.setDisable(true);
 		bloquearButton1.setDisable(true);
 		bloquearButton2.setDisable(true);
 		cuentaAtras();
-	
 
 	}
 
 	private void cuentaAtras() {
-        int startValue = 10;
-        turno.set("10");
-        Timeline countdown = new Timeline(new KeyFrame(Duration.seconds(1), 
-            e -> turno.set(String.valueOf((Integer.valueOf(turno.get()) - 1)))));
-        countdown.setCycleCount(startValue);
-        countdown.play();
-        countdown.setOnFinished(e->{
+		int startValue = 10;
+		turno.set("10");
+		Timeline countdown = new Timeline(
+				new KeyFrame(Duration.seconds(1), e -> turno.set(String.valueOf((Integer.valueOf(turno.get()) - 1)))));
+		countdown.setCycleCount(startValue);
+		countdown.play();
+		countdown.setOnFinished(e -> {
+			iniciarBatallaController();
+		});
+	}
+
+	private void iniciarBatallaController() {
+
+		FadeTransition fd = new FadeTransition();
+		fd.setNode(getView());
+		fd.setCycleCount(1);
+		fd.setToValue(0);
+		fd.playFromStart();
+		fd.setOnFinished(e -> {
 			try {
 				Bcontroller.set(new BatallaController(champ1.get(), champ2.get()));
 				Bcontroller.get().getBatallaBox().setBackground(view.getBackground());
 				Main.getPrimaryStage().getScene().setRoot(Bcontroller.get().getView());
-				//System.out.println(champ1.get().getNombre());
 			} catch (Exception e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
+
 		});
-        startValue--;
-    }
-		
-	
+	}
 
 	private void brilloImagen(Node node) {
 		int depth = 70;
-		 
-		DropShadow borderGlow= new DropShadow();
+
+		DropShadow borderGlow = new DropShadow();
 		borderGlow.setOffsetY(0f);
 		borderGlow.setOffsetX(0f);
 		borderGlow.setColor(Color.GOLD);
 		borderGlow.setWidth(depth);
 		borderGlow.setHeight(depth);
-		 
+
 		node.setEffect(borderGlow);
 	}
-	
+
 	public BorderPane getView() {
 		return view;
 	}
@@ -269,12 +273,10 @@ public class ChampSelectController implements Initializable {
 	public final ObjectProperty<UsuarioModel> usuarioModelProperty() {
 		return this.usuarioModel;
 	}
-	
 
 	public final UsuarioModel getUsuarioModel() {
 		return this.usuarioModelProperty().get();
 	}
-	
 
 	public final void setUsuarioModel(final UsuarioModel usuarioModel) {
 		this.usuarioModelProperty().set(usuarioModel);
@@ -283,19 +285,13 @@ public class ChampSelectController implements Initializable {
 	public final ObjectProperty<LolemonController> controllerProperty() {
 		return this.controller;
 	}
-	
 
 	public final LolemonController getController() {
 		return this.controllerProperty().get();
 	}
-	
 
 	public final void setController(final LolemonController controller) {
 		this.controllerProperty().set(controller);
 	}
-	
-	
-	
-	
 
 }

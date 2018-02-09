@@ -28,6 +28,7 @@ import javafx.util.Duration;
 import lolemon.consultas.Consultas;
 import lolemon.persistencia.modelo.Usuario;
 import model.UsuarioModel;
+import music.MusicPlayer;
 
 public class IniciarSesionController implements Initializable {
 
@@ -47,17 +48,18 @@ public class IniciarSesionController implements Initializable {
 	private Button loginButton;
 
 	private Consultas con = new Consultas();
+	private MusicPlayer musicPlayer = new MusicPlayer();
+	
 	private ObjectProperty<LolemonController> controller = new SimpleObjectProperty<>(this, "controller",
 			new LolemonController());
-	private ObjectProperty<VerCampeonesController> verChampsController = new SimpleObjectProperty<>(this,
-			"ver champs controller", new VerCampeonesController());
-	private ObjectProperty<CrearCampeonesController> crearChampsController = new SimpleObjectProperty<>(this,
-			"crear Champs controller", new CrearCampeonesController());
+	private ObjectProperty<VerCampeonesController> verChampsController = new SimpleObjectProperty<>(this, "ver champs controller",
+			new VerCampeonesController());
+	private ObjectProperty<CrearCampeonesController> crearChampsController = new SimpleObjectProperty<>(this, "crear Champs controller", 
+			new CrearCampeonesController());
 	private ObjectProperty<TiendaController> tiendaController = new SimpleObjectProperty<>(this, "tienda controller",
 			new TiendaController());
-	private ObjectProperty<ChampSelectController> champSelectController = new SimpleObjectProperty<>(this,
-			"champ select", new ChampSelectController());
-
+	private ObjectProperty<ChampSelectController> champSelectController = new SimpleObjectProperty<>(this, "champ select", 
+			new ChampSelectController());
 	private ObjectProperty<Usuario> usuario = new SimpleObjectProperty<>(this, "usuario");
 
 	private ObjectProperty<UsuarioModel> usuarioModel = new SimpleObjectProperty<>(this, "usuario", new UsuarioModel());
@@ -94,6 +96,9 @@ public class IniciarSesionController implements Initializable {
 		controller.get().crearChampsControllerProperty().bindBidirectional(crearChampsController);
 		controller.get().tiendaControllerProperty().bindBidirectional(tiendaController);
 		controller.get().champselectcontrollerProperty().bindBidirectional(champSelectController);
+		
+		//inicia la musica
+		musicPlayer.playInicial();
 
 	}
 

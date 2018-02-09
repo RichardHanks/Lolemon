@@ -1,5 +1,5 @@
 .root{
-	-fx-background-image: url("/application/fondoOscuro.jpg");
+	-fx-background-image: url("/application/gradiente.jpg");
 	-fx-background-size: 2000;
 	
 }
@@ -27,7 +27,8 @@
 
 
 .list-view .list-cell {
--fx-background-image: url("/application/fondoOscuro.jpg");
+-fx-background-image: url("/application/gradiente.jpg");
+-fx-background-size: 800;
 -fx-background-position: top;
  -fx-text-alignment: center;
 -fx-text-fill: white;

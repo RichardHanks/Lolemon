@@ -77,8 +77,9 @@ public class RegistrarseController implements Initializable {
 
 		}
 		stage.initModality(Modality.WINDOW_MODAL);
-		stage.setTitle("Editar contacto");
+		stage.setTitle("Nuevo usuario");
 		stage.setScene(new Scene(view));
+		stage.getScene().getStylesheets().add("/application/application.css");
 		stage.setResizable(false);
 		
 		stage.showAndWait();
