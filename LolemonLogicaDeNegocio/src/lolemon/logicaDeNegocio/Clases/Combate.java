@@ -2,6 +2,7 @@ package lolemon.logicaDeNegocio.Clases;
 
 
 import lolemon.persistencia.modelo.Habilidad;
+import lolemon.persistencia.modelo.Inventario;
 import lolemon.persistencia.modelo.Personaje;
 import lolemon.persistencia.modelo.TiposRobosVida;
 
@@ -18,11 +19,14 @@ public class Combate {
 	private int puntosPerdedor;
 	private Boolean ganaJ1;
 	private static Boolean turno;
+	private Inventario inventario;
+	private int pocionesusadas=0;
 	
 	
-	public Combate(Personaje p1,Personaje p2) {
+	public Combate(Personaje p1,Personaje p2,Inventario inventario) {
 		this.p1=p1;
 		this.p2=p2;
+		this.inventario=inventario;
 		
 		}
 	
@@ -76,7 +80,46 @@ public class Combate {
        
         
 		}
+	
+	public void UsarPocion(Personaje p1) {
+
+		int curacion = inventario.getPocionesList().get(0).getIncremento();
+
+		if (p1.getVidaTotal() == p1.getVida()) {
+			System.out.println("La vida está completa, no se puede usar una poción");
+		} else if (p1.getVidaTotal() - p1.getVida() > curacion) {
+			p1.setVida(p1.getVida() + curacion);
+			inventario.getPocionesList().remove(0);
+		} else {
+			p1.setVida(p1.getVida() + curacion - (curacion - (p1.getVidaTotal() - p1.getVida())));
+			inventario.getPocionesList().remove(0);
+
+		}
+	}
+	
+	public void UsarElixir(Personaje p1) {
+		int recarga=inventario.getElixiresList().get(0).getIncremento();
 		
+		if(p1.getEnergiaTotal()==p1.getEnergia()) {
+			System.out.println("La Energía está completa, no se puede usar una poción");
+		}
+		else if(p1.getEnergiaTotal()-p1.getEnergia()>recarga){
+			p1.setEnergia(p1.getEnergia()+recarga);
+			inventario.getElixiresList().remove(0);
+		}
+		else {
+			p1.setEnergia(p1.getEnergia()+recarga-(recarga-(p1.getEnergiaTotal()-p1.getEnergia())));
+			inventario.getElixiresList().remove(0);
+			
+		}
+	}
+	
+	public void UsarVial(Personaje p1) {
+
+		p1.setDefensa(p1.getDefensa() + inventario.getVialesList().get(0).getIncremento());
+		inventario.getVialesList().remove(0);
+
+	}
 
     public void cambiarturno() {
 		// TODO Auto-generated method stub
@@ -218,6 +261,14 @@ public class Combate {
 		this.ganaJ1 = ganaJ1;
 	}
 	
+	public int getPocionesusadas() {
+		return pocionesusadas;
+	}
+
+
+	public void setPocionesusadas(int pocionesusadas) {
+		this.pocionesusadas = pocionesusadas;
+	}
 	
 	
 	

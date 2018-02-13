@@ -2,6 +2,7 @@ package application;
 
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.attribute.UserDefinedFileAttributeView;
 import java.util.ResourceBundle;
 
 import javafx.beans.property.ObjectProperty;
@@ -20,6 +21,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import lolemon.logicaDeNegocio.Clases.Combate;
 import lolemon.persistencia.modelo.Personaje;
+import lolemon.persistencia.modelo.Tipo;
 import model.UsuarioModel;
 
 public class BatallaController implements Initializable {
@@ -99,7 +101,7 @@ public class BatallaController implements Initializable {
 		loader.load();
 
 		// Creamos el combate, y lanzamos el inicio de la pelea.
-		combate = new Combate(personaje1, personaje2);
+		combate = new Combate(personaje1, personaje2,usuarioModel.get().getInventario());
 		Combate.turno(personaje1, personaje2);
 		Pelea(personaje1, personaje2);
 
@@ -150,6 +152,9 @@ public class BatallaController implements Initializable {
 		btn2.setOnAction(e -> llamarAtacar(1));
 		btn3.setOnAction(e -> llamarAtacar(2));
 		btn4.setOnAction(e -> llamarAtacar(3));
+		btnItem1.setOnAction(e-> UsarItem(Tipo.VIDA));
+		btnItem2.setOnAction(e-> UsarItem(Tipo.ENERGIA));
+		btnItem3.setOnAction(e-> UsarItem(Tipo.DEFENSA));
 
 	}
 
@@ -193,6 +198,50 @@ public class BatallaController implements Initializable {
 		// falta decir cual es la ultima habilidad usada
 
 		Pelea(j1, j2);
+	}
+	
+	//Revisar el numero de item utilizables durante el combate, ahora mismo solo pueden usar 3 entre los 2.
+	private void UsarItem(Tipo tipo) {
+		if(combate.getPocionesusadas()<4) {
+		if(tipo==Tipo.VIDA) {
+			if(combate.getTurno()) {
+				combate.UsarPocion(personaje1);
+				seleccionado1.get().vidaProperty().set(combate.getJ1().getVida());
+				
+			}else {
+				combate.UsarPocion(personaje2);
+				seleccionado2.get().vidaProperty().set(combate.getJ2().getVida());
+			}
+			
+		}
+		else if(tipo==Tipo.ENERGIA) {
+			if(combate.getTurno()) {
+				combate.UsarElixir(personaje1);
+				seleccionado1.get().energiaProperty().set(combate.getJ1().getEnergia());
+				
+			}else {
+				combate.UsarVial(personaje2);
+				seleccionado2.get().energiaProperty().set(combate.getJ2().getEnergia());
+			}
+		}
+		else {
+			if(combate.getTurno()) {
+				combate.UsarVial(personaje1);
+				seleccionado1.get().defensaProperty().set(combate.getJ1().getDefensa());
+				
+			}else {
+				combate.UsarVial(personaje2);
+				seleccionado2.get().defensaProperty().set(combate.getJ2().getDefensa());
+			}
+		}}else {
+			System.out.println("Ya has usado el máximo de pociones");
+			
+		}
+		
+		
+		combate.setPocionesusadas(combate.getPocionesusadas()+1);
+		combate.cambiarturno();
+		Pelea(personaje1,personaje2);
 	}
 
 	public void Pelea(Personaje p1, Personaje p2) {
@@ -253,6 +302,16 @@ public class BatallaController implements Initializable {
 			btn1.setTooltip(new Tooltip("Coste: "+seleccionado2.get().getHabilidades().get(3).getCoste()+
 					"\nDaño: "+seleccionado2.get().getHabilidades().get(3).getDaño()));
 		}
+		
+		//Da nullpointerException ya que no hemos inicializado las list
+		btnItem1.setText("Pociones "+"x"+usuarioModel.get().getInventario().getPocionesList().size());
+		btnItem1.setTooltip(new Tooltip("+"+usuarioModel.get().getInventario().getPocionesList().get(0).getIncremento()+" de vida"));
+		
+		btnItem2.setText("Elixires "+"x"+usuarioModel.get().getInventario().getElixiresList().size());
+		btnItem1.setTooltip(new Tooltip("+"+usuarioModel.get().getInventario().getElixiresList().get(0).getIncremento()+" de Energía"));
+		
+		btnItem3.setText("Viales "+"x"+usuarioModel.get().getInventario().getVialesList().size());
+		btnItem1.setTooltip(new Tooltip("+"+usuarioModel.get().getInventario().getVialesList().get(0).getIncremento()+" de Defensa"));
 		
 	}
 
