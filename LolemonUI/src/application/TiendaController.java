@@ -21,6 +21,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.util.Callback;
 import lolemon.consultas.Consultas;
+import lolemon.logicaDeNegocio.Clases.Compra;
+import lolemon.persistencia.modelo.Item;
 import lolemon.persistencia.modelo.Personaje;
 import model.UsuarioModel;
 
@@ -52,6 +54,8 @@ public class TiendaController implements Initializable {
 
 	@FXML
 	private Button comprarButton;
+	
+	private Compra compra;
 	
 	private ObjectProperty<UsuarioModel> usuarioModel = new SimpleObjectProperty<>(this, "usuario", new UsuarioModel());
 	private ListProperty<Personaje> list = new SimpleListProperty<>(this, "list",
@@ -122,7 +126,22 @@ public class TiendaController implements Initializable {
 		});
 		
 		atrasButton.setOnAction(e->atras());
+		comprarButton.setOnAction(e->ComprarCampeon());
+		comprarButton.disableProperty().bind(seleccionado.isNull());
+		
+		//estoy hay que mirarlo, lo bueno es pasar el item desde una consulta
+		//potas1Button.setOnAction(e->ComprarItem(new Item()));
 
+	}
+	
+	private void ComprarCampeon() {
+		//Faltaría poner avisos y esas cosas.
+		compra.comprarPersonaje(seleccionado.get());
+		}
+	
+	private void ComprarItem(Item objeto) {
+		//más avisos por aqui
+		compra.comprarItem(objeto);
 	}
 	
 	private void atras() {
