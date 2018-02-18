@@ -109,7 +109,7 @@ public class VerCampeonesController implements Initializable {
 							i.setFitWidth(50);
 							setText(item.getNombre());
 							setGraphic(i);
-						
+
 						} else {
 							setText("");
 							setGraphic(null);
@@ -136,25 +136,27 @@ public class VerCampeonesController implements Initializable {
 	}
 
 	private void onFiltroChange(String nv) {
-		switch (nv) {
-		case "Todos":
-			campeonesList.getItems().clear();
-			list.setAll(consultas.getCampeones());
-			break;
-		case "En posesion":
-			campeonesList.getItems().clear();
-			list.setAll(consultas.getCampeonesDesbloqueados(usuarioModel.get().getNombre()));
-			break;
-		case "No en posesión":
-			campeonesList.getItems().clear();
-			list.setAll(consultas.getCampeonesBloqueados(usuarioModel.get().getNombre()));
-			/*
-			 * TODO pendiente de hacer una consulta que devuelva las creaciones propias
-			 * seguramente habra que modificar la base de datos
-			 */
-			break;
-		default:
-			break;
+		if (nv != null) {
+			switch (nv) {
+			case "Todos":
+				campeonesList.getItems().clear();
+				list.setAll(consultas.getCampeones());
+				break;
+			case "En posesion":
+				campeonesList.getItems().clear();
+				list.setAll(consultas.getCampeonesDesbloqueados(usuarioModel.get().getNombre()));
+				break;
+			case "No en posesión":
+				campeonesList.getItems().clear();
+				list.setAll(consultas.getCampeonesBloqueados(usuarioModel.get().getNombre()));
+				/*
+				 * TODO pendiente de hacer una consulta que devuelva las creaciones propias
+				 * seguramente habra que modificar la base de datos
+				 */
+				break;
+			default:
+				break;
+			}
 		}
 	}
 

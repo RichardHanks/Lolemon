@@ -1,5 +1,7 @@
 package lolemon.logicaDeNegocio.Clases;
 
+import java.util.ArrayList;
+
 import lolemon.consultas.Consultas;
 import lolemon.persistencia.modelo.Item;
 import lolemon.persistencia.modelo.Personaje;
@@ -27,7 +29,7 @@ public class Compra {
 	    			usuario.setPuntos(usuario.getPuntos()-objeto.getCoste());
 	    			
 	    			Consultas consulta= new Consultas();
-	    			consulta.editarUsuario(usuario);
+	    			//consulta.editarUsuario(usuario);
 	    			}
 	    		else {
 	    			System.out.println("No tienes espacio para comprar pociones");
@@ -39,7 +41,7 @@ public class Compra {
 	    			usuario.setPuntos(usuario.getPuntos()-objeto.getCoste());
 	    			
 	    			Consultas consulta= new Consultas();
-	    			consulta.editarUsuario(usuario);
+	    			//consulta.editarUsuario(usuario);
 	    		}
 	    		else {
 	    			System.out.println("No tienes espacio para comprar Elixires");
@@ -52,7 +54,7 @@ public class Compra {
 	    			usuario.setPuntos(usuario.getPuntos()-objeto.getCoste());
 	    			
 	    			Consultas consulta= new Consultas();
-	    			consulta.editarUsuario(usuario);
+	    			//consulta.editarUsuario(usuario);
 	    		}
 	    		else {
 	    			System.out.println("No tienes espacio para comprar Viales");
@@ -65,19 +67,12 @@ public class Compra {
 	    }
 	}
 	
+	
 	public void comprarPersonaje(Personaje personaje) {
 		if(usuario.getPuntos()>personaje.getCoste()) {
-			usuario.setPuntos(usuario.getPuntos()-personaje.getCoste());
-			
 			Consultas consulta= new Consultas();
-			usuario.getPersonajes().get(personaje.getId()-1).setEstaBloqueado(false);
+			consulta.comprarPersonaje(usuario, personaje);
 			
-			consulta.editarUsuario(usuario);
-			
-//			Usuario u=consulta.getUsuario(usuario.getNombre());
-//			u.getPersonajes().get(0).EstaBloqueado();
-			
-			//Hay que probar si la función que edita el usuario funciona correctamente y como nosotros queremos.
 			}
 			else {
 				System.out.println("No tienes dinero para comprar este personaje");

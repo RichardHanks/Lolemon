@@ -88,9 +88,10 @@ public class BatallaController implements Initializable {
 	private ObjectProperty<LolemonController> controller = new SimpleObjectProperty<>(this, "");
 	private ObjectProperty<PersonajeModel> seleccionado1 = new SimpleObjectProperty<>(this, "seleccionado1");
 	private ObjectProperty<PersonajeModel> seleccionado2 = new SimpleObjectProperty<>(this, "seleccionado2");
-	private ObjectProperty<UsuarioModel> usuarioModel = new SimpleObjectProperty<>(this, "usuario", new UsuarioModel());
+	private ObjectProperty<UsuarioModel> usuarioModel = new SimpleObjectProperty<>(this, "usuario");
 
-	public BatallaController(Personaje p1, Personaje p2) throws IOException {
+	public BatallaController(Personaje p1, Personaje p2, UsuarioModel u) throws IOException {
+		usuarioModel.set(u);
 		
 		this.personaje1 = p1;
 		this.personaje2 = p2;
@@ -101,7 +102,7 @@ public class BatallaController implements Initializable {
 		loader.load();
 
 		// Creamos el combate, y lanzamos el inicio de la pelea.
-		combate = new Combate(personaje1, personaje2,usuarioModel.get().getInventario());
+		combate = new Combate(personaje1, personaje2, usuarioModel.get().getInventario());
 		Combate.turno(personaje1, personaje2);
 		Pelea(personaje1, personaje2);
 
@@ -112,6 +113,8 @@ public class BatallaController implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		pb1.setStyle("-fx-accent: green;");
+		pb3.setStyle("-fx-accent: green;");
 
 		// Asignarle al ObjectProperty<PersonajeModel> el personajeModel
 		// correspondiente, que tendrá sus valores del personaje plano correspondiente.
@@ -155,6 +158,7 @@ public class BatallaController implements Initializable {
 		btnItem1.setOnAction(e-> UsarItem(Tipo.VIDA));
 		btnItem2.setOnAction(e-> UsarItem(Tipo.ENERGIA));
 		btnItem3.setOnAction(e-> UsarItem(Tipo.DEFENSA));
+		
 
 	}
 
@@ -305,13 +309,14 @@ public class BatallaController implements Initializable {
 		
 		//Da nullpointerException ya que no hemos inicializado las list
 		btnItem1.setText("Pociones "+"x"+usuarioModel.get().getInventario().getPocionesList().size());
-		btnItem1.setTooltip(new Tooltip("+"+usuarioModel.get().getInventario().getPocionesList().get(0).getIncremento()+" de vida"));
+		btnItem1.setTooltip(new Tooltip("+20 de vida"));
 		
 		btnItem2.setText("Elixires "+"x"+usuarioModel.get().getInventario().getElixiresList().size());
-		btnItem1.setTooltip(new Tooltip("+"+usuarioModel.get().getInventario().getElixiresList().get(0).getIncremento()+" de Energía"));
+		btnItem2.setTooltip(new Tooltip("+20 de energia"));
 		
 		btnItem3.setText("Viales "+"x"+usuarioModel.get().getInventario().getVialesList().size());
-		btnItem1.setTooltip(new Tooltip("+"+usuarioModel.get().getInventario().getVialesList().get(0).getIncremento()+" de Defensa"));
+		btnItem3.setTooltip(new Tooltip("+20 de defensa"));
+	
 		
 	}
 

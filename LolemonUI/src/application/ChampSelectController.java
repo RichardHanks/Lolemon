@@ -156,7 +156,7 @@ public class ChampSelectController implements Initializable {
 	}
 
 	private void init() {
-		listaPersonajes.setAll(con.getCampeones());
+		listaPersonajes.setAll(con.getCampeonesDesbloqueados(usuarioModel.get().getNombre()));
 		champ1.set(null);
 		champ2.set(null);
 		campeonesList.setDisable(false);
@@ -243,7 +243,7 @@ public class ChampSelectController implements Initializable {
 		fd.playFromStart();
 		fd.setOnFinished(e -> {
 			try {
-				Bcontroller.set(new BatallaController(champ1.get(), champ2.get()));
+				Bcontroller.set(new BatallaController(champ1.get(), champ2.get(),usuarioModel.get()));
 				Bcontroller.get().getBatallaBox().setBackground(view.getBackground());
 				Main.getPrimaryStage().getScene().setRoot(Bcontroller.get().getView());
 			} catch (Exception e1) {

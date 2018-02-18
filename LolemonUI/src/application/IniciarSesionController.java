@@ -60,7 +60,8 @@ public class IniciarSesionController implements Initializable {
 			new TiendaController());
 	private ObjectProperty<ChampSelectController> champSelectController = new SimpleObjectProperty<>(this, "champ select", 
 			new ChampSelectController());
-	private ObjectProperty<Usuario> usuario = new SimpleObjectProperty<>(this, "usuario");
+	
+	public static ObjectProperty<Usuario> usuario = new SimpleObjectProperty<>();
 
 	private ObjectProperty<UsuarioModel> usuarioModel = new SimpleObjectProperty<>(this, "usuario", new UsuarioModel());
 
@@ -73,6 +74,15 @@ public class IniciarSesionController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+				
+		usuario.addListener((o, ov, nv)->{
+			if(nv!=null) {
+				UsuarioModel u = convertirEnUsuarioModel();
+				usuarioModel.set(u);
+			}
+			
+		});
+		
 		loginButton.setOnAction(e -> login(e));
 		loginButton.disableProperty()
 				.bind(usuarioText.textProperty().isEmpty().or(passwordText.textProperty().isEmpty()));
@@ -106,17 +116,17 @@ public class IniciarSesionController implements Initializable {
 
 
 		usuario.set(con.getUsuario(usuarioText.getText()));
-		if (usuario.get() != null) {
+		/*if (usuario.get() != null) {
 			UsuarioModel u = convertirEnUsuarioModel();
-			usuarioModel.set(u);
+			usuarioModel.set(u);*/
 			if (usuario.get().getContraseña().equals(passwordText.getText())) {
 				Main.getPrimaryStage().getScene().setRoot(controller.get().getView());
 				animarMenu();
 			} else
 				error();
 
-		} else
-			error();
+		/*} else
+			error();*/
 
 	}
 	
@@ -146,6 +156,7 @@ public class IniciarSesionController implements Initializable {
 		u.setContraseña(usuario.get().getContraseña());
 		u.setHistorial(usuario.get().getHistorial());
 		u.setInventario(usuario.get().getInventario());
+		System.out.println(usuario.get().getInventario().getPocionesList().size());
 		u.setNombre(usuario.get().getNombre());
 		u.setPersonajes(FXCollections.observableArrayList(usuario.get().getPersonajes()));
 		u.setPuntos(usuario.get().getPuntos());

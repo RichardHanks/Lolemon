@@ -7,7 +7,10 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import lolemon.consultas.Consultas;
 import lolemon.persistencia.modelo.Habilidad;
+import lolemon.persistencia.modelo.Inventario;
+import lolemon.persistencia.modelo.Item;
 import lolemon.persistencia.modelo.Personaje;
+import lolemon.persistencia.modelo.Tipo;
 import lolemon.persistencia.modelo.TiposRobosVida;
 import lolemon.persistencia.modelo.Usuario;
 
@@ -39,16 +42,29 @@ public class Conexion {
 	
 	private static void crear() {
 		 em.getTransaction().begin();
+		 //Pociones
+		 Item poVida = new Item(20, Tipo.VIDA);
+		 poVida.setNombre("PocionVida");
+		 Item poEnergia = new Item(20, Tipo.ENERGIA);
+		 poEnergia.setNombre("PocionEnergia");
+		 Item poDefensa = new Item(20, Tipo.DEFENSA);
+		 poDefensa.setNombre("PocionDefensa");
+		 
+		 Inventario  i= new Inventario();
+		 
 		 //Usuarios
 		 Usuario u = new Usuario();
 		 u.setNombre("richard");
 		 u.setContraseña("2018");
 		 u.setPuntos(6300);
+		 u.setInventario(i);
 	
+
 		 
 		 //Personajes
 		 Personaje ahri = new Personaje();
 		 ahri.setNombre("Ahri");
+		 ahri.setCoste(2000);
 		 ahri.setVida(450);
 		 ahri.setEnergia(120);
 		 ahri.setDefensa(25);
@@ -127,6 +143,7 @@ public class Conexion {
 		 	brand.setMensajes(new ArrayList<String>());
 		 	brand.setAspecto("/54/brand/splash/brand.jpg");
 		 	brand.setSprite("/54/brand/sprite/brand.png");
+		 	brand.setCoste(1);
 		 	brand.setEstaBloqueado(true);
 			 
 			 	//habilidades ligadas al personaje
@@ -253,11 +270,22 @@ public class Conexion {
 		 	
 		 	darius.setHabilidades(hdarius);
 		
-		u.getPersonajes().add(ahri);
+		//u.getPersonajes().add(ahri);
 		u.getPersonajes().add(brand);
 		u.getPersonajes().add(darius);
 		
+		u.getInventario().getPocionesList().add(poVida);
+		u.getInventario().getElixiresList().add(poEnergia);
+		u.getInventario().getVialesList().add(poDefensa);
+	
+			
+			em.persist(poDefensa);
+			em.persist(poEnergia);
+			em.persist(poVida);
+			em.persist(i);
 			em.persist(u);
+			
+			
 			
 		 	em.persist(ahri1);
 		 	em.persist(ahri2);
@@ -276,6 +304,9 @@ public class Conexion {
 		 	em.persist(darius3);
 		 	em.persist(darius4);
 		 	em.persist(darius);
+		 	
+		
+			
 
 		 
 		 em.getTransaction().commit();

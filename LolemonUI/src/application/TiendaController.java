@@ -73,12 +73,13 @@ public class TiendaController implements Initializable {
 			
 		});
 		
-		
 	}
 
 	private void init(UsuarioModel nv) {
 		list.clear();
 		list.get().addAll(con.getCampeonesBloqueados(nv.getNombre()));
+		compra= new Compra(UsuarioModel.convertirEnUsuario(nv));
+		
 	}
 
 	@Override
@@ -137,6 +138,7 @@ public class TiendaController implements Initializable {
 	private void ComprarCampeon() {
 		//Faltaría poner avisos y esas cosas.
 		compra.comprarPersonaje(seleccionado.get());
+		IniciarSesionController.usuario.set(con.getUsuario(usuarioModel.get().getNombre()));
 		}
 	
 	private void ComprarItem(Item objeto) {

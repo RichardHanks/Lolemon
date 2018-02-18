@@ -30,10 +30,10 @@ public class Consultas {
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Personaje> getCampeones() {
-		em.getTransaction().begin();
+		//em.getTransaction().begin();
 		Query query = em.createQuery("SELECT p FROM Personaje p", Personaje.class);
 		List<Personaje> lista = query.getResultList();
-		em.getTransaction().commit();
+		//em.getTransaction().commit();
 		return lista;
 	}
 
@@ -52,15 +52,9 @@ public class Consultas {
 				Usuario.class);
 		query.setParameter("nombre", nombreUsuario);
 		List<Personaje> lista = query.getResultList();
-		List<Personaje> disponibles = new ArrayList<>();
-		for (Personaje personaje : lista) {
-			if (!personaje.EstaBloqueado()) {
-				disponibles.add(personaje);
-			}
-		}
 		em.getTransaction().commit();
 
-		return disponibles;
+		return lista;
 	}
 
 	/**
@@ -72,21 +66,18 @@ public class Consultas {
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Personaje> getCampeonesBloqueados(String nombreUsuario) {
-
 		em.getTransaction().begin();
-		Query query = em.createQuery("SELECT s FROM Usuario p JOIN p.personajes s where p.nombre=:nombre",
-				Usuario.class);
-		query.setParameter("nombre", nombreUsuario);
-		List<Personaje> lista = query.getResultList();
-		List<Personaje> disponibles = new ArrayList<>();
-		for (Personaje personaje : lista) {
-			if (personaje.EstaBloqueado()) {
-				disponibles.add(personaje);
-			}
-		}
+		//Todos los personajes
+		Query query = em.createQuery("SELECT s FROM Personaje s", Personaje.class);
+		List<Personaje> todos=query.getResultList();
 		em.getTransaction().commit();
-
-		return disponibles;
+		//Personajes que tiene el usuario
+		List<Personaje> enPosesion=getCampeonesDesbloqueados(nombreUsuario);
+		//Personajes que le faltan
+		todos.removeAll(enPosesion);
+		
+		return todos;
+		
 	}
 
 	/**
@@ -98,20 +89,28 @@ public class Consultas {
 	 *            La contraseña del usuario
 	 * @return
 	 */
+	
 	public boolean insertarUsuario(String nombre, String contraseña) {
 		Usuario u=null;
-		boolean registrado;
+		boolean registrado=false;
+		ArrayList<Personaje> principales= new ArrayList<>();;
 		try {
 			em.getTransaction().begin();
 			u= new Usuario();
 			u.setNombre(nombre);
 			u.setContraseña(contraseña);
 			u.setPuntos(6300);
-			u.setPersonajes((ArrayList<Personaje>) getCampeones());
+			
+			for (int i = 1; i <= 2; i++) {
+				principales.add(em.find(Personaje.class, i));
+			}
+			
+			u.setPersonajes(principales);
 			em.persist(u);
 			em.getTransaction().commit();
 			registrado=true;
 		} catch (Exception e) {
+			e.printStackTrace();
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("Registrarse");
 			alert.setHeaderText("Error");
@@ -178,9 +177,10 @@ public class Consultas {
 			query.setMaxResults(1);
 			u = (Usuario) query.getSingleResult();
 			em.getTransaction().commit();
+
 			
 		} catch (Exception e) {
-
+			return null;
 		} finally {
 			if(u==null) em.getTransaction().commit();
 		}
@@ -255,14 +255,13 @@ public class Consultas {
 		em.getTransaction().commit();
 	}
 
-	public void editarUsuario(Usuario u) {
+	public void comprarPersonaje(Usuario u, Personaje p) {
 		em.getTransaction().begin();
-
+		Personaje pe = em.find(Personaje.class, p.getId());
 		Usuario us = em.find(Usuario.class, u.getNombre());
-		u.setPersonajes((ArrayList<Personaje>) u.getPersonajes());
-		u.setInventario(u.getInventario());
-
-		em.merge(u);
+		us.setPuntos(us.getPuntos()-pe.getCoste());
+		us.getPersonajes().add(pe);
+		em.merge(us);
 		em.getTransaction().commit();
 	}
 
