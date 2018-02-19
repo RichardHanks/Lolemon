@@ -224,7 +224,7 @@ public class BatallaController implements Initializable {
 				seleccionado1.get().energiaProperty().set(combate.getJ1().getEnergia());
 				
 			}else {
-				combate.UsarVial(personaje2);
+				combate.UsarElixir(personaje2);
 				seleccionado2.get().energiaProperty().set(combate.getJ2().getEnergia());
 			}
 		}
@@ -307,14 +307,16 @@ public class BatallaController implements Initializable {
 					"\nDaño: "+seleccionado2.get().getHabilidades().get(3).getDaño()));
 		}
 		
-		//Da nullpointerException ya que no hemos inicializado las list
 		btnItem1.setText("Pociones "+"x"+usuarioModel.get().getInventario().getPocionesList().size());
+		if(usuarioModel.get().getInventario().getPocionesList().size()==0) btnItem1.setDisable(true);
 		btnItem1.setTooltip(new Tooltip("+20 de vida"));
 		
 		btnItem2.setText("Elixires "+"x"+usuarioModel.get().getInventario().getElixiresList().size());
+		if(usuarioModel.get().getInventario().getElixiresList().size()==0) btnItem2.setDisable(true);
 		btnItem2.setTooltip(new Tooltip("+20 de energia"));
 		
 		btnItem3.setText("Viales "+"x"+usuarioModel.get().getInventario().getVialesList().size());
+		if(usuarioModel.get().getInventario().getVialesList().size()==0) btnItem3.setDisable(true);
 		btnItem3.setTooltip(new Tooltip("+20 de defensa"));
 	
 		

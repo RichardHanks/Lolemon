@@ -68,15 +68,15 @@ public class Compra {
 	}
 	
 	
-	public void comprarPersonaje(Personaje personaje) {
+	public boolean comprarPersonaje(Personaje personaje) {
+		boolean comprado;
 		if(usuario.getPuntos()>personaje.getCoste()) {
 			Consultas consulta= new Consultas();
 			consulta.comprarPersonaje(usuario, personaje);
-			
+			comprado=true;
 			}
-			else {
-				System.out.println("No tienes dinero para comprar este personaje");
-			}
+			else comprado=false;
+		return comprado;
 	}
 	
 	

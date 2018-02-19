@@ -45,6 +45,9 @@ public class LolemonController implements Initializable {
 
 	@FXML
 	private Button tiendaButton;
+	
+	@FXML
+	private Button settingsButton;
 
 	@FXML
 	private Label usuarioLabel;
@@ -55,6 +58,7 @@ public class LolemonController implements Initializable {
 	private ObjectProperty<TiendaController> tiendaController = new SimpleObjectProperty<>(this,
 			"tienda controller");
 	private ObjectProperty<ChampSelectController> champselectcontroller = new SimpleObjectProperty<>(this, "");
+	private ObjectProperty<SettingsController> settingsController = new SimpleObjectProperty<>(this, "settings controller");
 
 	private ObjectProperty<UsuarioModel> usuarioModel = new SimpleObjectProperty<>(this, "usuario", new UsuarioModel());
 
@@ -71,6 +75,7 @@ public class LolemonController implements Initializable {
 		verCampeonesButton.setOnAction(e -> verCampeones(e));
 		crearCampeonButton.setOnAction(e -> crearCampeones(e));
 		tiendaButton.setOnAction(e -> verTienda(e));
+		settingsButton.setOnAction(e->settings(e));
 
 		usuarioModel.addListener((o, ov, nv) -> {
 			usuarioLabel.textProperty().bind(Bindings.concat("Usuario: ").concat(usuarioModel.get().nombreProperty()
@@ -79,6 +84,12 @@ public class LolemonController implements Initializable {
 		
 	
 
+	}
+
+	private void settings(ActionEvent e) {
+			settingsController.get().show(Main.getPrimaryStage());
+		
+		
 	}
 
 	private void jugar(ActionEvent e) {
@@ -182,6 +193,21 @@ public class LolemonController implements Initializable {
 	public final void setChampselectcontroller(final ChampSelectController champselectcontroller) {
 		this.champselectcontrollerProperty().set(champselectcontroller);
 	}
+
+	public final ObjectProperty<SettingsController> settingsControllerProperty() {
+		return this.settingsController;
+	}
+	
+
+	public final SettingsController getSettingsController() {
+		return this.settingsControllerProperty().get();
+	}
+	
+
+	public final void setSettingsController(final SettingsController settingsController) {
+		this.settingsControllerProperty().set(settingsController);
+	}
+	
 	
 	
 

@@ -1,17 +1,30 @@
 .root{
-	-fx-background-image: url("/application/gradiente.jpg");
-	-fx-background-size: 2000;
+	-fx-background-image: url("/application/postGame.jpg");
+	-fx-background-size: stretch;
+	-fx-background-repeat: no-repeat;
 	
 }
 
 .button{
-	-fx-background-color: #67daff;
-	-fx-text-fill: black;
+	 -fx-background-color: 
+        linear-gradient(#ffd65b, #e68400),
+        linear-gradient(#ffef84, #f2ba44),
+        linear-gradient(#ffea6a, #efaa22),
+        linear-gradient(#ffe657 0%, #f8c202 50%, #eea10b 100%),
+        linear-gradient(from 0% 0% to 15% 50%, rgba(255,255,255,0.9), rgba(255,255,255,0));
+    -fx-background-radius: 30;
+    -fx-background-insets: 0,1,2,3,0;
+    -fx-text-fill: #654b00;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20 10 20;
 }
 
 .button:hover{
-	-fx-background-color: #007ac1;
-	-fx-text-fill: white;
+	-fx-background-color: 
+        linear-gradient(#ffd65b, #ff4d4d);
+  
+	
 }
 
 .labelProject{
@@ -53,6 +66,8 @@
 -fx-text-fill: white;
 }
 
-
+.myDialog{
+    -fx-background-color: black;
+}
 
 

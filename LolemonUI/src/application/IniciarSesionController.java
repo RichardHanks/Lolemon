@@ -60,6 +60,8 @@ public class IniciarSesionController implements Initializable {
 			new TiendaController());
 	private ObjectProperty<ChampSelectController> champSelectController = new SimpleObjectProperty<>(this, "champ select", 
 			new ChampSelectController());
+	private ObjectProperty<SettingsController> settingsController = new SimpleObjectProperty<>(this, "settings controller",
+			new SettingsController());
 	
 	public static ObjectProperty<Usuario> usuario = new SimpleObjectProperty<>();
 
@@ -95,6 +97,7 @@ public class IniciarSesionController implements Initializable {
 		crearChampsController.get().usuarioModelProperty().bindBidirectional(usuarioModel);
 		tiendaController.get().usuarioModelProperty().bindBidirectional(usuarioModel);
 		champSelectController.get().usuarioModelProperty().bindBidirectional(usuarioModel);
+		settingsController.get().usuarioModelProperty().bindBidirectional(usuarioModel);
 
 		// Bindeos de controladores para cambiar la escena entre ellos
 		verChampsController.get().controllerProperty().bindBidirectional(controller);
@@ -106,6 +109,7 @@ public class IniciarSesionController implements Initializable {
 		controller.get().crearChampsControllerProperty().bindBidirectional(crearChampsController);
 		controller.get().tiendaControllerProperty().bindBidirectional(tiendaController);
 		controller.get().champselectcontrollerProperty().bindBidirectional(champSelectController);
+		controller.get().settingsControllerProperty().bindBidirectional(settingsController);
 		
 		//inicia la musica
 		musicPlayer.playInicial();
@@ -116,17 +120,12 @@ public class IniciarSesionController implements Initializable {
 
 
 		usuario.set(con.getUsuario(usuarioText.getText()));
-		/*if (usuario.get() != null) {
-			UsuarioModel u = convertirEnUsuarioModel();
-			usuarioModel.set(u);*/
 			if (usuario.get().getContraseña().equals(passwordText.getText())) {
 				Main.getPrimaryStage().getScene().setRoot(controller.get().getView());
 				animarMenu();
 			} else
 				error();
 
-		/*} else
-			error();*/
 
 	}
 	
@@ -156,7 +155,6 @@ public class IniciarSesionController implements Initializable {
 		u.setContraseña(usuario.get().getContraseña());
 		u.setHistorial(usuario.get().getHistorial());
 		u.setInventario(usuario.get().getInventario());
-		System.out.println(usuario.get().getInventario().getPocionesList().size());
 		u.setNombre(usuario.get().getNombre());
 		u.setPersonajes(FXCollections.observableArrayList(usuario.get().getPersonajes()));
 		u.setPuntos(usuario.get().getPuntos());
