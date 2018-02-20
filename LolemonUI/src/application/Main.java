@@ -14,6 +14,7 @@ import javafx.scene.image.Image;
 public class Main extends Application {
 	private IniciarSesionController controller;
 	private static Stage primaryStage;
+	private static Creacion crearDb;
 	
 	@Override
 	public void start(Stage primaryStage) throws IOException {
@@ -28,15 +29,12 @@ public class Main extends Application {
 		} catch(Exception e1) {
 			e1.printStackTrace();
 		}
-		
-		
-		
-		
-		
-	
+
 	}
 	
 	public static void main(String[] args) {
+		crearDb=new Creacion();
+		crearDb.crear();
 		launch(args);
 	}
 	

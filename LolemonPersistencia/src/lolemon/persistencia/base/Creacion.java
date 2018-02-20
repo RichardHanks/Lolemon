@@ -26,7 +26,8 @@ public class Creacion {
 	public Creacion() {
 		emf = Persistence.createEntityManagerFactory("$objectdb/db/lolemon.odb");
 		em = emf.createEntityManager();
-		System.out.println(existeDB());
+		if(existeDB()) System.out.println("La DB ya existe");
+		else System.out.println("La DB no existe, se crea ahora.");
 
 	}
 
@@ -309,13 +310,18 @@ public class Creacion {
 	private boolean existeDB() {
 		boolean existe=false;
 		try {
-			// em.getTransaction().begin();
-			Query query = em.createQuery("SELECT p FROM Personaje p", Personaje.class);
-			List<Personaje> lista = query.getResultList();
-			// em.getTransaction().commit();
+			em.getTransaction().begin();
+			Query query = em.createQuery("SELECT p FROM Usuario p where p.nombre=:nombre", Usuario.class);
+			query.setParameter("nombre", "richard");
+			Usuario lista = (Usuario) query.getSingleResult();
+			em.getTransaction().commit();
 			existe=true;
 		} catch (Exception e) {
+			//e.printStackTrace();
 			existe=false;
+		}
+		finally {
+			if(em.getTransaction().isActive()) em.getTransaction().commit();
 		}
 		return existe;
 			
