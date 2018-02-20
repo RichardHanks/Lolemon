@@ -22,6 +22,7 @@ import javafx.scene.layout.HBox;
 import lolemon.logicaDeNegocio.Clases.Combate;
 import lolemon.persistencia.modelo.Personaje;
 import lolemon.persistencia.modelo.Tipo;
+import model.PersonajeModel;
 import model.UsuarioModel;
 
 public class BatallaController implements Initializable {
