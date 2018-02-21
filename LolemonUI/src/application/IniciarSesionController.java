@@ -62,6 +62,8 @@ public class IniciarSesionController implements Initializable {
 			new ChampSelectController());
 	private ObjectProperty<SettingsController> settingsController = new SimpleObjectProperty<>(this, "settings controller",
 			new SettingsController());
+	private ObjectProperty<PostGameController> PostGameController= new SimpleObjectProperty<>(this,"PostGame Controller",
+			new PostGameController());
 	
 	public static ObjectProperty<Usuario> usuario = new SimpleObjectProperty<>();
 
@@ -104,15 +106,21 @@ public class IniciarSesionController implements Initializable {
 		crearChampsController.get().mainControllerProperty().bindBidirectional(controller);
 		tiendaController.get().controllerProperty().bindBidirectional(controller);
 		champSelectController.get().controllerProperty().bindBidirectional(controller);
+		PostGameController.get().controllerProperty().bindBidirectional(controller);
+
 
 		controller.get().verCampeonesControllerProperty().bindBidirectional(verChampsController);
 		controller.get().crearChampsControllerProperty().bindBidirectional(crearChampsController);
 		controller.get().tiendaControllerProperty().bindBidirectional(tiendaController);
 		controller.get().champselectcontrollerProperty().bindBidirectional(champSelectController);
 		controller.get().settingsControllerProperty().bindBidirectional(settingsController);
+		controller.get().PostGameControllerProperty().bindBidirectional(PostGameController);
 		
 		//inicia la musica
 		musicPlayer.playInicial();
+		
+		//pasar el postgamecontroller (chambergada)
+	    champSelectController.get().setPgcontroller(PostGameController.get());
 
 	}
 

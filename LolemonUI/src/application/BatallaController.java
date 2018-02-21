@@ -5,6 +5,7 @@ import java.net.URL;
 import java.nio.file.attribute.UserDefinedFileAttributeView;
 import java.util.ResourceBundle;
 
+import javafx.beans.binding.Bindings;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
@@ -78,6 +79,15 @@ public class BatallaController implements Initializable {
 	
 	@FXML
 	private HBox batallaBox;
+	
+	@FXML
+	private Label pj1manaLabel;
+	@FXML
+	private Label pj1vidaLabel;
+	
+	
+	@FXML
+    private Label alertasLabel;
 
 	// Elementos de la lógica de negocio
 
@@ -90,7 +100,8 @@ public class BatallaController implements Initializable {
 	private ObjectProperty<PersonajeModel> seleccionado1 = new SimpleObjectProperty<>(this, "seleccionado1");
 	private ObjectProperty<PersonajeModel> seleccionado2 = new SimpleObjectProperty<>(this, "seleccionado2");
 	private ObjectProperty<UsuarioModel> usuarioModel = new SimpleObjectProperty<>(this, "usuario");
-
+	private ObjectProperty<PostGameController> pgcontroller = new SimpleObjectProperty<>(this, "");
+	
 	public BatallaController(Personaje p1, Personaje p2, UsuarioModel u) throws IOException {
 		usuarioModel.set(u);
 		
@@ -128,6 +139,9 @@ public class BatallaController implements Initializable {
 		// Binds
 		labelj1.textProperty().bind(seleccionado1.get().nombreProperty());
 		labelj2.textProperty().bind(seleccionado2.get().nombreProperty());
+		
+		pj1vidaLabel.textProperty().bind(Bindings.concat(seleccionado1.get().vidaProperty()));
+		pj1manaLabel.textProperty().bind(Bindings.concat(seleccionado1.get().energiaProperty()));
 
 		pb1.progressProperty()
 				.bind(seleccionado1.get().vidaProperty().multiply(1.0).divide(seleccionado1.get().getVidaTotal()));
@@ -177,8 +191,8 @@ public class BatallaController implements Initializable {
 
 	private void HacerAtaque(int habilidad, Personaje j1, Personaje j2) {
 
-		combate.Atacar(j1.getHabilidades().get(habilidad).getNumHabilidad(), j1, j2);
-		//ataca y actualiza las vidas y energias de los campeones
+		alertasLabel.setText(combate.Atacar(j1.getHabilidades().get(habilidad).getNumHabilidad(), j1, j2));
+		// ataca y actualiza las vidas y energias de los campeones
 		
 		seleccionado2.get().vidaProperty().set(combate.getJ2().getVida());
 		seleccionado1.get().energiaProperty().set(combate.getJ1().getEnergia());
@@ -200,9 +214,8 @@ public class BatallaController implements Initializable {
 		combate.cambiarturno();
 
 		// falta incrementar el contador del turno
-		// falta decir cual es la ultima habilidad usada
 
-		Pelea(j1, j2);
+		Pelea(personaje1, personaje2);
 	}
 	
 	//Revisar el numero de item utilizables durante el combate, ahora mismo solo pueden usar 3 entre los 2.
@@ -256,14 +269,39 @@ public class BatallaController implements Initializable {
 			System.out.println("Energía de " + p1.getNombre() + p1.getEnergia());
 			System.out.println("Vida de " + p2.getNombre() + " " + p2.getVida());
 			System.out.println("Energía " + p2.getNombre() + " " + p2.getEnergia());
+			combate.incrementarTurno();
 			show();
 			System.out.println("-----------------------");
 
 		} else {
-			if (p1.getVida() > 0)
-				System.out.println("Ha ganado j1");
-			else
-				System.out.println("Ha ganado random!!!!!!!!!!");
+			if (p1.getVida() > 0) {
+				System.out.println("Ha ganado "+p1.getNombre());
+				combate.CalcularPuntosVictoria();
+
+				// aqui se persiste los puntos del usuario para que gane puntos y se guarden.
+				usuarioModel.get().setPuntos(usuarioModel.get().getPuntos() + combate.getPuntosGanador());
+				// usuarioModel.get().getHistorial().setNumeroVictorias(usuarioModel.get().getHistorial().getNumeroVictorias()+1);
+				// usuarioModel.get().getHistorial().setNumeroPartidas(usuarioModel.get().getHistorial().getNumeroPartidas()+1);
+				pgcontroller.get().setController(controller.get());
+				pgcontroller.get().setImagenResultado("/view/victory.png");
+				pgcontroller.get().setPuntosganados(combate.getPuntosGanador());
+				pgcontroller.get().setPersonajeUsado(personaje1);
+				pgcontroller.get().setValor(0);
+				Main.getPrimaryStage().getScene().setRoot(pgcontroller.get().getView());
+
+			} else {
+				System.out.println("Ha ganado "+p2.getNombre());
+				combate.CalcularPuntosDerrota();
+
+				// falta persistir el usuario.
+				usuarioModel.get().setPuntos(usuarioModel.get().getPuntos() + combate.getPuntosGanador());
+				// usuarioModel.get().getHistorial().setNumeroPartidas(usuarioModel.get().getHistorial().getNumeroPartidas()+1);
+				pgcontroller.get().setImagenResultado("/view/defeat.png");
+				pgcontroller.get().setPuntosganados(combate.getPuntosGanador());
+				pgcontroller.get().setPersonajeUsado(personaje1);
+				pgcontroller.get().setValor(1);
+				Main.getPrimaryStage().getScene().setRoot(pgcontroller.get().getView());
+			}
 		}
 
 	}
@@ -363,6 +401,21 @@ public class BatallaController implements Initializable {
 	public HBox getBatallaBox() {
 		return batallaBox;
 	}
+
+	public final ObjectProperty<PostGameController> pgcontrollerProperty() {
+		return this.pgcontroller;
+	}
+	
+
+	public final PostGameController getPgcontroller() {
+		return this.pgcontrollerProperty().get();
+	}
+	
+
+	public final void setPgcontroller(final PostGameController pgcontroller) {
+		this.pgcontrollerProperty().set(pgcontroller);
+	}
+	
 	
 
 }

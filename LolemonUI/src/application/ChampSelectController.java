@@ -77,7 +77,8 @@ public class ChampSelectController implements Initializable {
 	private StringProperty turno = new SimpleStringProperty(this, "turno", "Primera selección");
 	private ObjectProperty<LolemonController> controller = new SimpleObjectProperty<>(this, "");
 	private ObjectProperty<BatallaController> Bcontroller = new SimpleObjectProperty<>(this, "");
-
+	private ObjectProperty<PostGameController> pgcontroller= new SimpleObjectProperty<>(this,"");
+	
 	private Consultas con = new Consultas();
 	private boolean primeraSeleccion = true;
 
@@ -236,21 +237,26 @@ public class ChampSelectController implements Initializable {
 
 	private void iniciarBatallaController() {
 
-		FadeTransition fd = new FadeTransition();
+		/*FadeTransition fd = new FadeTransition();
 		fd.setNode(getView());
 		fd.setCycleCount(1);
+		fd.setAutoReverse(true);
 		fd.setToValue(0);
 		fd.playFromStart();
-		fd.setOnFinished(e -> {
+		fd.setOnFinished(e -> {*/
 			try {
 				Bcontroller.set(new BatallaController(champ1.get(), champ2.get(),usuarioModel.get()));
 				Bcontroller.get().getBatallaBox().setBackground(view.getBackground());
+				Bcontroller.get().setPgcontroller(pgcontroller.get());
 				Main.getPrimaryStage().getScene().setRoot(Bcontroller.get().getView());
+				//fd.stop();
+				
 			} catch (Exception e1) {
 				e1.printStackTrace();
-			}
+			}/*
 
-		});
+		});*/
+		
 	}
 
 	private void brilloImagen(Node node) {
@@ -293,5 +299,21 @@ public class ChampSelectController implements Initializable {
 	public final void setController(final LolemonController controller) {
 		this.controllerProperty().set(controller);
 	}
+
+	public final ObjectProperty<PostGameController> pgcontrollerProperty() {
+		return this.pgcontroller;
+	}
+	
+
+	public final PostGameController getPgcontroller() {
+		return this.pgcontrollerProperty().get();
+	}
+	
+
+	public final void setPgcontroller(final PostGameController pgcontroller) {
+		this.pgcontrollerProperty().set(pgcontroller);
+	}
+	
+	
 
 }

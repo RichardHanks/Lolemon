@@ -35,51 +35,61 @@ public class Combate {
 		// TODO Auto-generated method stub
 		
 		
-		int coeficiente=(int) (p12.getEnergiaTotal()*p12.getRecargo());
-	    p12.setEnergia(p12.getEnergia()+coeficiente);
-	    //System.out.println("+"+coeficiente+" energía");
-		System.out.println(p12.getNombre()+" ha recargado");
-		
+		int coeficiente = (int) (p12.getEnergiaTotal() * p12.getRecargo());
+
+		if (p12.getEnergia() == p12.getEnergiaTotal()) {
+			System.out.println("Energía completa!");
+		} else {
+			p12.setEnergia(p12.getEnergia() + coeficiente);
+			// System.out.println("+"+coeficiente+" energía");
+			System.out.println(p12.getNombre() + " ha recargado");
+		}
 	}
 	
-	public void Atacar(int numHabilidad,Personaje p1,Personaje p2) {
+public String Atacar(int numHabilidad,Personaje p1,Personaje p2) {
 		
+		String mensaje="";
 		Habilidad usada= new Habilidad();
 		usada=p1.getHabilidades().get(numHabilidad);
  		
         int random= (int) ((Math.random()*100)+1);
+      
 		
         if(p1.getEnergia()>p1.getHabilidades().get(numHabilidad).getCoste()) {
 		if(random<p1.getHabilidades().get(numHabilidad).getPrecision()) {
+			String[] critico= critico(usada);
 			if(usada.isRobovida()) {
 				robarvida(usada,p1,p2);
-				p2.setVida(p2.getVida()-usada.getDaño()+p2.getDefensa()-critico(usada));
+				p2.setVida(p2.getVida()-usada.getDaño()+p2.getDefensa()-Integer.parseInt(critico[0]));
 				//System.out.println(nombre+" ha hecho"+String.valueOf(habilidad.daño-rival.defensa+critico(habilidad.numHabilidad))); 
 			}
 			else {
 				if(usada.isDmgverdadero()) {
-					p2.setVida(p2.getVida()-usada.getDaño()-critico(usada));
+					p2.setVida(p2.getVida()-usada.getDaño()-Integer.parseInt(critico[0]));
 				    //System.out.println(nombre+" ha hecho"+String.valueOf(habilidad.daño+critico(habilidad.numHabilidad)));
 				    }
 				else {
-					p2.setVida(p2.getVida()-usada.getDaño()+p2.getDefensa()-critico(usada));
+					p2.setVida(p2.getVida()-usada.getDaño()+p2.getDefensa()-Integer.parseInt(critico[0]));
 					//System.out.println(nombre+" ha hecho"+String.valueOf(habilidad.daño-rival.defensa+critico(habilidad.numHabilidad)));
 				
 					}
 			}
 			p1.setEnergia(p1.getEnergia()-usada.getCoste());
+			mensaje=critico[1];
 			
 			}
 			
 		else {
-			System.out.println("¡Oh,"+p1.getNombre()+" ha fallado!");
+			mensaje=p1.getNombre()+" falló";
 		}}
         else {
-        	System.out.println("No tiene energía para atacar.");
+        	mensaje="¡Sin energía!";
         }
        
-        
+        return mensaje;
 		}
+        
+		
 	
 	public void UsarPocion(Personaje p1) {
 
@@ -133,24 +143,25 @@ public class Combate {
 		
 	}
 
-	private static int critico(Habilidad usada) {
-	
-	int random=(int) (Math.random()*100);
-	int daño=0;
-	
-	if (random>85) {
-	daño=usada.getCritico();
-	
-	//System.out.println(nombre+" ha hecho critico!");
-	
-	System.out.println("+"+daño+" de daño");
-	}
-	
-	
-	
-	return daño;
-	}
-
+    private static String[] critico(Habilidad usada) {
+    	
+    	int random=(int) (Math.random()*100);
+    	int daño=0;
+    	String[] devolver=new String[2];
+    	String m="";
+    	
+    	if (random>85) {
+    	daño=usada.getCritico();
+    	
+    	//System.out.println(nombre+" ha hecho critico!");
+    	m="!Crítico¡";
+    	}
+    	
+    	devolver[0]=String.valueOf(daño);
+    	devolver[1]=m;
+    	
+    	return devolver;
+    	}
 // TENGO QUE CAMBIAR ESTA FUNCIÓN	
 
 	private static void robarvida(Habilidad usada,Personaje p1, Personaje rival) {
@@ -201,6 +212,30 @@ public class Combate {
 		}
 		
 	}
+	
+	/**
+	 *Función que calcula el número de puntos que se consiguen al ganar
+	 */
+	public void CalcularPuntosVictoria() {
+		
+		puntosGanador=10*numturno;
+    }
+	/**
+	 * Función que calcula el número de puntos que se consiguen al perder.
+	 */
+	public void CalcularPuntosDerrota() {
+		puntosGanador=3*numturno;
+		
+	}
+	/**
+	 * Función que va calculando el número de turnos.
+	 */
+	public void incrementarTurno() {
+		// TODO Auto-generated method stub
+		numturno++;
+		
+	}
+
 
 
 	public Personaje getJ1() {

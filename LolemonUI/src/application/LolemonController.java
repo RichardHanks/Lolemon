@@ -59,6 +59,7 @@ public class LolemonController implements Initializable {
 			"tienda controller");
 	private ObjectProperty<ChampSelectController> champselectcontroller = new SimpleObjectProperty<>(this, "");
 	private ObjectProperty<SettingsController> settingsController = new SimpleObjectProperty<>(this, "settings controller");
+	private ObjectProperty<PostGameController> PostGameController= new SimpleObjectProperty<>(this,"PostGame Controller");
 
 	private ObjectProperty<UsuarioModel> usuarioModel = new SimpleObjectProperty<>(this, "usuario", new UsuarioModel());
 
@@ -207,6 +208,21 @@ public class LolemonController implements Initializable {
 	public final void setSettingsController(final SettingsController settingsController) {
 		this.settingsControllerProperty().set(settingsController);
 	}
+
+	public final ObjectProperty<PostGameController> PostGameControllerProperty() {
+		return this.PostGameController;
+	}
+	
+
+	public final PostGameController getPostGameController() {
+		return this.PostGameControllerProperty().get();
+	}
+	
+
+	public final void setPostGameController(final PostGameController PostGameController) {
+		this.PostGameControllerProperty().set(PostGameController);
+	}
+	
 	
 	
 	
