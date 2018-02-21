@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.IntegerProperty;
@@ -318,7 +320,28 @@ public class PersonajeModel {
 		this.costeProperty().set(coste);
 	}
 	
-    
+    public static Personaje copiarPersonaje(Personaje p) {
+    	Personaje personaje= new Personaje();
+    	personaje.setId(p.getId());
+    	personaje.setAspecto(p.getAspecto());
+    	personaje.setCoste(p.getCoste());
+    	personaje.setCreado(p.isCreado());
+    	personaje.setDefensa(p.getDefensa());
+    	personaje.setEnergia(p.getEnergia());
+    	personaje.setEnergiaTotal(p.getEnergiaTotal());
+    	personaje.setEstaBloqueado(p.isEstaBloqueado());
+    	personaje.setVida(p.getVida());
+    	personaje.setVidaTotal(p.getVidaTotal());
+    	personaje.setVelocidad(p.getVelocidad());
+    	personaje.setNombre(p.getNombre());
+    	personaje.setSprite(p.getSprite());
+    	personaje.setRecargo(p.getRecargo());
+    	//personaje.setMensajes(FXCollections.observableArrayList(p.getMensajes()));
+    	personaje.setHabilidades((ArrayList<Habilidad>) p.getHabilidades());
+    	
+    	return personaje;
+    	
+    }
     @Override
     public String toString() {
     	return getNombre()+"\nVida Base: "+getVidaTotal()+

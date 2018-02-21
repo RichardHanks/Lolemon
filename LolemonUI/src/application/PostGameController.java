@@ -55,7 +55,6 @@ public class PostGameController implements Initializable {
 	    private IntegerProperty valor= new SimpleIntegerProperty(this,"valor");
 	    
 	    //Controllers
-	    
 	    private ObjectProperty<LolemonController> controller = new SimpleObjectProperty<>(this, "");
 	
 
@@ -96,7 +95,6 @@ public class PostGameController implements Initializable {
 	
 	
 	private void volver() {
-		// TODO Auto-generated method stub
 		Main.getPrimaryStage().getScene().setRoot(controller.get().getView());
 		
 	}

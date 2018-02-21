@@ -282,12 +282,13 @@ public class BatallaController implements Initializable {
 				usuarioModel.get().setPuntos(usuarioModel.get().getPuntos() + combate.getPuntosGanador());
 				// usuarioModel.get().getHistorial().setNumeroVictorias(usuarioModel.get().getHistorial().getNumeroVictorias()+1);
 				// usuarioModel.get().getHistorial().setNumeroPartidas(usuarioModel.get().getHistorial().getNumeroPartidas()+1);
-				pgcontroller.get().setController(controller.get());
+				//pgcontroller.get().setController(controller.get());
 				pgcontroller.get().setImagenResultado("/view/victory.png");
 				pgcontroller.get().setPuntosganados(combate.getPuntosGanador());
 				pgcontroller.get().setPersonajeUsado(personaje1);
 				pgcontroller.get().setValor(0);
 				Main.getPrimaryStage().getScene().setRoot(pgcontroller.get().getView());
+				//System.out.println(controller.get());
 
 			} else {
 				System.out.println("Ha ganado "+p2.getNombre());
@@ -295,12 +296,14 @@ public class BatallaController implements Initializable {
 
 				// falta persistir el usuario.
 				usuarioModel.get().setPuntos(usuarioModel.get().getPuntos() + combate.getPuntosGanador());
-				// usuarioModel.get().getHistorial().setNumeroPartidas(usuarioModel.get().getHistorial().getNumeroPartidas()+1);
+				 //usuarioModel.get().getHistorial().setNumeroPartidas(usuarioModel.get().getHistorial().getNumeroPartidas()+1);
+				//pgcontroller.get().setController(controller.get());
 				pgcontroller.get().setImagenResultado("/view/defeat.png");
 				pgcontroller.get().setPuntosganados(combate.getPuntosGanador());
 				pgcontroller.get().setPersonajeUsado(personaje1);
 				pgcontroller.get().setValor(1);
 				Main.getPrimaryStage().getScene().setRoot(pgcontroller.get().getView());
+				//System.out.println(controller.get());
 			}
 		}
 

@@ -42,6 +42,7 @@ import javafx.util.Callback;
 import javafx.util.Duration;
 import lolemon.consultas.Consultas;
 import lolemon.persistencia.modelo.Personaje;
+import model.PersonajeModel;
 import model.UsuarioModel;
 
 public class ChampSelectController implements Initializable {
@@ -77,8 +78,8 @@ public class ChampSelectController implements Initializable {
 	private StringProperty turno = new SimpleStringProperty(this, "turno", "Primera selección");
 	private ObjectProperty<LolemonController> controller = new SimpleObjectProperty<>(this, "");
 	private ObjectProperty<BatallaController> Bcontroller = new SimpleObjectProperty<>(this, "");
-	private ObjectProperty<PostGameController> pgcontroller= new SimpleObjectProperty<>(this,"");
-	
+	private ObjectProperty<PostGameController> pgcontroller = new SimpleObjectProperty<>(this, "");
+
 	private Consultas con = new Consultas();
 	private boolean primeraSeleccion = true;
 
@@ -237,26 +238,27 @@ public class ChampSelectController implements Initializable {
 
 	private void iniciarBatallaController() {
 
-		/*FadeTransition fd = new FadeTransition();
-		fd.setNode(getView());
-		fd.setCycleCount(1);
-		fd.setAutoReverse(true);
-		fd.setToValue(0);
-		fd.playFromStart();
-		fd.setOnFinished(e -> {*/
-			try {
-				Bcontroller.set(new BatallaController(champ1.get(), champ2.get(),usuarioModel.get()));
-				Bcontroller.get().getBatallaBox().setBackground(view.getBackground());
-				Bcontroller.get().setPgcontroller(pgcontroller.get());
-				Main.getPrimaryStage().getScene().setRoot(Bcontroller.get().getView());
-				//fd.stop();
-				
-			} catch (Exception e1) {
-				e1.printStackTrace();
-			}/*
+		/*
+		 * FadeTransition fd = new FadeTransition(); fd.setNode(getView());
+		 * fd.setCycleCount(1); fd.setAutoReverse(true); fd.setToValue(0);
+		 * fd.playFromStart(); fd.setOnFinished(e -> {
+		 */
+		try {
+			Personaje personaje1 = PersonajeModel.copiarPersonaje(champ1.get());
+			Personaje personaje2 = PersonajeModel.copiarPersonaje(champ2.get());
+			Bcontroller.set(new BatallaController(personaje1, personaje2, usuarioModel.get()));
+			Bcontroller.get().getBatallaBox().setBackground(view.getBackground());
+			Bcontroller.get().setPgcontroller(pgcontroller.get());
+			Main.getPrimaryStage().getScene().setRoot(Bcontroller.get().getView());
+			// fd.stop();
 
-		});*/
-		
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		} /*
+			 * 
+			 * });
+			 */
+
 	}
 
 	private void brilloImagen(Node node) {
@@ -303,17 +305,13 @@ public class ChampSelectController implements Initializable {
 	public final ObjectProperty<PostGameController> pgcontrollerProperty() {
 		return this.pgcontroller;
 	}
-	
 
 	public final PostGameController getPgcontroller() {
 		return this.pgcontrollerProperty().get();
 	}
-	
 
 	public final void setPgcontroller(final PostGameController pgcontroller) {
 		this.pgcontrollerProperty().set(pgcontroller);
 	}
-	
-	
 
 }
