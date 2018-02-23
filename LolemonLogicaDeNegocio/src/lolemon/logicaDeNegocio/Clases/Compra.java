@@ -20,7 +20,7 @@ public class Compra {
 	}
 	
 	
-	public void comprarItem(Item objeto) {
+	/*public void comprarItem(Item objeto) {
 		
 		if(usuario.getPuntos()>objeto.getCoste()) {
 	    	if(objeto.getTipo()==Tipo.VIDA) {
@@ -65,8 +65,18 @@ public class Compra {
 	    else {
 	    	System.out.println("No tienes dinero suficiente para comprar");
 	    }
-	}
+	}*/
 	
+	public boolean comprarItem(Item i) {
+		boolean comprado;
+		if(usuario.getPuntos()>i.getCoste()) {
+			Consultas consulta= new Consultas();
+			consulta.comprarItem(usuario, i);
+			comprado = true;
+		}
+		else comprado=false;
+		return comprado;
+	}
 	
 	public boolean comprarPersonaje(Personaje personaje) {
 		boolean comprado;

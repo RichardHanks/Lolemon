@@ -20,6 +20,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import lolemon.consultas.Consultas;
 import lolemon.logicaDeNegocio.Clases.Combate;
 import lolemon.persistencia.modelo.Personaje;
 import lolemon.persistencia.modelo.Tipo;
@@ -76,18 +77,17 @@ public class BatallaController implements Initializable {
 
 	@FXML
 	private Button btnItem3;
-	
+
 	@FXML
 	private HBox batallaBox;
-	
+
 	@FXML
 	private Label pj1manaLabel;
 	@FXML
 	private Label pj1vidaLabel;
-	
-	
+
 	@FXML
-    private Label alertasLabel;
+	private Label alertasLabel;
 
 	// Elementos de la lógica de negocio
 
@@ -101,14 +101,17 @@ public class BatallaController implements Initializable {
 	private ObjectProperty<PersonajeModel> seleccionado2 = new SimpleObjectProperty<>(this, "seleccionado2");
 	private ObjectProperty<UsuarioModel> usuarioModel = new SimpleObjectProperty<>(this, "usuario");
 	private ObjectProperty<PostGameController> pgcontroller = new SimpleObjectProperty<>(this, "");
-	
+
+	// Persistencia
+	private Consultas con = new Consultas();
+
 	public BatallaController(Personaje p1, Personaje p2, UsuarioModel u) throws IOException {
 		usuarioModel.set(u);
-		
+
 		this.personaje1 = p1;
 		this.personaje2 = p2;
 		System.out.println(personaje1.getNombre());
-		
+
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/BattleView.fxml"));
 		loader.setController(this);
 		loader.load();
@@ -139,7 +142,7 @@ public class BatallaController implements Initializable {
 		// Binds
 		labelj1.textProperty().bind(seleccionado1.get().nombreProperty());
 		labelj2.textProperty().bind(seleccionado2.get().nombreProperty());
-		
+
 		pj1vidaLabel.textProperty().bind(Bindings.concat(seleccionado1.get().vidaProperty()));
 		pj1manaLabel.textProperty().bind(Bindings.concat(seleccionado1.get().energiaProperty()));
 
@@ -150,30 +153,23 @@ public class BatallaController implements Initializable {
 
 		pb3.progressProperty()
 				.bind(seleccionado2.get().vidaProperty().multiply(1.0).divide(seleccionado2.get().getVidaTotal()));
-		
+
 		pb4.progressProperty().bind(
 				seleccionado2.get().energiaProperty().multiply(1.0).divide(seleccionado2.get().getEnergiaTotal()));
 
-		//setea las imagenes a los campeones y los textos de explicacion
+		// setea las imagenes a los campeones y los textos de explicacion
 		iv1.setImage(new Image(seleccionado1.get().getSprite()));
-		Tooltip.install(
-				iv1,
-			    new Tooltip(seleccionado1.get().toString())
-			);
+		Tooltip.install(iv1, new Tooltip(seleccionado1.get().toString()));
 		iv2.setImage(new Image(seleccionado2.get().getSprite()));
-		Tooltip.install(
-				iv2,
-			    new Tooltip(seleccionado2.get().toString())
-			);
+		Tooltip.install(iv2, new Tooltip(seleccionado2.get().toString()));
 
 		btn1.setOnAction(e -> llamarAtacar(0));
 		btn2.setOnAction(e -> llamarAtacar(1));
 		btn3.setOnAction(e -> llamarAtacar(2));
 		btn4.setOnAction(e -> llamarAtacar(3));
-		btnItem1.setOnAction(e-> UsarItem(Tipo.VIDA));
-		btnItem2.setOnAction(e-> UsarItem(Tipo.ENERGIA));
-		btnItem3.setOnAction(e-> UsarItem(Tipo.DEFENSA));
-		
+		btnItem1.setOnAction(e -> UsarItem(Tipo.VIDA));
+		btnItem2.setOnAction(e -> UsarItem(Tipo.ENERGIA));
+		btnItem3.setOnAction(e -> UsarItem(Tipo.DEFENSA));
 
 	}
 
@@ -193,23 +189,18 @@ public class BatallaController implements Initializable {
 
 		alertasLabel.setText(combate.Atacar(j1.getHabilidades().get(habilidad).getNumHabilidad(), j1, j2));
 		// ataca y actualiza las vidas y energias de los campeones
-		
+
 		seleccionado2.get().vidaProperty().set(combate.getJ2().getVida());
 		seleccionado1.get().energiaProperty().set(combate.getJ1().getEnergia());
 		seleccionado1.get().vidaProperty().set(combate.getJ1().getVida());
 		seleccionado2.get().energiaProperty().set(combate.getJ2().getEnergia());
-		
-		
-		//recarga y luego lo refleja en la vista
+
+		// recarga y luego lo refleja en la vista
 		System.out.println("hora de recargar!");
 		combate.recargar(j1);
-		
-		
-	    
+
 		seleccionado1.get().energiaProperty().set(combate.getJ1().getEnergia());
 		seleccionado2.get().energiaProperty().set(combate.getJ2().getEnergia());
-
-		
 
 		combate.cambiarturno();
 
@@ -217,51 +208,55 @@ public class BatallaController implements Initializable {
 
 		Pelea(personaje1, personaje2);
 	}
-	
-	//Revisar el numero de item utilizables durante el combate, ahora mismo solo pueden usar 3 entre los 2.
-	private void UsarItem(Tipo tipo) {
-		if(combate.getPocionesusadas()<4) {
-		if(tipo==Tipo.VIDA) {
-			if(combate.getTurno()) {
-				combate.UsarPocion(personaje1);
-				seleccionado1.get().vidaProperty().set(combate.getJ1().getVida());
-				
-			}else {
-				combate.UsarPocion(personaje2);
-				seleccionado2.get().vidaProperty().set(combate.getJ2().getVida());
-			}
-			
-		}
-		else if(tipo==Tipo.ENERGIA) {
-			if(combate.getTurno()) {
-				combate.UsarElixir(personaje1);
-				seleccionado1.get().energiaProperty().set(combate.getJ1().getEnergia());
-				
-			}else {
-				combate.UsarElixir(personaje2);
-				seleccionado2.get().energiaProperty().set(combate.getJ2().getEnergia());
-			}
-		}
-		else {
-			if(combate.getTurno()) {
-				combate.UsarVial(personaje1);
-				seleccionado1.get().defensaProperty().set(combate.getJ1().getDefensa());
-				
-			}else {
-				combate.UsarVial(personaje2);
-				seleccionado2.get().defensaProperty().set(combate.getJ2().getDefensa());
-			}
-		}}else {
-			System.out.println("Ya has usado el máximo de pociones");
-			
-		}
-		
-		
-		combate.setPocionesusadas(combate.getPocionesusadas()+1);
-		combate.cambiarturno();
-		Pelea(personaje1,personaje2);
-	}
 
+	// Revisar el numero de item utilizables durante el combate, ahora mismo solo
+	// pueden usar 10 entre los 2.
+	private void UsarItem(Tipo tipo) {
+		if (combate.getPocionesusadas() < 3) {
+			if (tipo == Tipo.VIDA) {
+				if (combate.getTurno()) {
+					System.out.println(combate.UsarPocion(personaje1));
+					usuarioModel.get().getInventario().getPocionesList().remove(0);
+					seleccionado1.get().vidaProperty().set(combate.getJ1().getVida());
+
+				} else {
+					if (combate.UsarPocion(personaje2)) usuarioModel.get().getInventario().getPocionesList().remove(0);
+						seleccionado2.get().vidaProperty().set(combate.getJ2().getVida());
+				}
+
+			} else if (tipo == Tipo.ENERGIA) {
+				if (combate.getTurno()) {
+					combate.UsarElixir(personaje1);
+					usuarioModel.get().getInventario().getElixiresList().remove(0);
+					seleccionado1.get().energiaProperty().set(combate.getJ1().getEnergia());
+
+				} else {
+					combate.UsarElixir(personaje2);
+					usuarioModel.get().getInventario().getElixiresList().remove(0);
+					seleccionado2.get().energiaProperty().set(combate.getJ2().getEnergia());
+				}
+			} else {
+				if (combate.getTurno()) {
+					combate.UsarVial(personaje1);
+					usuarioModel.get().getInventario().getVialesList().remove(0);
+					seleccionado1.get().defensaProperty().set(combate.getJ1().getDefensa());
+
+				} else {
+					combate.UsarVial(personaje2);
+					usuarioModel.get().getInventario().getVialesList().remove(0);
+					seleccionado2.get().defensaProperty().set(combate.getJ2().getDefensa());
+				}
+			}
+		} else {
+			System.out.println("Ya has usado el máximo de pociones");
+
+		}
+
+		combate.setPocionesusadas(combate.getPocionesusadas() + 1);
+		combate.cambiarturno();
+		Pelea(personaje1, personaje2);
+	}
+	
 	public void Pelea(Personaje p1, Personaje p2) {
 
 		if (p1.getVida() > 0 & p2.getVida() > 0) {
@@ -275,119 +270,103 @@ public class BatallaController implements Initializable {
 
 		} else {
 			if (p1.getVida() > 0) {
-				System.out.println("Ha ganado "+p1.getNombre());
+				System.out.println("Ha ganado " + p1.getNombre());
 				combate.CalcularPuntosVictoria();
-
-				// aqui se persiste los puntos del usuario para que gane puntos y se guarden.
-				usuarioModel.get().setPuntos(usuarioModel.get().getPuntos() + combate.getPuntosGanador());
-				// usuarioModel.get().getHistorial().setNumeroVictorias(usuarioModel.get().getHistorial().getNumeroVictorias()+1);
-				// usuarioModel.get().getHistorial().setNumeroPartidas(usuarioModel.get().getHistorial().getNumeroPartidas()+1);
-				//pgcontroller.get().setController(controller.get());
-				pgcontroller.get().setImagenResultado("/view/victory.png");
-				pgcontroller.get().setPuntosganados(combate.getPuntosGanador());
-				pgcontroller.get().setPersonajeUsado(personaje1);
-				pgcontroller.get().setValor(0);
-				Main.getPrimaryStage().getScene().setRoot(pgcontroller.get().getView());
-				//System.out.println(controller.get());
+				postGame(true);
 
 			} else {
-				System.out.println("Ha ganado "+p2.getNombre());
+				System.out.println("Ha ganado " + p2.getNombre());
 				combate.CalcularPuntosDerrota();
+				postGame(false);
 
-				// falta persistir el usuario.
-				usuarioModel.get().setPuntos(usuarioModel.get().getPuntos() + combate.getPuntosGanador());
-				 //usuarioModel.get().getHistorial().setNumeroPartidas(usuarioModel.get().getHistorial().getNumeroPartidas()+1);
-				//pgcontroller.get().setController(controller.get());
-				pgcontroller.get().setImagenResultado("/view/defeat.png");
-				pgcontroller.get().setPuntosganados(combate.getPuntosGanador());
-				pgcontroller.get().setPersonajeUsado(personaje1);
-				pgcontroller.get().setValor(1);
-				Main.getPrimaryStage().getScene().setRoot(pgcontroller.get().getView());
-				//System.out.println(controller.get());
 			}
 		}
 
 	}
-	
+
+	private void postGame(boolean victoria) {
+		usuarioModel.get().setPuntos(usuarioModel.get().getPuntos() + combate.getPuntosGanador());
+		if (victoria) usuarioModel.get().getHistorial().setNumeroVictorias(usuarioModel.get().getHistorial().getNumeroVictorias() + 1);
+		usuarioModel.get().getHistorial().setNumeroPartidas(usuarioModel.get().getHistorial().getNumeroPartidas() + 1);
+
+		con.actualizarUsuario(UsuarioModel.convertirEnUsuario(usuarioModel.get()));
+		IniciarSesionController.usuario.set(con.getUsuario(usuarioModel.get().getNombre()));
+
+		if(victoria) pgcontroller.get().setImagenResultado("/view/victory.png");
+		else pgcontroller.get().setImagenResultado("/view/defeat.png");
+		pgcontroller.get().setPuntosganados(combate.getPuntosGanador());
+		pgcontroller.get().setPersonajeUsado(personaje1);
+		pgcontroller.get().setValor(0);
+		Main.getPrimaryStage().getScene().setRoot(pgcontroller.get().getView());
+	}
+
 	public void show() {
-		//cambia el texto y el tooltip de los botones segun el turno
-		if(combate.getTurno()) {
-		System.out.println("Turno de "+combate.getJ1().getNombre());
-		
-		btn1.setText(seleccionado1.get().getHabilidades().get(0).getNombre());
-		btn1.setTooltip(new Tooltip("Coste: "+seleccionado1.get().getHabilidades().get(0).getCoste()+
-									"\nDaño: "+seleccionado1.get().getHabilidades().get(0).getDaño()));
-		
-		btn2.setText(seleccionado1.get().getHabilidades().get(1).getNombre());
-		btn2.setTooltip(new Tooltip("Coste: "+seleccionado1.get().getHabilidades().get(1).getCoste()+
-									"\nDaño: "+seleccionado1.get().getHabilidades().get(1).getDaño()));
-		
-		btn3.setText(seleccionado1.get().getHabilidades().get(2).getNombre());
-		btn3.setTooltip(new Tooltip("Coste: "+seleccionado1.get().getHabilidades().get(2).getCoste()+
-									"\nDaño: "+seleccionado1.get().getHabilidades().get(2).getDaño()));
-		
-		btn4.setText(seleccionado1.get().getHabilidades().get(3).getNombre());
-		btn4.setTooltip(new Tooltip("Coste: "+seleccionado1.get().getHabilidades().get(3).getCoste()+
-									"\nDaño: "+seleccionado1.get().getHabilidades().get(3).getDaño()));
+		// cambia el texto y el tooltip de los botones segun el turno
+		if (combate.getTurno()) {
+			System.out.println("Turno de " + combate.getJ1().getNombre());
+			cambiarBotones(seleccionado1.get());
+		} else {
+			cambiarBotones(seleccionado2.get());
 		}
-		else {
-			System.out.println("Turno de "+combate.getJ2().getNombre());
-			btn1.setText(seleccionado2.get().getHabilidades().get(0).getNombre());
-			btn1.setTooltip(new Tooltip("Coste: "+seleccionado2.get().getHabilidades().get(0).getCoste()+
-					"\nDaño: "+seleccionado2.get().getHabilidades().get(0).getDaño()));
-			
-			btn2.setText(seleccionado2.get().getHabilidades().get(1).getNombre());
-			btn1.setTooltip(new Tooltip("Coste: "+seleccionado2.get().getHabilidades().get(1).getCoste()+
-					"\nDaño: "+seleccionado2.get().getHabilidades().get(1).getDaño()));
-			
-			btn3.setText(seleccionado2.get().getHabilidades().get(2).getNombre());
-			btn1.setTooltip(new Tooltip("Coste: "+seleccionado2.get().getHabilidades().get(2).getCoste()+
-					"\nDaño: "+seleccionado2.get().getHabilidades().get(2).getDaño()));
-			
-			btn4.setText(seleccionado2.get().getHabilidades().get(3).getNombre());
-			btn1.setTooltip(new Tooltip("Coste: "+seleccionado2.get().getHabilidades().get(3).getCoste()+
-					"\nDaño: "+seleccionado2.get().getHabilidades().get(3).getDaño()));
-		}
-		
-		btnItem1.setText("Pociones "+"x"+usuarioModel.get().getInventario().getPocionesList().size());
-		if(usuarioModel.get().getInventario().getPocionesList().size()==0) btnItem1.setDisable(true);
+
+		cambiarBotonesItems(usuarioModel.get());
+
+	}
+
+	private void cambiarBotonesItems(UsuarioModel u) {
+		btnItem1.setText("Pociones " + "x" + u.getInventario().getPocionesList().size());
+		if (u.getInventario().getPocionesList().size() == 0)
+			btnItem1.setDisable(true);
 		btnItem1.setTooltip(new Tooltip("+20 de vida"));
-		
-		btnItem2.setText("Elixires "+"x"+usuarioModel.get().getInventario().getElixiresList().size());
-		if(usuarioModel.get().getInventario().getElixiresList().size()==0) btnItem2.setDisable(true);
+
+		btnItem2.setText("Elixires " + "x" + u.getInventario().getElixiresList().size());
+		if (u.getInventario().getElixiresList().size() == 0)
+			btnItem2.setDisable(true);
 		btnItem2.setTooltip(new Tooltip("+20 de energia"));
-		
-		btnItem3.setText("Viales "+"x"+usuarioModel.get().getInventario().getVialesList().size());
-		if(usuarioModel.get().getInventario().getVialesList().size()==0) btnItem3.setDisable(true);
+
+		btnItem3.setText("Viales " + "x" + u.getInventario().getVialesList().size());
+		if (u.getInventario().getVialesList().size() == 0)
+			btnItem3.setDisable(true);
 		btnItem3.setTooltip(new Tooltip("+20 de defensa"));
-	
-		
+	}
+
+	private void cambiarBotones(PersonajeModel p) {
+		btn1.setText(p.getHabilidades().get(0).getNombre());
+		btn1.setTooltip(new Tooltip(
+				"Coste: " + p.getHabilidades().get(0).getCoste() + "\nDaño: " + p.getHabilidades().get(0).getDaño()));
+
+		btn2.setText(p.getHabilidades().get(1).getNombre());
+		btn2.setTooltip(new Tooltip(
+				"Coste: " + p.getHabilidades().get(1).getCoste() + "\nDaño: " + p.getHabilidades().get(1).getDaño()));
+
+		btn3.setText(p.getHabilidades().get(2).getNombre());
+		btn3.setTooltip(new Tooltip(
+				"Coste: " + p.getHabilidades().get(2).getCoste() + "\nDaño: " + p.getHabilidades().get(2).getDaño()));
+
+		btn4.setText(p.getHabilidades().get(3).getNombre());
+		btn4.setTooltip(new Tooltip(
+				"Coste: " + p.getHabilidades().get(3).getCoste() + "\nDaño: " + p.getHabilidades().get(3).getDaño()));
 	}
 
 	public final ObjectProperty<LolemonController> controllerProperty() {
 		return this.controller;
 	}
-	
 
 	public final LolemonController getController() {
 		return this.controllerProperty().get();
 	}
-	
 
 	public final void setController(final LolemonController controller) {
 		this.controllerProperty().set(controller);
 	}
-	
 
 	public final ObjectProperty<UsuarioModel> usuarioModelProperty() {
 		return this.usuarioModel;
 	}
-	
 
 	public final UsuarioModel getUsuarioModel() {
 		return this.usuarioModelProperty().get();
 	}
-	
 
 	public final void setUsuarioModel(final UsuarioModel usuarioModel) {
 		this.usuarioModelProperty().set(usuarioModel);
@@ -400,7 +379,7 @@ public class BatallaController implements Initializable {
 	public void setView(BorderPane view) {
 		this.view = view;
 	}
-	
+
 	public HBox getBatallaBox() {
 		return batallaBox;
 	}
@@ -408,17 +387,13 @@ public class BatallaController implements Initializable {
 	public final ObjectProperty<PostGameController> pgcontrollerProperty() {
 		return this.pgcontroller;
 	}
-	
 
 	public final PostGameController getPgcontroller() {
 		return this.pgcontrollerProperty().get();
 	}
-	
 
 	public final void setPgcontroller(final PostGameController pgcontroller) {
 		this.pgcontrollerProperty().set(pgcontroller);
 	}
-	
-	
 
 }

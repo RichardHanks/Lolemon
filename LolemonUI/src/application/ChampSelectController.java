@@ -232,41 +232,44 @@ public class ChampSelectController implements Initializable {
 		countdown.setCycleCount(startValue);
 		countdown.play();
 		countdown.setOnFinished(e -> {
+			
 			iniciarBatallaController();
 		});
 	}
 
 	private void iniciarBatallaController() {
 
-		/*
-		 * FadeTransition fd = new FadeTransition(); fd.setNode(getView());
-		 * fd.setCycleCount(1); fd.setAutoReverse(true); fd.setToValue(0);
-		 * fd.playFromStart(); fd.setOnFinished(e -> {
-		 */
-		try {
-			Personaje personaje1 = PersonajeModel.copiarPersonaje(champ1.get());
-			Personaje personaje2 = PersonajeModel.copiarPersonaje(champ2.get());
-			Bcontroller.set(new BatallaController(personaje1, personaje2, usuarioModel.get()));
-			Bcontroller.get().getBatallaBox().setBackground(view.getBackground());
-			Bcontroller.get().setPgcontroller(pgcontroller.get());
-			Main.getPrimaryStage().getScene().setRoot(Bcontroller.get().getView());
-			// fd.stop();
+		FadeTransition fd = new FadeTransition();
+		fd.setNode(getView());
+		fd.setCycleCount(2);
+		fd.setToValue(0);
+		fd.setAutoReverse(true);
+		fd.playFromStart();
+		fd.setOnFinished(e -> {
+			try {
+				Personaje personaje1 = PersonajeModel.copiarPersonaje(champ1.get());
+				Personaje personaje2 = PersonajeModel.copiarPersonaje(champ2.get());
+				Bcontroller.set(new BatallaController(personaje1, personaje2, usuarioModel.get()));
+				Bcontroller.get().getBatallaBox().setBackground(view.getBackground());
+				Bcontroller.get().setPgcontroller(pgcontroller.get());
+				Main.getPrimaryStage().getScene().setRoot(Bcontroller.get().getView());
+				init();
+				
 
-		} catch (Exception e1) {
-			e1.printStackTrace();
-		} /*
-			 * 
-			 * });
-			 */
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
+
+		});
 
 	}
 
 	private void brilloImagen(Node node) {
-		int depth = 70;
+		int depth = 500;
 
 		DropShadow borderGlow = new DropShadow();
-		borderGlow.setOffsetY(0f);
-		borderGlow.setOffsetX(0f);
+		borderGlow.setOffsetY(-0f);
+		borderGlow.setOffsetX(-0f);
 		borderGlow.setColor(Color.GOLD);
 		borderGlow.setWidth(depth);
 		borderGlow.setHeight(depth);

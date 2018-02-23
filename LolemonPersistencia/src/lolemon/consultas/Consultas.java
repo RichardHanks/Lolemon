@@ -6,6 +6,8 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
+import com.objectdb.o.ITE;
+
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import lolemon.persistencia.base.*;
@@ -23,7 +25,6 @@ public class Consultas {
 	public Consultas() {
 		em = con.getem();
 	}
-
 
 	/**
 	 * 
@@ -265,6 +266,75 @@ public class Consultas {
 		em.getTransaction().commit();
 	}
 
+	public void comprarItem(Usuario u, Item i) {
+		em.getTransaction().begin();
+		Item it = em.find(Item.class, i.getNombre());
+		Usuario us = em.find(Usuario.class, u.getNombre());
+		switch (i.getTipo()) {
+		case VIDA:
+			if(us.getInventario().getPocionesList().size()<10)
+			us.getInventario().getPocionesList().add(it);
+			break;
+		case ENERGIA:
+			if(us.getInventario().getElixiresList().size()<10)
+			us.getInventario().getElixiresList().add(it);
+			break;
+		case DEFENSA:
+			if(us.getInventario().getVialesList().size()<10)
+			us.getInventario().getVialesList().add(it);
+			break;
+		default:
+			break;
+		}
+		em.merge(us);
+		em.getTransaction().commit();
+	}
+
+	public void actualizarUsuario(Usuario u) {
+		em.getTransaction().begin();
+		Usuario us = em.find(Usuario.class, u.getNombre());
+		Historial his=em.find(Historial.class, u.getHistorial().getId());
+		his.setNumeroPartidas(u.getHistorial().getNumeroPartidas());
+		his.setNumeroVictorias(u.getHistorial().getNumeroVictorias());
+		Inventario in= em.find(Inventario.class, u.getInventario().getInventario());
+		in.setPocionesList(u.getInventario().getPocionesList());
+		in.setVialesList(u.getInventario().getVialesList());
+		in.setElixiresList(u.getInventario().getElixiresList());
+		em.merge(his);
+		em.merge(in);
+		us.setPuntos(u.getPuntos());
+		us.setHistorial(his);
+		u.setInventario(in);
+		em.merge(us);
+		em.getTransaction().commit();
+	}
+
+	public Item getPocion(){
+		Query query = em.createQuery("SELECT p FROM Item p where p.tipo=:tipo", Item.class);
+		query.setParameter("tipo", Tipo.VIDA);
+		query.setFirstResult(0);
+		query.setMaxResults(1);
+		Item item = (Item) query.getSingleResult();
+		return item;
+	}
+	
+	public Item getVial(){
+		Query query = em.createQuery("SELECT p FROM Item p where p.tipo=:tipo", Item.class);
+		query.setParameter("tipo", Tipo.DEFENSA);
+		query.setFirstResult(0);
+		query.setMaxResults(1);
+		Item item = (Item) query.getSingleResult();
+		return item;
+	}
+	
+	public Item getElixir(){
+		Query query = em.createQuery("SELECT p FROM Item p where p.tipo=:tipo", Item.class);
+		query.setParameter("tipo", Tipo.ENERGIA);
+		query.setFirstResult(0);
+		query.setMaxResults(1);
+		Item item = (Item) query.getSingleResult();
+		return item;
+	}
 	public EntityManager getEm() {
 		return em;
 	}

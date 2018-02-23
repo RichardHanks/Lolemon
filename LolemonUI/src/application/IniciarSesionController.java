@@ -83,7 +83,15 @@ public class IniciarSesionController implements Initializable {
 			if(nv!=null) {
 				UsuarioModel u = convertirEnUsuarioModel();
 				usuarioModel.set(u);
+				
+				System.out.println();
+				System.out.println("Num partidas "+u.getHistorial().getNumeroPartidas());
+				System.out.println("Num Victorias "+u.getHistorial().getNumeroVictorias());
+				System.out.println("Num pociones "+u.getInventario().getPocionesList().size());
+				System.out.println("Num viales "+u.getInventario().getVialesList().size());
+				System.out.println("Num elixires "+u.getInventario().getElixiresList().size());
 			}
+			
 			
 		});
 		

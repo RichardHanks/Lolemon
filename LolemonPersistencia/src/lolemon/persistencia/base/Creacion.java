@@ -9,6 +9,7 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 import lolemon.persistencia.modelo.Habilidad;
+import lolemon.persistencia.modelo.Historial;
 import lolemon.persistencia.modelo.Inventario;
 import lolemon.persistencia.modelo.Item;
 import lolemon.persistencia.modelo.Personaje;
@@ -48,14 +49,16 @@ public class Creacion {
 			Item poDefensa = new Item(20, Tipo.DEFENSA);
 			poDefensa.setNombre("PocionDefensa");
 
-			Inventario i = new Inventario();
+			Inventario inventario = new Inventario();
+			Historial historial = new Historial();
 
 			// Usuarios
 			Usuario u = new Usuario();
 			u.setNombre("richard");
 			u.setContraseña("2018");
 			u.setPuntos(10000);
-			u.setInventario(i);
+			u.setInventario(inventario);
+			u.setHistorial(historial);
 
 			// Personajes
 			Personaje ahri = new Personaje();
@@ -281,7 +284,8 @@ public class Creacion {
 			em.persist(poDefensa);
 			em.persist(poEnergia);
 			em.persist(poVida);
-			em.persist(i);
+			em.persist(inventario);
+			em.persist(historial);
 			em.persist(u);
 
 			em.persist(ahri1);

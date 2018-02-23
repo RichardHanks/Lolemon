@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -100,14 +102,14 @@ public class UsuarioModel {
 	}
 
 	public static Usuario convertirEnUsuario(UsuarioModel u) {
-		Usuario user = null;
-		try {
-
-			user = con.getUsuario(u.getNombre());
-
-		} catch (Exception e) {
-			return null;
-		}
+		Usuario user = new Usuario();
+		user.setNombre(u.getNombre());
+		user.setContraseña(u.getContraseña());
+		user.setHistorial(u.getHistorial());
+		user.setInventario(u.getInventario());
+		user.setPersonajes(new ArrayList<>(u.getPersonajes()));
+		user.setPuntos(u.getPuntos());
+		
 		return user;
 
 	}

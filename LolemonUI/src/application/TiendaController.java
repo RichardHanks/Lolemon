@@ -132,7 +132,7 @@ public class TiendaController implements Initializable {
 		comprarButton.disableProperty().bind(seleccionado.isNull());
 
 		// estoy hay que mirarlo, lo bueno es pasar el item desde una consulta
-		// potas1Button.setOnAction(e->ComprarItem(new Item()));
+		potas1Button.setOnAction(e->comprarPocion());
 
 	}
 
@@ -140,7 +140,9 @@ public class TiendaController implements Initializable {
 		// Faltaría poner avisos y esas cosas.
 		String nombre = seleccionado.get().getNombre();
 		if (compra.comprarPersonaje(seleccionado.get())){
+			//Setea el usuario al controller principal, este user ya esta persistido
 			IniciarSesionController.usuario.set(con.getUsuario(usuarioModel.get().getNombre()));
+			
 			Alert alert = new Alert(AlertType.INFORMATION);
 			alert.initOwner(Main.getPrimaryStage());
 			alert.getDialogPane().getStyleClass().add("myDialog");
@@ -157,9 +159,10 @@ public class TiendaController implements Initializable {
 		}
 	}
 
-	private void ComprarItem(Item objeto) {
-		// más avisos por aqui
-		compra.comprarItem(objeto);
+	private void comprarPocion() {
+		compra.comprarItem(con.getPocion());
+		//Setea el usuario al controller principal, este user ya esta persistido
+		IniciarSesionController.usuario.set(con.getUsuario(usuarioModel.get().getNombre()));
 	}
 
 	private void atras() {

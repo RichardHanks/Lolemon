@@ -91,20 +91,24 @@ public String Atacar(int numHabilidad,Personaje p1,Personaje p2) {
         
 		
 	
-	public void UsarPocion(Personaje p1) {
-
+	public boolean UsarPocion(Personaje p1) {
+		boolean usada=false;
 		int curacion = inventario.getPocionesList().get(0).getIncremento();
 
-		if (p1.getVidaTotal() == p1.getVida()) {
+		if (p1.getVidaTotal().equals(p1.getVida())) {
+			System.out.println(p1.getVidaTotal()+" "+p1.getVida());
 			System.out.println("La vida está completa, no se puede usar una poción");
+			usada=false;
 		} else if (p1.getVidaTotal() - p1.getVida() > curacion) {
+			System.out.println("le falta vida, se usa la poti");
 			p1.setVida(p1.getVida() + curacion);
-			inventario.getPocionesList().remove(0);
+			usada=true;
 		} else {
+			System.out.println("el ultimo else");
 			p1.setVida(p1.getVida() + curacion - (curacion - (p1.getVidaTotal() - p1.getVida())));
-			inventario.getPocionesList().remove(0);
-
+			usada=true;
 		}
+		return usada;
 	}
 	
 	public void UsarElixir(Personaje p1) {
@@ -115,11 +119,9 @@ public String Atacar(int numHabilidad,Personaje p1,Personaje p2) {
 		}
 		else if(p1.getEnergiaTotal()-p1.getEnergia()>recarga){
 			p1.setEnergia(p1.getEnergia()+recarga);
-			inventario.getElixiresList().remove(0);
 		}
 		else {
 			p1.setEnergia(p1.getEnergia()+recarga-(recarga-(p1.getEnergiaTotal()-p1.getEnergia())));
-			inventario.getElixiresList().remove(0);
 			
 		}
 	}
@@ -127,7 +129,6 @@ public String Atacar(int numHabilidad,Personaje p1,Personaje p2) {
 	public void UsarVial(Personaje p1) {
 
 		p1.setDefensa(p1.getDefensa() + inventario.getVialesList().get(0).getIncremento());
-		inventario.getVialesList().remove(0);
 
 	}
 

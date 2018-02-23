@@ -3,21 +3,21 @@ package lolemon.persistencia.modelo;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
 public class Historial implements Serializable {
 
 	
-	@Id
+	@Id @GeneratedValue
 	private int id;
 	private int numeroPartidas;
 	private int numeroVictorias;
 	private Personaje personajeMasUsado;
 	
-	public Historial(int id) {
+	public Historial() {
 		super();
-		this.id = id;
 	}
 
 	public int getId() {
