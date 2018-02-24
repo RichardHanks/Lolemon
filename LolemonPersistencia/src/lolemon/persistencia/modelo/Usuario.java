@@ -24,7 +24,6 @@ public class Usuario implements Serializable {
 	private Inventario Inventario;
 	
 	public Usuario() {
-		Inventario = new Inventario();
 	}
 
 	public Usuario(String nombre, String contraseña, ArrayList<Personaje> personajes, Integer puntos) {
@@ -33,7 +32,6 @@ public class Usuario implements Serializable {
 		this.contraseña = contraseña;
 		this.personajes = personajes;
 		this.puntos = puntos;
-		Inventario = new Inventario();
 	}
 
 	public String getNombre() {

@@ -19,74 +19,34 @@ public class Compra {
 		
 	}
 	
-	
-	/*public void comprarItem(Item objeto) {
-		
-		if(usuario.getPuntos()>objeto.getCoste()) {
-	    	if(objeto.getTipo()==Tipo.VIDA) {
-	    		if(usuario.getInventario().getPocionesList().size()<10) {
-	    			usuario.getInventario().getPocionesList().add(objeto);
-	    			usuario.setPuntos(usuario.getPuntos()-objeto.getCoste());
-	    			
-	    			Consultas consulta= new Consultas();
-	    			//consulta.editarUsuario(usuario);
-	    			}
-	    		else {
-	    			System.out.println("No tienes espacio para comprar pociones");
-	    		}
-	    	}
-	    	else if(objeto.getTipo()==Tipo.ENERGIA) {
-	    		if(usuario.getInventario().getElixiresList().size()<10) {
-	    			usuario.getInventario().getElixiresList().add(objeto);
-	    			usuario.setPuntos(usuario.getPuntos()-objeto.getCoste());
-	    			
-	    			Consultas consulta= new Consultas();
-	    			//consulta.editarUsuario(usuario);
-	    		}
-	    		else {
-	    			System.out.println("No tienes espacio para comprar Elixires");
-	    		}
-	    		
-	    	}
-	    	else {
-	    		if(usuario.getInventario().getVialesList().size()<10) {
-	    			usuario.getInventario().getVialesList().add(objeto);
-	    			usuario.setPuntos(usuario.getPuntos()-objeto.getCoste());
-	    			
-	    			Consultas consulta= new Consultas();
-	    			//consulta.editarUsuario(usuario);
-	    		}
-	    		else {
-	    			System.out.println("No tienes espacio para comprar Viales");
-	    		}
-	    		
-	    	}
-	    }
-	    else {
-	    	System.out.println("No tienes dinero suficiente para comprar");
-	    }
-	}*/
-	
-	public boolean comprarItem(Item i) {
-		boolean comprado;
+	public Usuario comprarItem(Item i) {
+		Usuario u=null;
 		if(usuario.getPuntos()>i.getCoste()) {
 			Consultas consulta= new Consultas();
-			consulta.comprarItem(usuario, i);
-			comprado = true;
+			u=consulta.comprarItem(usuario, i);
+			
 		}
-		else comprado=false;
-		return comprado;
+
+		return u;
 	}
 	
-	public boolean comprarPersonaje(Personaje personaje) {
-		boolean comprado;
+	public Usuario comprarPersonaje(Personaje personaje) {
+		Usuario u=null;
 		if(usuario.getPuntos()>personaje.getCoste()) {
 			Consultas consulta= new Consultas();
-			consulta.comprarPersonaje(usuario, personaje);
-			comprado=true;
+			u=consulta.comprarPersonaje(usuario, personaje);
 			}
-			else comprado=false;
-		return comprado;
+		return u;
+	}
+
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 	
 	

@@ -76,7 +76,9 @@ public class VerCampeonesController implements Initializable {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/VistaCampeonesView.fxml"));
 		loader.setController(this);
 		loader.load();
-		init();
+		usuarioModel.addListener((o, ov, nv)->{
+			init();
+		});
 
 	}
 

@@ -32,10 +32,10 @@ public class Consultas {
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Personaje> getCampeones() {
-		// em.getTransaction().begin();
+		em.getTransaction().begin();
 		Query query = em.createQuery("SELECT p FROM Personaje p", Personaje.class);
 		List<Personaje> lista = query.getResultList();
-		// em.getTransaction().commit();
+		em.getTransaction().commit();
 		return lista;
 	}
 
@@ -96,7 +96,6 @@ public class Consultas {
 		Usuario u = null;
 		boolean registrado = false;
 		ArrayList<Personaje> principales = new ArrayList<>();
-		;
 		try {
 			em.getTransaction().begin();
 			u = new Usuario();
@@ -104,10 +103,16 @@ public class Consultas {
 			u.setContraseña(contraseña);
 			u.setPuntos(6300);
 
-			for (int i = 1; i <= 2; i++) {
+			for (int i = 3; i <= 4; i++) {
 				principales.add(em.find(Personaje.class, i));
 			}
-
+			
+			Historial hist=new Historial();
+			em.persist(hist);
+			u.setHistorial(hist);
+			Inventario inv = new Inventario();
+			em.persist(inv);
+			u.setInventario(inv);
 			u.setPersonajes(principales);
 			em.persist(u);
 			em.getTransaction().commit();
@@ -172,14 +177,10 @@ public class Consultas {
 		Usuario u = null;
 		try {
 			em.getTransaction().begin();
-			Query query = em.createQuery("SELECT p FROM Usuario p where p.nombre=:nombre", Usuario.class);
-			query.setParameter("nombre", nombre);
-			query.setFirstResult(0);
-			query.setMaxResults(1);
-			u = (Usuario) query.getSingleResult();
+			u=em.find(Usuario.class, nombre);
 			em.getTransaction().commit();
-
 		} catch (Exception e) {
+			e.printStackTrace();
 			return null;
 		} finally {
 			if (u == null)
@@ -256,38 +257,50 @@ public class Consultas {
 		em.getTransaction().commit();
 	}
 
-	public void comprarPersonaje(Usuario u, Personaje p) {
+	public Usuario comprarPersonaje(Usuario u, Personaje p) {
 		em.getTransaction().begin();
 		Personaje pe = em.find(Personaje.class, p.getId());
 		Usuario us = em.find(Usuario.class, u.getNombre());
 		us.setPuntos(us.getPuntos() - pe.getCoste());
 		us.getPersonajes().add(pe);
-		em.merge(us);
+		Usuario user=em.merge(us);
 		em.getTransaction().commit();
+		return user;
 	}
 
-	public void comprarItem(Usuario u, Item i) {
+	
+	public Usuario comprarItem(Usuario u, Item i) {
 		em.getTransaction().begin();
 		Item it = em.find(Item.class, i.getNombre());
 		Usuario us = em.find(Usuario.class, u.getNombre());
 		switch (i.getTipo()) {
 		case VIDA:
-			if(us.getInventario().getPocionesList().size()<10)
-			us.getInventario().getPocionesList().add(it);
+			if(us.getInventario().getPocionesList().size()<10) {
+			Item item=it;
+			us.getInventario().getPocionesList().add(item);
+			us.setPuntos(u.getPuntos()-it.getCoste());
+			System.out.println(us.getInventario().getPocionesList().size());
+			}
 			break;
 		case ENERGIA:
-			if(us.getInventario().getElixiresList().size()<10)
+			if(us.getInventario().getElixiresList().size()<10) {
 			us.getInventario().getElixiresList().add(it);
+			us.setPuntos(u.getPuntos()-it.getCoste());
+			}
 			break;
 		case DEFENSA:
-			if(us.getInventario().getVialesList().size()<10)
+			if(us.getInventario().getVialesList().size()<10) {
 			us.getInventario().getVialesList().add(it);
+			us.setPuntos(u.getPuntos()-it.getCoste());
+			}
 			break;
 		default:
+			System.out.println("no se reconoce el item");
 			break;
 		}
-		em.merge(us);
+		Usuario user=em.merge(us);
 		em.getTransaction().commit();
+		return user;
 	}
 
 	public void actualizarUsuario(Usuario u) {
@@ -310,30 +323,33 @@ public class Consultas {
 	}
 
 	public Item getPocion(){
-		Query query = em.createQuery("SELECT p FROM Item p where p.tipo=:tipo", Item.class);
-		query.setParameter("tipo", Tipo.VIDA);
-		query.setFirstResult(0);
-		query.setMaxResults(1);
-		Item item = (Item) query.getSingleResult();
-		return item;
+		em.getTransaction().begin();
+		Item pocion = new Item(20, Tipo.VIDA);
+		pocion.setCoste(50);
+		pocion.setNombre("pocionnnn"+String.valueOf(Math.random()+100));
+		em.persist(pocion);
+		em.getTransaction().commit();
+		return pocion;
 	}
 	
 	public Item getVial(){
-		Query query = em.createQuery("SELECT p FROM Item p where p.tipo=:tipo", Item.class);
-		query.setParameter("tipo", Tipo.DEFENSA);
-		query.setFirstResult(0);
-		query.setMaxResults(1);
-		Item item = (Item) query.getSingleResult();
-		return item;
+		em.getTransaction().begin();
+		Item vial = new Item(20, Tipo.DEFENSA);
+		vial.setCoste(50);
+		vial.setNombre("pocionnnn"+String.valueOf(Math.random()+100));
+		em.persist(vial);
+		em.getTransaction().commit();
+		return vial;
 	}
 	
 	public Item getElixir(){
-		Query query = em.createQuery("SELECT p FROM Item p where p.tipo=:tipo", Item.class);
-		query.setParameter("tipo", Tipo.ENERGIA);
-		query.setFirstResult(0);
-		query.setMaxResults(1);
-		Item item = (Item) query.getSingleResult();
-		return item;
+		em.getTransaction().begin();
+		Item elixir = new Item(20, Tipo.ENERGIA);
+		elixir.setCoste(50);
+		elixir.setNombre("pocionnnn"+String.valueOf(Math.random()+100));
+		em.persist(elixir);
+		em.getTransaction().commit();
+		return elixir;
 	}
 	public EntityManager getEm() {
 		return em;

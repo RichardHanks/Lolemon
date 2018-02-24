@@ -26,6 +26,7 @@ import lolemon.consultas.Consultas;
 import lolemon.logicaDeNegocio.Clases.Compra;
 import lolemon.persistencia.modelo.Item;
 import lolemon.persistencia.modelo.Personaje;
+import lolemon.persistencia.modelo.Usuario;
 import model.UsuarioModel;
 
 public class TiendaController implements Initializable {
@@ -69,9 +70,9 @@ public class TiendaController implements Initializable {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/TiendaView.fxml"));
 		loader.setController(this);
 		loader.load();
+		compra=new Compra(null);
 		usuarioModel.addListener((o, ov, nv) -> {
 			init(nv);
-
 		});
 
 	}
@@ -79,8 +80,7 @@ public class TiendaController implements Initializable {
 	private void init(UsuarioModel nv) {
 		list.clear();
 		list.get().addAll(con.getCampeonesBloqueados(nv.getNombre()));
-		compra = new Compra(UsuarioModel.convertirEnUsuario(nv));
-
+		compra.setUsuario(UsuarioModel.convertirEnUsuario(usuarioModel.get()));
 	}
 
 	@Override
@@ -133,15 +133,18 @@ public class TiendaController implements Initializable {
 
 		// estoy hay que mirarlo, lo bueno es pasar el item desde una consulta
 		potas1Button.setOnAction(e->comprarPocion());
+		potas2Button.setOnAction(e->comprarElixir());
+		potas3Button.setOnAction(e->comprarVial());
 
 	}
 
 	private void ComprarCampeon() {
 		// Faltaría poner avisos y esas cosas.
 		String nombre = seleccionado.get().getNombre();
-		if (compra.comprarPersonaje(seleccionado.get())){
+		Usuario u=compra.comprarPersonaje(seleccionado.get());
+		if (u!=null){
 			//Setea el usuario al controller principal, este user ya esta persistido
-			IniciarSesionController.usuario.set(con.getUsuario(usuarioModel.get().getNombre()));
+			IniciarSesionController.usuario.set(u);
 			
 			Alert alert = new Alert(AlertType.INFORMATION);
 			alert.initOwner(Main.getPrimaryStage());
@@ -160,10 +163,45 @@ public class TiendaController implements Initializable {
 	}
 
 	private void comprarPocion() {
-		compra.comprarItem(con.getPocion());
+		Usuario u=compra.comprarItem(con.getPocion());
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.initOwner(Main.getPrimaryStage());
+		alert.getDialogPane().getStyleClass().add("myDialog");
+		alert.setTitle("Comprado");
+		alert.setHeaderText("Tus nuevos loles son :" + usuarioModel.get().getPuntos());
+		alert.showAndWait();
+		
 		//Setea el usuario al controller principal, este user ya esta persistido
-		IniciarSesionController.usuario.set(con.getUsuario(usuarioModel.get().getNombre()));
+		IniciarSesionController.usuario.set(u);
 	}
+	
+	private void comprarVial() {
+		Usuario u=compra.comprarItem(con.getVial());
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.initOwner(Main.getPrimaryStage());
+		alert.getDialogPane().getStyleClass().add("myDialog");
+		alert.setTitle("Comprado");
+		alert.setHeaderText("Tus nuevos loles son :" + usuarioModel.get().getPuntos());
+		alert.showAndWait();
+		
+		//Setea el usuario al controller principal, este user ya esta persistido
+		IniciarSesionController.usuario.set(u);
+		
+	}
+	
+	private void comprarElixir() {
+		Usuario u=compra.comprarItem(con.getElixir());
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.initOwner(Main.getPrimaryStage());
+		alert.getDialogPane().getStyleClass().add("myDialog");
+		alert.setTitle("Comprado");
+		alert.setHeaderText("Tus nuevos loles son :" + usuarioModel.get().getPuntos());
+		alert.showAndWait();
+		
+		//Setea el usuario al controller principal, este user ya esta persistido
+		IniciarSesionController.usuario.set(u);
+	}
+	
 
 	private void atras() {
 		init(usuarioModel.get());

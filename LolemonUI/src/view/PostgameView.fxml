@@ -3,48 +3,66 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="View" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
-   <top>
-      <ImageView fx:id="imageViewResult" fitHeight="122.0" fitWidth="503.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets top="10.0" />
-         </BorderPane.margin>
-      </ImageView>
-   </top>
-   <left>
-      <ImageView fx:id="imageViewChamp" fitHeight="218.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets left="10.0" />
-         </BorderPane.margin>
-      </ImageView>
-   </left>
-   <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-         <children>
-            <HBox prefHeight="55.0" prefWidth="338.0">
-               <children>
-                  <Label text="PUNTOS GANADOS:">
-                     <HBox.margin>
-                        <Insets right="10.0" />
-                     </HBox.margin>
-                  </Label>
-                  <Label fx:id="labelPuntos" text="Label" />
-               </children>
-            </HBox>
-            <Label fx:id="LabelMensaje" text="MENSAJE DEL CHAMP " />
-         </children>
-      </VBox>
-   </center>
-   <right>
-      <Button fx:id="BtnTerminar" alignment="BOTTOM_CENTER" mnemonicParsing="false" text="Terminar" BorderPane.alignment="BOTTOM_CENTER">
+<BorderPane fx:id="View" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="615.0" prefWidth="988.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+   <bottom>
+      <HBox alignment="CENTER" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets bottom="10.0" right="10.0" />
          </BorderPane.margin>
-      </Button>
+         <children>
+            <Button fx:id="BtnTerminar" alignment="BOTTOM_CENTER" mnemonicParsing="false" text="Terminar" />
+         </children>
+      </HBox>
+   </bottom>
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
+   <center>
+      <VBox alignment="CENTER" BorderPane.alignment="CENTER" />
+   </center>
+   <left>
+      <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fx:id="imageViewChamp" fitHeight="307.0" fitWidth="338.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../Pictures/0e100afad0c63a921535049e9d764ca8.jpg" />
+               </image>
+            </ImageView>
+         </children>
+         <padding>
+            <Insets left="30.0" />
+         </padding>
+      </VBox>
+   </left>
+   <right>
+      <VBox fx:id="resutladosBox" alignment="CENTER" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="labelPuntos" text="Puntos obtenidos: 35" textFill="WHITE">
+               <font>
+                  <Font name="Bell MT Bold" size="30.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelMensaje" text="Mensaje del campeon" textFill="WHITE">
+               <font>
+                  <Font name="Bell MT Bold" size="30.0" />
+               </font>
+            </Label>
+            <Label fx:id="dmgLabel" text="Label" textFill="WHITE">
+               <font>
+                  <Font name="Bell MT Bold" size="30.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets right="30.0" />
+         </padding>
+      </VBox>
    </right>
 </BorderPane>

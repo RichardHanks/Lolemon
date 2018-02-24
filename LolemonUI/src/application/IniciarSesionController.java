@@ -2,7 +2,10 @@ package application;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Random;
 import java.util.ResourceBundle;
+
+import javax.swing.text.View;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.PathTransition;
@@ -21,6 +24,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.CubicCurveTo;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
@@ -29,6 +34,8 @@ import lolemon.consultas.Consultas;
 import lolemon.persistencia.modelo.Usuario;
 import model.UsuarioModel;
 import music.MusicPlayer;
+import music.Musica;
+import transiciones.Transiciones;
 
 public class IniciarSesionController implements Initializable {
 
@@ -48,7 +55,7 @@ public class IniciarSesionController implements Initializable {
 	private Button loginButton;
 
 	private Consultas con = new Consultas();
-	private MusicPlayer musicPlayer = new MusicPlayer();
+	public static MusicPlayer musicPlayer= new MusicPlayer();
 	
 	private ObjectProperty<LolemonController> controller = new SimpleObjectProperty<>(this, "controller",
 			new LolemonController());
@@ -78,22 +85,20 @@ public class IniciarSesionController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		Transiciones.lloverCirculos(view);
 				
 		usuario.addListener((o, ov, nv)->{
+			System.out.println(nv);
 			if(nv!=null) {
 				UsuarioModel u = convertirEnUsuarioModel();
 				usuarioModel.set(u);
-				
 				System.out.println();
-				System.out.println("Num partidas "+u.getHistorial().getNumeroPartidas());
-				System.out.println("Num Victorias "+u.getHistorial().getNumeroVictorias());
-				System.out.println("Num pociones "+u.getInventario().getPocionesList().size());
-				System.out.println("Num viales "+u.getInventario().getVialesList().size());
-				System.out.println("Num elixires "+u.getInventario().getElixiresList().size());
+				System.out.println("Numero de partidas "+u.getHistorial().getNumeroPartidas());
+				System.out.println("Numero de victorias "+u.getHistorial().getNumeroVictorias());
+				
 			}
-			
-			
 		});
+
 		
 		loginButton.setOnAction(e -> login(e));
 		loginButton.disableProperty()
@@ -124,8 +129,8 @@ public class IniciarSesionController implements Initializable {
 		controller.get().settingsControllerProperty().bindBidirectional(settingsController);
 		controller.get().PostGameControllerProperty().bindBidirectional(PostGameController);
 		
-		//inicia la musica
-		musicPlayer.playInicial();
+		
+
 		
 		//pasar el postgamecontroller (chambergada)
 	    champSelectController.get().setPgcontroller(PostGameController.get());
@@ -137,7 +142,8 @@ public class IniciarSesionController implements Initializable {
 
 		usuario.set(con.getUsuario(usuarioText.getText()));
 			if (usuario.get().getContraseña().equals(passwordText.getText())) {
-				Main.getPrimaryStage().getScene().setRoot(controller.get().getView());
+				PostGameController.get().setPuntosganados(10);
+				Main.getPrimaryStage().getScene().setRoot(PostGameController.get().getView());
 				animarMenu();
 			} else
 				error();
@@ -187,6 +193,7 @@ public class IniciarSesionController implements Initializable {
 		fade.play();
 	}
 
+	
 	public BorderPane getView() {
 		return view;
 	}

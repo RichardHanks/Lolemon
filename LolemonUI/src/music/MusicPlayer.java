@@ -1,34 +1,39 @@
 package music;
 import javafx.beans.property.DoubleProperty;
 import javafx.scene.media.AudioClip;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.util.Duration;
 
 public class MusicPlayer {
 
-	private static AudioClip inicial;
-
+	private  MediaPlayer reproductor;
+	
 	public MusicPlayer() {
-		inicial = new AudioClip(this.getClass().getResource("/application/fondomusica.mp3").toExternalForm());
-		inicial.setCycleCount(AudioClip.INDEFINITE);
-		inicial.volumeProperty().addListener((o, ov, nv)->{
-			stopInicial();
-			playInicial();
-		});
-
+		reproductor =new MediaPlayer(new Media(MusicPlayer.class.getResource(Musica.INICIAL.getNombreCancion()).toExternalForm()));
+		reproductor.setCycleCount(MediaPlayer.INDEFINITE);
+		reproductor.play();
 	}
 
-	public static void playInicial() {
-		inicial.play();
+	public void play() {
+		reproductor.play();
 	}
 
-	public static void stopInicial() {
-		inicial.stop();
+	public void stop() {
+		reproductor.stop();
 	}
 	
-	public static void volumen(double volumen) {
-		inicial.setVolume(volumen);
+	public void volumen(double volumen) {
+		reproductor.setVolume(volumen);
 	}
 	
-	public static DoubleProperty volumenProperty() {
-		return inicial.volumeProperty();
+	public MediaPlayer getReproductor() {
+		return reproductor;
+	}
+	
+	public void setMusica(Musica musica) {
+		reproductor= new MediaPlayer(new Media(MusicPlayer.class.getResource(Musica.INICIAL.getNombreCancion()).toExternalForm()));
+		
+		reproductor.setCycleCount(MediaPlayer.INDEFINITE);
 	}
 }

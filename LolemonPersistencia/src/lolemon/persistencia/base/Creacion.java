@@ -44,10 +44,13 @@ public class Creacion {
 			// Pociones
 			Item poVida = new Item(20, Tipo.VIDA);
 			poVida.setNombre("PocionVida");
+			poVida.setCoste(50);
 			Item poEnergia = new Item(20, Tipo.ENERGIA);
 			poEnergia.setNombre("PocionEnergia");
+			poEnergia.setCoste(50);
 			Item poDefensa = new Item(20, Tipo.DEFENSA);
 			poDefensa.setNombre("PocionDefensa");
+			poDefensa.setCoste(50);
 
 			Inventario inventario = new Inventario();
 			Historial historial = new Historial();

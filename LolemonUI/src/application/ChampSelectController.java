@@ -44,6 +44,7 @@ import lolemon.consultas.Consultas;
 import lolemon.persistencia.modelo.Personaje;
 import model.PersonajeModel;
 import model.UsuarioModel;
+import transiciones.Transiciones;
 
 public class ChampSelectController implements Initializable {
 
@@ -147,8 +148,7 @@ public class ChampSelectController implements Initializable {
 				view.setBackground(new Background(myBI));
 			}
 		});
-
-		parpadear(-1);
+		Transiciones.parpadear(1, turnoLabel, -1);
 
 	}
 
@@ -166,16 +166,8 @@ public class ChampSelectController implements Initializable {
 		bloquearButton2.setDisable(false);
 		turno.set("Primera seleccion");
 		primeraSeleccion = true;
-		parpadear(-1);
+		Transiciones.parpadear(1, turnoLabel, -1);
 
-	}
-
-	private void parpadear(int time) {
-		FadeTransition fadeTransition = new FadeTransition(Duration.seconds(1.0), turnoLabel);
-		fadeTransition.setFromValue(1.0);
-		fadeTransition.setToValue(0.0);
-		fadeTransition.setCycleCount(time);
-		fadeTransition.playFromStart();
 	}
 
 	private Callback<ListView<Personaje>, ListCell<Personaje>> customHorizontalListView() {
@@ -210,13 +202,13 @@ public class ChampSelectController implements Initializable {
 
 	private void bloqueo() {
 		primeraSeleccion = false;
-		brilloImagen(champ1Foto);
+		Transiciones.brilloImagen(champ1Foto, Color.CRIMSON);
 		bloquearButton1.setDisable(true);
 		turno.set("Segunda selección");
 	}
 
 	private void bloqueo2(ActionEvent e) {
-		brilloImagen(champ2Foto);
+		Transiciones.brilloImagen(champ2Foto, Color.CRIMSON);
 		campeonesList.setDisable(true);
 		bloquearButton1.setDisable(true);
 		bloquearButton2.setDisable(true);
@@ -241,6 +233,7 @@ public class ChampSelectController implements Initializable {
 
 		FadeTransition fd = new FadeTransition();
 		fd.setNode(getView());
+		fd.setDuration(Duration.seconds(0.5));
 		fd.setCycleCount(2);
 		fd.setToValue(0);
 		fd.setAutoReverse(true);
@@ -252,30 +245,18 @@ public class ChampSelectController implements Initializable {
 				Bcontroller.set(new BatallaController(personaje1, personaje2, usuarioModel.get()));
 				Bcontroller.get().getBatallaBox().setBackground(view.getBackground());
 				Bcontroller.get().setPgcontroller(pgcontroller.get());
-				Main.getPrimaryStage().getScene().setRoot(Bcontroller.get().getView());
-				init();
-				
-
+				Main.getPrimaryStage().getScene().setRoot(Bcontroller.get().getView());	
+				init();	
 			} catch (Exception e1) {
 				e1.printStackTrace();
 			}
 
 		});
 
+
 	}
 
-	private void brilloImagen(Node node) {
-		int depth = 500;
 
-		DropShadow borderGlow = new DropShadow();
-		borderGlow.setOffsetY(-0f);
-		borderGlow.setOffsetX(-0f);
-		borderGlow.setColor(Color.GOLD);
-		borderGlow.setWidth(depth);
-		borderGlow.setHeight(depth);
-
-		node.setEffect(borderGlow);
-	}
 
 	public BorderPane getView() {
 		return view;

@@ -20,6 +20,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Stop;
@@ -75,7 +76,9 @@ public class SettingsController implements Initializable {
 		musicaButton.setSelected(true);
 		musicaButton.setOnAction(e -> controlarMusica(e));
 		enviarButton.setOnAction(e->enviarCorreo(e));
-		MusicPlayer.volumenProperty().bind(volumenSlider.valueProperty().divide(100));
+		
+		IniciarSesionController.musicPlayer.getReproductor().volumeProperty().bind(volumenSlider.valueProperty().divide(100));
+		
 
 		usuarioModel.addListener((o, ov, nv) -> {
 			usuarioLabel.textProperty().bind(nv.nombreProperty());
@@ -95,9 +98,9 @@ public class SettingsController implements Initializable {
 
 	private void controlarMusica(ActionEvent e) {
 		if (musicaButton.isSelected())
-			MusicPlayer.playInicial();
+			IniciarSesionController.musicPlayer.play();
 		else
-			MusicPlayer.stopInicial();
+			IniciarSesionController.musicPlayer.stop();
 	}
 
 	public void show(Stage parentStage) {
