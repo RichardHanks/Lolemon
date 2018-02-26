@@ -44,7 +44,7 @@ public class Combate {
 
 		int coeficiente = (int) (p12.getEnergiaTotal() * p12.getRecargo());
 
-		if (p12.getEnergia() == p12.getEnergiaTotal()) {
+		if (p12.getEnergia().equals(p12.getEnergiaTotal())) {
 			System.out.println("Energía completa!");
 		} else {
 			p12.setEnergia(p12.getEnergia() + coeficiente);

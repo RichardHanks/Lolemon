@@ -177,6 +177,8 @@ public class BatallaController implements Initializable {
 
 		pj1vidaLabel.textProperty().bind(Bindings.concat(seleccionado1.get().vidaProperty()));
 		pj1manaLabel.textProperty().bind(Bindings.concat(seleccionado1.get().energiaProperty()));
+		pj2vidaLabel.textProperty().bind(Bindings.concat(seleccionado2.get().vidaProperty()));
+		pj2manaLabel.textProperty().bind(Bindings.concat(seleccionado2.get().energiaProperty()));
 
 		pb1.progressProperty()
 				.bind(seleccionado1.get().vidaProperty().multiply(1.0).divide(seleccionado1.get().getVidaTotal()));
@@ -327,7 +329,7 @@ public class BatallaController implements Initializable {
 		
 		if(victoria) {
 			pgcontroller.get().getView().setStyle(VICTORYBACKROUND);
-			pgcontroller.get().setDmg(combate.getDañoj2());
+			pgcontroller.get().setDmg(combate.getDañoj1());
 		}
 		else { 
 			pgcontroller.get().getView().setStyle(DEFEATBACKROUND);

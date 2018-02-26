@@ -275,6 +275,672 @@ public class Creacion {
 			hdarius.add(darius4);
 
 			darius.setHabilidades(hdarius);
+			
+			
+			// Personajes
+			Personaje Diana = new Personaje();
+			Diana.setNombre("Diana");
+			Diana.setCoste(2500);
+			Diana.setVida(480);
+			Diana.setEnergia(120);
+			Diana.setDefensa(30);
+			Diana.setRecargo(0.10);
+			Diana.setVelocidad(72);
+			Diana.setVidaTotal(480);
+			Diana.setEnergiaTotal(120);
+			Diana.setMensajes(new ArrayList<String>());
+			Diana.setAspecto("/54/diana/splash/diana.jpg");
+			Diana.setSprite("/54/diana/sprite/Diana.png");
+
+			// habilidades ligadas al personaje
+			Habilidad Diana1 = new Habilidad();
+			Diana1.setNumHabilidad(0);
+			Diana1.setNombre("Impacto Creciente");
+			Diana1.setDescripcion("Diana blande su espada para liberar un rayo de energía lunar que inflige daño en un arco antes de explotar.");
+			Diana1.setDaño(80);
+			Diana1.setCoste(40);
+			Diana1.setCritico(80);
+			Diana1.setDmgverdadero(false);
+			Diana1.setRobovida(false);
+			Diana1.setPrecision(65);
+
+			Habilidad diana2 = new Habilidad();
+			diana2.setNumHabilidad(1);
+			diana2.setNombre("Cascada pálida");
+			diana2.setDescripcion("Crea tres esferas que orbitan y explotan al impactar con los enemigos");
+			diana2.setDaño(50);
+			diana2.setCoste(10);
+			diana2.setCritico(15);
+			diana2.setDmgverdadero(false);
+			diana2.setRobovida(false);
+			diana2.setPrecision(100);
+
+			Habilidad diana3 = new Habilidad();
+			diana3.setNumHabilidad(2);
+			diana3.setNombre("Lluvia de luna");
+			diana3.setDescripcion("Diana atrae a todos los enemigos cercanos y les hace daño.");
+			diana3.setDaño(65);
+			diana3.setCoste(0);
+			diana3.setCritico(0);
+			diana3.setDmgverdadero(false);
+			diana3.setRobovida(false);
+			diana3.setPrecision(60);
+
+			Habilidad diana4 = new Habilidad();
+			diana4.setNumHabilidad(3);
+			diana4.setNombre("Torrente lunar");
+			diana4.setDescripcion(
+					"Diana corre hacia un enemigo y le inflige daño mágico.");
+			diana4.setDaño(100);
+			diana4.setCoste(50);
+			diana4.setCritico(150);
+			diana4.setDmgverdadero(false);
+			diana4.setRobovida(false);
+			diana4.setPrecision(100);
+
+			ArrayList<Habilidad> hdiana = new ArrayList<>();
+			hdiana.add(Diana1);
+			hdiana.add(diana2);
+			hdiana.add(diana3);
+			hdiana.add(diana4);
+
+			Diana.setHabilidades(hdiana);
+			
+			
+			
+			
+			Personaje jayce = new Personaje();
+			jayce.setNombre("Jayce");
+			jayce.setCoste(2500);
+			jayce.setVida(450);
+			jayce.setEnergia(90);
+			jayce.setDefensa(30);
+			jayce.setRecargo(0.15);
+			jayce.setVelocidad(80);
+			jayce.setVidaTotal(450);
+			jayce.setEnergiaTotal(90);
+			jayce.setMensajes(new ArrayList<String>());
+			jayce.setAspecto("/54/jayce/splash/jayce.jpg");
+			jayce.setSprite("/54/jayce/sprite/Jayce.png");
+
+			// habilidades ligadas al personaje
+			Habilidad jayce1 = new Habilidad();
+			jayce1.setNumHabilidad(0);
+			jayce1.setNombre("Explosión eléctrica");
+			jayce1.setDescripcion("Lanza un orbe de electricidad que detona al golpear a un enemigo");
+			jayce1.setDaño(100);
+			jayce1.setCoste(40);
+			jayce1.setCritico(25);
+			jayce1.setDmgverdadero(false);
+			jayce1.setRobovida(false);
+			jayce1.setPrecision(60);
+
+			Habilidad jayce2 = new Habilidad();
+			jayce2.setNumHabilidad(1);
+			jayce2.setNombre("Campo de rayos");
+			jayce2.setDescripcion("Crea un campo de rayos que daña a los enemigos cercanos");
+			jayce2.setDaño(65);
+			jayce2.setCoste(15);
+			jayce2.setCritico(25);
+			jayce2.setDmgverdadero(false);
+			jayce2.setRobovida(false);
+			jayce2.setPrecision(80);
+
+			Habilidad jayce3 = new Habilidad();
+			jayce3.setNumHabilidad(2);
+			jayce3.setNombre("Golpe tormentoso");
+			jayce3.setDescripcion("Golpe de martillo que Inflige daño.");
+			jayce3.setDaño(40);
+			jayce3.setCoste(15);
+			jayce3.setCritico(25);
+			jayce3.setDmgverdadero(true);
+			jayce3.setRobovida(false);
+			jayce3.setPrecision(80);
+
+			Habilidad jayce4 = new Habilidad();
+			jayce4.setNumHabilidad(3);
+			jayce4.setNombre("Martillo de mercurio");
+			jayce4.setDescripcion(
+					"Jayce desprende toda la energía acumulada en su martillo y causa mucho daño.");
+			jayce4.setDaño(200);
+			jayce4.setCoste(60);
+			jayce4.setCritico(25);
+			jayce4.setDmgverdadero(false);
+			jayce4.setRobovida(true);
+			jayce4.setTipoRobovida(TiposRobosVida.VidaEnemigaActual);
+			jayce4.setPorcentajeRV(0.08);
+			jayce4.setPrecision(75);
+
+			ArrayList<Habilidad> hjayce = new ArrayList<>();
+			hjayce.add(jayce1);
+			hjayce.add(jayce2);
+			hjayce.add(jayce3);
+			hjayce.add(jayce4);
+
+			jayce.setHabilidades(hjayce);
+			
+			//falta añadir mensaje a los campeones, cambiar el nombre de las habilidades y añadir splasharts
+			Personaje lucian = new Personaje();
+			lucian.setNombre("Lucian");
+			lucian.setCoste(3000);
+			lucian.setVida(410);
+			lucian.setEnergia(120);
+			lucian.setDefensa(20);
+			lucian.setRecargo(0.10);
+			lucian.setVelocidad(85);
+			lucian.setVidaTotal(410);
+			lucian.setEnergiaTotal(120);
+			lucian.setMensajes(new ArrayList<String>());
+			lucian.setAspecto("/54/lucian/splash/lucian.jpg");
+			lucian.setSprite("/54/lucian/sprite/Lucian.png");
+
+			// habilidades ligadas al personaje
+			Habilidad lucian1 = new Habilidad();
+			lucian1.setNumHabilidad(0);
+			lucian1.setNombre("Luz lacerante");
+			lucian1.setDescripcion("Lucian dispara un rayo de luz lacerante a través de un enemigo.");
+			lucian1.setDaño(75);
+			lucian1.setCoste(45);
+			lucian1.setCritico(50);
+			lucian1.setDmgverdadero(false);
+			lucian1.setRobovida(false);
+			lucian1.setPrecision(85);
+
+			Habilidad lucian2 = new Habilidad();
+			lucian2.setNumHabilidad(1);
+			lucian2.setNombre("Resplandor ardiente");
+			lucian2.setDescripcion("Lucian dispara un misil que explota en forma de estrella");
+			lucian2.setDaño(50);
+			lucian2.setCoste(40);
+			lucian2.setCritico(30);
+			lucian2.setDmgverdadero(true);
+			lucian2.setRobovida(false);
+			lucian2.setPrecision(85);
+
+			Habilidad lucian3 = new Habilidad();
+			lucian3.setNumHabilidad(2);
+			lucian3.setNombre("Persecución implacable");
+			lucian3.setDescripcion("Lucian se desplaza una corta distancia e inflinge daño.");
+			lucian3.setDaño(50);
+			lucian3.setCoste(20);
+			lucian3.setCritico(20);
+			lucian3.setDmgverdadero(false);
+			lucian3.setRobovida(true);
+			lucian3.setTipoRobovida(TiposRobosVida.VidaEnemigaMaxima);
+			lucian3.setPorcentajeRV(0.05);
+			lucian3.setPrecision(80);
+
+			Habilidad lucian4 = new Habilidad();
+			lucian4.setNumHabilidad(3);
+			lucian4.setNombre("El Sacrificio");
+			lucian4.setDescripcion(
+					"Lucian desata un torrente de disparos de sus armas.");
+			lucian4.setDaño(275);
+			lucian4.setCoste(70);
+			lucian4.setCritico(0);
+			lucian4.setDmgverdadero(false);
+			lucian4.setRobovida(true);
+			lucian4.setTipoRobovida(TiposRobosVida.VidaFaltanteEnemiga);
+			lucian4.setPorcentajeRV(0.2);
+			lucian4.setPrecision(80);
+
+			ArrayList<Habilidad> hlucian = new ArrayList<>();
+			hlucian.add(lucian1);
+			hlucian.add(lucian2);
+			hlucian.add(lucian3);
+			hlucian.add(lucian4);
+
+			lucian.setHabilidades(hlucian);
+			
+			
+			
+			
+			
+			Personaje lux = new Personaje();
+			lux.setNombre("Lux");
+			lux.setCoste(3000);
+			lux.setVida(450);
+			lux.setEnergia(150);
+			lux.setDefensa(20);
+			lux.setRecargo(0.08);
+			lux.setVelocidad(73);
+			lux.setVidaTotal(450);
+			lux.setEnergiaTotal(150);
+			lux.setMensajes(new ArrayList<String>());
+			lux.setAspecto("/54/lux/splash/lux.jpg");
+			lux.setSprite("/54/lux/sprite/Lux.png");
+
+			// habilidades ligadas al personaje
+			Habilidad lux1 = new Habilidad();
+			lux1.setNumHabilidad(0);
+			lux1.setNombre("Enlace de luz");
+			lux1.setDescripcion("Lux lanza una esfera de luz que causa daño.");
+			lux1.setDaño(70);
+			lux1.setCoste(40);
+			lux1.setCritico(50);
+			lux1.setDmgverdadero(false);
+			lux1.setRobovida(false);
+			lux1.setPrecision(95);
+
+			Habilidad lux2 = new Habilidad();
+			lux2.setNumHabilidad(1);
+			lux2.setNombre("Barrera prismática");
+			lux2.setDescripcion("Lanza su varita y deforma la luz alrededor causando daño");
+			lux2.setDaño(55);
+			lux2.setCoste(30);
+			lux2.setCritico(100);
+			lux2.setDmgverdadero(false);
+			lux2.setRobovida(false);
+			lux2.setPrecision(60);
+
+			Habilidad lux3 = new Habilidad();
+			lux3.setNumHabilidad(2);
+			lux3.setNombre("Singularidad brillante");
+			lux3.setDescripcion("Lanza una anomalía de luz entrelazada a un área que daña a los enemigos.");
+			lux3.setDaño(55);
+			lux3.setCoste(40);
+			lux3.setCritico(0);
+			lux3.setDmgverdadero(false);
+			lux3.setRobovida(false);
+			lux3.setPrecision(100);
+
+			Habilidad lux4 = new Habilidad();
+			lux4.setNumHabilidad(3);
+			lux4.setNombre("Chispa final");
+			lux4.setDescripcion(
+					"Tras reunir la energía necesaria, Lux lanza un rayo de luz que daña a todos los objetivos de la zona.");
+			lux4.setDaño(280);
+			lux4.setCoste(70);
+			lux4.setCritico(40);
+			lux4.setDmgverdadero(false);
+			lux4.setRobovida(false);
+			lux4.setPrecision(70);
+
+			ArrayList<Habilidad> hlux = new ArrayList<>();
+			 hlux.add(lux1);
+			 hlux.add(lux2);
+			 hlux.add(lux3);
+			 hlux.add(lux4);
+
+			lux.setHabilidades(hlux);
+			
+			
+			
+			
+			
+			Personaje myi = new Personaje();
+			myi.setNombre("Maestro Yi");
+			myi.setCoste(3500);
+			myi.setVida(480);
+			myi.setEnergia(100);
+			myi.setDefensa(30);
+			myi.setRecargo(0.12);
+			myi.setVelocidad(82);
+			myi.setVidaTotal(480);
+			myi.setEnergiaTotal(100);
+			myi.setMensajes(new ArrayList<String>());
+			myi.setAspecto("/54/yi/splash/yi.jpg");
+			myi.setSprite("/54/yi/sprite/MasterYi.png");
+
+			// habilidades ligadas al personaje
+			Habilidad yi1 = new Habilidad();
+			yi1.setNumHabilidad(0);
+			yi1.setNombre("Golpe fulgurante");
+			yi1.setDescripcion("El Maestro Yi se teleporta por el campo de batalla a toda velocidad y"
+					+ " daña a múltiples unidades a su paso, sin que nadie pueda tocarlo.");
+			yi1.setDaño(60);
+			yi1.setCoste(30);
+			yi1.setCritico(60);
+			yi1.setDmgverdadero(true);
+			yi1.setRobovida(false);
+			yi1.setPrecision(70);
+
+			Habilidad yi2 = new Habilidad();
+			yi2.setNumHabilidad(1);
+			yi2.setNombre("Meditar");
+			yi2.setDescripcion("El Maestro Yi medita y causa daño.");
+			yi2.setDaño(40);
+			yi2.setCoste(25);
+			yi2.setCritico(10);
+			yi2.setDmgverdadero(true);
+			yi2.setRobovida(false);
+			yi2.setPrecision(100);
+
+			Habilidad yi3 = new Habilidad();
+			yi3.setNumHabilidad(2);
+			yi3.setNombre("Estilo Wuju");
+			yi3.setDescripcion("El Maestro Yi aplica una técnica wuju ");
+			yi3.setDaño(55);
+			yi3.setCoste(15);
+			yi3.setCritico(0);
+			yi3.setDmgverdadero(false);
+			yi3.setRobovida(true);
+			yi3.setTipoRobovida(TiposRobosVida.VidaEnemigaActual);
+			yi3.setPorcentajeRV(0.05);
+			yi3.setPrecision(80);
+
+			Habilidad yi4 = new Habilidad();
+			yi4.setNumHabilidad(3);
+			yi4.setNombre("Imparable");
+			yi4.setDescripcion(
+					"Maestro Yi desata todo su poder, lo que causa gran daño al enemigo.");
+			yi4.setDaño(200);
+			yi4.setCoste(60);
+			yi4.setCritico(0);
+			yi4.setDmgverdadero(false);
+			yi4.setRobovida(true);
+			yi4.setTipoRobovida(TiposRobosVida.VidaEnemigaActual);
+			yi4.setPorcentajeRV(0.2);
+			yi4.setPrecision(70);
+
+			ArrayList<Habilidad> hyi = new ArrayList<>();
+			hyi.add(yi1);
+			hyi.add(yi2);
+			hyi.add(yi3);
+			hyi.add(yi4);
+
+			myi.setHabilidades(hyi);
+			
+			
+			
+			
+			
+			
+			Personaje riven = new Personaje();
+			riven.setNombre("Riven");
+			riven.setCoste(3500);
+			riven.setVida(480);
+			riven.setEnergia(120);
+			riven.setDefensa(30);
+			riven.setRecargo(0.10);
+			riven.setVelocidad(81);
+			riven.setVidaTotal(480);
+			riven.setEnergiaTotal(120);
+			riven.setMensajes(new ArrayList<String>());
+			riven.setAspecto("/54/Riven/splash/riven.jpg");
+			riven.setSprite("/54/Riven/sprite/Riven.png");
+
+			// habilidades ligadas al personaje
+			Habilidad riven1 = new Habilidad();
+			riven1.setNumHabilidad(0);
+			riven1.setNombre("Alas rotas");
+			riven1.setDescripcion("Riven lanza una serie de golpes.");
+			riven1.setDaño(65);
+			riven1.setCoste(40);
+			riven1.setCritico(35);
+			riven1.setDmgverdadero(true);
+			riven1.setRobovida(false);
+			riven1.setPrecision(80);
+
+			Habilidad riven2 = new Habilidad();
+			riven2.setNumHabilidad(1);
+			riven2.setNombre("Estallido de ki");
+			riven2.setDescripcion("Riven emite un Estallido de ki que daña.");
+			riven2.setDaño(50);
+			riven2.setCoste(0);
+			riven2.setCritico(0);
+			riven2.setDmgverdadero(false);
+			riven2.setRobovida(false);
+			riven2.setPrecision(90);
+
+			Habilidad riven3 = new Habilidad();
+			riven3.setNumHabilidad(2);
+			riven3.setNombre("Valor");
+			riven3.setDescripcion("Riven se arma de valor y causa daño con el ki que genera su aura.");
+			riven3.setDaño(55);
+			riven3.setCoste(25);
+			riven3.setCritico(15);
+			riven3.setDmgverdadero(false);
+			riven3.setRobovida(false);
+		    riven3.setPrecision(80);
+
+			Habilidad riven4 = new Habilidad();
+			riven4.setNumHabilidad(3);
+			riven4.setNombre("Cuchillada de Viento");
+			riven4.setDescripcion(
+					"Riven lanza una onda de choque que inflige daño .");
+			riven4.setDaño(500);
+			riven4.setCoste(100);
+			riven4.setCritico(60);
+			riven4.setDmgverdadero(false);
+			riven4.setRobovida(false);
+            riven4.setPrecision(20);
+
+			ArrayList<Habilidad> hriven = new ArrayList<>();
+			hriven.add(riven1);
+			hriven.add(riven2);
+			hriven.add(riven3);
+			hriven.add(riven4);
+
+			riven.setHabilidades(hriven);
+			
+			
+			
+			
+			
+			Personaje sivir = new Personaje();
+			sivir.setNombre("Sivir");
+			sivir.setCoste(3500);
+			sivir.setVida(410);
+			sivir.setEnergia(150);
+			sivir.setDefensa(20);
+			sivir.setRecargo(0.08);
+			sivir.setVelocidad(84);
+			sivir.setVidaTotal(410);
+			sivir.setEnergiaTotal(150);
+			sivir.setMensajes(new ArrayList<String>());
+			sivir.setAspecto("/54/sivir/splash/sivir.jpg");
+			sivir.setSprite("/54/sivir/sprite/Sivir.png");
+
+			// habilidades ligadas al personaje
+			Habilidad sivir1 = new Habilidad();
+			sivir1.setNumHabilidad(0);
+			sivir1.setNombre("Cuchilla bumerán");
+			sivir1.setDescripcion("Sivir arroja su arma como un bumerán, causando daño.");
+			sivir1.setDaño(90);
+			sivir1.setCoste(50);
+			sivir1.setCritico(30);
+			sivir1.setDmgverdadero(false);
+			sivir1.setRobovida(false);
+			sivir1.setPrecision(70);
+
+			Habilidad sivir2 = new Habilidad();
+			sivir2.setNumHabilidad(1);
+			sivir2.setNombre("Ricochet");
+			sivir2.setDescripcion("Los ataques de Sivir rebotan en objetivos cercanos, infligiendo menos daño tras el primer rebote.");
+			sivir2.setDaño(60);
+			sivir2.setCoste(35);
+			sivir2.setCritico(0);
+			sivir2.setDmgverdadero(false);
+			sivir2.setRobovida(false);
+			sivir2.setPrecision(100);
+
+			Habilidad sivir3 = new Habilidad();
+			sivir3.setNumHabilidad(2);
+			sivir3.setNombre("Escudo de hechizos");
+			sivir3.setDescripcion("Crea una barrera mágica que daña a los enemigos al tocarla.");
+			sivir3.setDaño(70);
+			sivir3.setCoste(45);
+			sivir3.setCritico(40);
+			sivir3.setDmgverdadero(false);
+			sivir3.setRobovida(true);
+			sivir3.setTipoRobovida(TiposRobosVida.VidaEnemigaMaxima);
+			sivir3.setPorcentajeRV(0.10);
+			sivir3.setPrecision(90);
+
+			Habilidad sivir4 = new Habilidad();
+			sivir4.setNumHabilidad(3);
+			sivir4.setNombre("A la caza");
+			sivir4.setDescripcion(
+					"Sivir causa gran daño a su presa.");
+			sivir4.setDaño(150);
+			sivir4.setCoste(75);
+			sivir4.setCritico(200);
+			sivir4.setDmgverdadero(true);
+			sivir4.setRobovida(false);
+			sivir4.setPrecision(100);
+
+			ArrayList<Habilidad> hsivir = new ArrayList<>();
+			hsivir.add(sivir1);
+			hsivir.add(sivir2);
+			hsivir.add(sivir3);
+			hsivir.add(sivir4);
+
+			sivir.setHabilidades(hsivir);
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			Personaje thresh = new Personaje();
+			thresh.setNombre("Thresh");
+			thresh.setCoste(3500);
+			thresh.setVida(620);
+			thresh.setEnergia(90);
+			thresh.setDefensa(35);
+			thresh.setRecargo(0.10);
+			thresh.setVelocidad(69);
+			thresh.setVidaTotal(620);
+			thresh.setEnergiaTotal(90);
+			thresh.setMensajes(new ArrayList<String>());
+			thresh.setAspecto("/54/thresh/splash/thresh.jpg");
+			thresh.setSprite("/54/thresh/sprite/Thresh.png");
+
+			// habilidades ligadas al personaje
+			Habilidad thresh1 = new Habilidad();
+			thresh1.setNumHabilidad(0);
+			thresh1.setNombre("Sentencia de muerte");
+			thresh1.setDescripcion("Thresh atrapa a un enemigo con sus cadenas y lo atrae hacia él.");
+			thresh1.setDaño(50);
+			thresh1.setCoste(20);
+			thresh1.setCritico(25);
+			thresh1.setDmgverdadero(false);
+			thresh1.setRobovida(false);
+			thresh1.setPrecision(60);
+
+			Habilidad thresh2 = new Habilidad();
+			thresh2.setNumHabilidad(1);
+			thresh2.setNombre("Camino oscuro");
+			thresh2.setDescripcion("Thresh lanza una linterna que estalla y causa daño");
+			thresh2.setDaño(40);
+			thresh2.setCoste(30);
+			thresh2.setCritico(45);
+			thresh2.setDmgverdadero(false);
+			thresh2.setRobovida(false);
+			thresh2.setPrecision(100);
+
+			Habilidad thresh3 = new Habilidad();
+			thresh3.setNumHabilidad(2);
+			thresh3.setNombre("Despellejar");
+			thresh3.setDescripcion("Thresh barre la zona con sus cadenas y derriba a todos los enemigos ");
+			thresh3.setDaño(35);
+			thresh3.setCoste(0);
+			thresh3.setCritico(15);
+			thresh3.setDmgverdadero(true);
+			thresh3.setRobovida(false);
+		    thresh3.setPrecision(100);
+
+			Habilidad thresh4 = new Habilidad();
+			thresh4.setNumHabilidad(3);
+			thresh4.setNombre("La caja");
+			thresh4.setDescripcion(
+					"Una prisión de muros que se estrechan hasta causar un gran daño.");
+			thresh4.setDaño(80);
+			thresh4.setCoste(75);
+			thresh4.setCritico(0);
+			thresh4.setDmgverdadero(false);
+			thresh4.setRobovida(true);
+			thresh4.setTipoRobovida(TiposRobosVida.VidaFaltantePropia);
+			thresh4.setPorcentajeRV(0.5);
+			thresh4.setPrecision(80);
+
+			ArrayList<Habilidad> hthresh = new ArrayList<>();
+			hthresh.add(thresh1);
+			hthresh.add(thresh2);
+			hthresh.add(thresh3);
+			hthresh.add(thresh4);
+
+			thresh.setHabilidades(hthresh);
+			
+			
+			
+			
+			
+			
+			
+			
+			Personaje yasuo = new Personaje();
+			yasuo.setNombre("Yasuo");
+			yasuo.setCoste(3500);
+			yasuo.setVida(450);
+			yasuo.setEnergia(100);
+			yasuo.setDefensa(20);
+			yasuo.setRecargo(0.10);
+			yasuo.setVelocidad(90);
+			yasuo.setVidaTotal(450);
+			yasuo.setEnergiaTotal(100);
+			yasuo.setMensajes(new ArrayList<String>());
+			yasuo.setAspecto("/54/yasuo/splash/yasuo.jpg");
+			yasuo.setSprite("/54/yasuo/sprite/Yasuo.png");
+
+			// habilidades ligadas al personaje
+			Habilidad yasuo1 = new Habilidad();
+			yasuo1.setNumHabilidad(0);
+			yasuo1.setNombre("Tempestad de acero");
+			yasuo1.setDescripcion("Lanza una estocada al frente que inflige daño.");
+			yasuo1.setDaño(100);
+			yasuo1.setCoste(50);
+			yasuo1.setCritico(100);
+			yasuo1.setDmgverdadero(false);
+			yasuo1.setRobovida(false);
+			yasuo1.setPrecision(50);
+
+			Habilidad yasuo2 = new Habilidad();
+			yasuo2.setNumHabilidad(1);
+			yasuo2.setNombre("Muro de viento");
+			yasuo2.setDescripcion("Crea un muro móvil que bloquea los proyectiles enemigos y devuelve daño.");
+			yasuo2.setDaño(70);
+			yasuo2.setCoste(40);
+			yasuo2.setCritico(70);
+			yasuo2.setDmgverdadero(true);
+			yasuo2.setRobovida(false);
+			yasuo2.setPrecision(50);
+
+			Habilidad yasuo3 = new Habilidad();
+			yasuo3.setNumHabilidad(2);
+			yasuo3.setNombre("Hoja cortante");
+			yasuo3.setDescripcion("Se desliza a través de una unidad e inflige una cantidad de daño ");
+			yasuo3.setDaño(50);
+			yasuo3.setCoste(20);
+			yasuo3.setCritico(50);
+			yasuo3.setDmgverdadero(false);
+			yasuo3.setRobovida(true);
+			yasuo3.setTipoRobovida(TiposRobosVida.VidaEnemigaActual);
+		    yasuo3.setPrecision(70);
+
+			Habilidad yasuo4 = new Habilidad();
+			yasuo4.setNumHabilidad(3);
+			yasuo4.setNombre("Último aliento");
+			yasuo4.setDescripcion(
+					"Se abalanza sobre una unidad y la golpea repetidamente, infligiéndole mucho daño.");
+			yasuo4.setDaño(300);
+			yasuo4.setCoste(70);
+			yasuo4.setCritico(300);
+			yasuo4.setDmgverdadero(true);
+			yasuo4.setRobovida(false);
+			yasuo4.setPrecision(30);
+
+			ArrayList<Habilidad> hyasuo = new ArrayList<>();
+			hyasuo.add(yasuo1);
+			hyasuo.add(yasuo2);
+			hyasuo.add(yasuo3);
+			hyasuo.add(yasuo4);
+
+			yasuo.setHabilidades(hyasuo);
 
 			// u.getPersonajes().add(ahri);
 			u.getPersonajes().add(brand);
@@ -308,6 +974,61 @@ public class Creacion {
 			em.persist(darius3);
 			em.persist(darius4);
 			em.persist(darius);
+			
+			em.persist(Diana1);
+			em.persist(diana2);
+			em.persist(diana3);
+			em.persist(diana4);
+			em.persist(Diana);
+			
+			em.persist(jayce4);
+			em.persist(jayce1);
+			em.persist(jayce2);
+			em.persist(jayce3);
+			em.persist(jayce);
+			
+			em.persist(lucian4);
+			em.persist(lucian1);
+			em.persist(darius3);
+			em.persist(darius2);
+			em.persist(lucian);
+			
+			em.persist(lux1);
+			em.persist(lux2);
+			em.persist(lux3);
+			em.persist(lux4);
+			em.persist(lux);
+			
+			em.persist(sivir1);
+			em.persist(sivir2);
+			em.persist(sivir3);
+			em.persist(sivir4);
+			em.persist(sivir);
+			
+			em.persist(yi1);
+			em.persist(yi2);
+			em.persist(yi3);
+			em.persist(yi4);
+			em.persist(myi);
+			
+			em.persist(riven1);
+			em.persist(riven2);
+			em.persist(riven3);
+			em.persist(riven4);
+			em.persist(riven);
+			
+			em.persist(thresh1);
+			em.persist(thresh2);
+			em.persist(thresh3);
+			em.persist(thresh4);
+			em.persist(thresh);
+			
+			em.persist(yasuo1);
+			em.persist(yasuo2);
+			em.persist(yasuo3);
+			em.persist(yasuo4);
+			em.persist(yasuo);
+			
 
 			em.getTransaction().commit();
 		}

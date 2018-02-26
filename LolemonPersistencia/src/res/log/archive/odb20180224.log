@@ -2763,3 +2763,64 @@ Type lolemon.persistencia.modelo.Item is not enhanced.
 [2018-02-24 18:10:56 #10 type] 
 Type lolemon.persistencia.modelo.Habilidad is not enhanced.
 
+------------------------------------------------------------------------------------------------------------------------
+
+[2018-02-24 20:42:47 #1 store] 
+Database 'C:\desarollo\eclipse\workspaces\Lolemon\LolemonPersistencia\src\res\db\lolemon.odb' has been recovered (tr. 50-50)
+
+[2018-02-24 20:42:47 #2 store] 
+Database 'C:\desarollo\eclipse\workspaces\Lolemon\LolemonPersistencia\src\res\db\lolemon.odb' is opened by 8372@DESKTOP-G774B8V
+
+[2018-02-24 20:42:47 #3 store] 
+Configuration path: ?
+
+[2018-02-24 20:42:47 #4 type] 
+Type lolemon.persistencia.modelo.Usuario is not enhanced.
+
+[2018-02-24 20:42:47 #5 type] 
+Type lolemon.persistencia.modelo.Inventario is not enhanced.
+
+[2018-02-24 20:42:47 #6 type] 
+Type lolemon.persistencia.modelo.Historial is not enhanced.
+
+[2018-02-24 20:42:47 #7 type] 
+Type lolemon.persistencia.modelo.Personaje is not enhanced.
+
+[2018-02-24 20:42:47 #8 type] 
+Type lolemon.persistencia.modelo.Movimiento is not enhanced.
+
+[2018-02-24 20:42:47 #9 type] 
+Type lolemon.persistencia.modelo.Item is not enhanced.
+
+[2018-02-24 20:42:47 #10 type] 
+Type lolemon.persistencia.modelo.Habilidad is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2018-02-24 20:47:32 #1 store] 
+Database 'C:\desarollo\eclipse\workspaces\Lolemon\LolemonPersistencia\src\res\db\lolemon.odb' is opened by 9596@DESKTOP-G774B8V
+
+[2018-02-24 20:47:32 #2 store] 
+Configuration path: ?
+
+[2018-02-24 20:47:32 #3 type] 
+Type lolemon.persistencia.modelo.Usuario is not enhanced.
+
+[2018-02-24 20:47:32 #4 type] 
+Type lolemon.persistencia.modelo.Inventario is not enhanced.
+
+[2018-02-24 20:47:32 #5 type] 
+Type lolemon.persistencia.modelo.Historial is not enhanced.
+
+[2018-02-24 20:47:32 #6 type] 
+Type lolemon.persistencia.modelo.Personaje is not enhanced.
+
+[2018-02-24 20:47:32 #7 type] 
+Type lolemon.persistencia.modelo.Movimiento is not enhanced.
+
+[2018-02-24 20:47:32 #8 type] 
+Type lolemon.persistencia.modelo.Item is not enhanced.
+
+[2018-02-24 20:47:32 #9 type] 
+Type lolemon.persistencia.modelo.Habilidad is not enhanced.
+
