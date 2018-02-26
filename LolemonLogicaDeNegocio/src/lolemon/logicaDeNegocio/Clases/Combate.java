@@ -46,7 +46,10 @@ public class Combate {
 
 		if (p12.getEnergia().equals(p12.getEnergiaTotal())) {
 			System.out.println("Energía completa!");
-		} else {
+		} else if(p12.getEnergiaTotal()-p12.getEnergia()<coeficiente) {
+			p12.setEnergia(p12.getEnergia()+coeficiente-(coeficiente-(p12.getEnergiaTotal()-p12.getEnergia())));
+		}
+		else {
 			p12.setEnergia(p12.getEnergia() + coeficiente);
 			// System.out.println("+"+coeficiente+" energía");
 			System.out.println(p12.getNombre() + " ha recargado");
@@ -159,7 +162,7 @@ public class Combate {
 			daño = usada.getCritico();
 
 			// System.out.println(nombre+" ha hecho critico!");
-			m = "!Crítico¡";
+			m = "¡Crítico!";
 		}
 
 		devolver[0] = String.valueOf(daño);

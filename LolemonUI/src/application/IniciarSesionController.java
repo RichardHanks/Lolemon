@@ -71,6 +71,8 @@ public class IniciarSesionController implements Initializable {
 			new SettingsController());
 	private ObjectProperty<PostGameController> PostGameController= new SimpleObjectProperty<>(this,"PostGame Controller",
 			new PostGameController());
+	private ObjectProperty<PerfilController> perfilController= new SimpleObjectProperty<>(this,"Perfil controller",
+			new PerfilController());
 	
 	public static ObjectProperty<Usuario> usuario = new SimpleObjectProperty<>();
 
@@ -113,6 +115,7 @@ public class IniciarSesionController implements Initializable {
 		tiendaController.get().usuarioModelProperty().bindBidirectional(usuarioModel);
 		champSelectController.get().usuarioModelProperty().bindBidirectional(usuarioModel);
 		settingsController.get().usuarioModelProperty().bindBidirectional(usuarioModel);
+		perfilController.get().usuarioModelProperty().bindBidirectional(usuarioModel);
 
 		// Bindeos de controladores para cambiar la escena entre ellos
 		verChampsController.get().controllerProperty().bindBidirectional(controller);
@@ -120,6 +123,7 @@ public class IniciarSesionController implements Initializable {
 		tiendaController.get().controllerProperty().bindBidirectional(controller);
 		champSelectController.get().controllerProperty().bindBidirectional(controller);
 		PostGameController.get().controllerProperty().bindBidirectional(controller);
+		perfilController.get().controllerProperty().bindBidirectional(controller);
 
 
 		controller.get().verCampeonesControllerProperty().bindBidirectional(verChampsController);
@@ -128,7 +132,7 @@ public class IniciarSesionController implements Initializable {
 		controller.get().champselectcontrollerProperty().bindBidirectional(champSelectController);
 		controller.get().settingsControllerProperty().bindBidirectional(settingsController);
 		controller.get().PostGameControllerProperty().bindBidirectional(PostGameController);
-		
+		controller.get().perfilControllerProperty().bindBidirectional(perfilController);
 		
 
 		
@@ -179,6 +183,8 @@ public class IniciarSesionController implements Initializable {
 		u.setInventario(usuario.get().getInventario());
 		u.setNombre(usuario.get().getNombre());
 		u.setPersonajes(FXCollections.observableArrayList(usuario.get().getPersonajes()));
+		//u.setRegistroPartida(FXCollections.observableArrayList(usuario.get().getRegistroPartidas()));
+		//no funciona porque al usuario model le paso un registro partidas model, no un registro partidas.
 		u.setPuntos(usuario.get().getPuntos());
 		return u;
 	}

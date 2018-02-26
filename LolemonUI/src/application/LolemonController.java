@@ -48,6 +48,10 @@ public class LolemonController implements Initializable {
 	
 	@FXML
 	private Button settingsButton;
+	
+	@FXML
+	private Button perfilButton;
+
 
 	@FXML
 	private Label usuarioLabel;
@@ -60,6 +64,8 @@ public class LolemonController implements Initializable {
 	private ObjectProperty<ChampSelectController> champselectcontroller = new SimpleObjectProperty<>(this, "");
 	private ObjectProperty<SettingsController> settingsController = new SimpleObjectProperty<>(this, "settings controller");
 	private ObjectProperty<PostGameController> PostGameController= new SimpleObjectProperty<>(this,"PostGame Controller");
+	private ObjectProperty<PerfilController> perfilController= new SimpleObjectProperty<>(this,"Perfil controller");
+
 
 	private ObjectProperty<UsuarioModel> usuarioModel = new SimpleObjectProperty<>(this, "usuario", new UsuarioModel());
 
@@ -77,6 +83,7 @@ public class LolemonController implements Initializable {
 		crearCampeonButton.setOnAction(e -> crearCampeones(e));
 		tiendaButton.setOnAction(e -> verTienda(e));
 		settingsButton.setOnAction(e->settings(e));
+		perfilButton.setOnAction(e -> verPerfil(e));
 
 		usuarioModel.addListener((o, ov, nv) -> {
 			usuarioLabel.textProperty().bind(Bindings.concat("Usuario: ").concat(usuarioModel.get().nombreProperty()
@@ -95,6 +102,13 @@ public class LolemonController implements Initializable {
 
 	private void jugar(ActionEvent e) {
 		Main.getPrimaryStage().getScene().setRoot((champselectcontroller.get().getView()));
+	}
+	private void verPerfil(ActionEvent e) {
+		try {
+		Main.getPrimaryStage().getScene().setRoot((perfilController.get().getView()));
+		} catch (Exception e2) {
+			e2.printStackTrace();
+		}
 	}
 
 	private void verTienda(ActionEvent e) {
@@ -222,6 +236,21 @@ public class LolemonController implements Initializable {
 	public final void setPostGameController(final PostGameController PostGameController) {
 		this.PostGameControllerProperty().set(PostGameController);
 	}
+
+	public final ObjectProperty<PerfilController> perfilControllerProperty() {
+		return this.perfilController;
+	}
+	
+
+	public final PerfilController getPerfilController() {
+		return this.perfilControllerProperty().get();
+	}
+	
+
+	public final void setPerfilController(final PerfilController perfilController) {
+		this.perfilControllerProperty().set(perfilController);
+	}
+	
 	
 	
 	

@@ -16,6 +16,7 @@ public class UsuarioModel {
 	private StringProperty nombre;
 	private StringProperty contraseña;
 	private ListProperty<Personaje> personajes;
+	private ListProperty<RegistroPartidasModel> registroPartida;
 	private IntegerProperty puntos;
 	private ObjectProperty<Historial> historial;
 	private ObjectProperty<Inventario> Inventario;
@@ -24,6 +25,7 @@ public class UsuarioModel {
 		nombre = new SimpleStringProperty(this, "nombre");
 		contraseña = new SimpleStringProperty(this, "contraseña");
 		personajes = new SimpleListProperty<>(this, "personajes", FXCollections.observableArrayList());
+		registroPartida= new SimpleListProperty<>(this,"registro Partida", FXCollections.observableArrayList());
 		puntos = new SimpleIntegerProperty(this, "puntos");
 		historial = new SimpleObjectProperty<>(this, "historial");
 		Inventario = new SimpleObjectProperty<>(this, "inventario");
@@ -113,4 +115,20 @@ public class UsuarioModel {
 		return user;
 
 	}
+
+	public final ListProperty<RegistroPartidasModel> registroPartidaProperty() {
+		return this.registroPartida;
+	}
+	
+
+	public final ObservableList<RegistroPartidasModel> getRegistroPartida() {
+		return this.registroPartidaProperty().get();
+	}
+	
+
+	public final void setRegistroPartida(final ObservableList<RegistroPartidasModel> registroPartida) {
+		this.registroPartidaProperty().set(registroPartida);
+	}
+	
+	
 }

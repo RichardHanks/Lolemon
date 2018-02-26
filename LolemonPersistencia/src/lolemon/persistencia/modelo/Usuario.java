@@ -19,11 +19,13 @@ public class Usuario implements Serializable {
 	private String nombre;
 	private String contraseña;
 	private List<Personaje> personajes = new ArrayList<>();
+	private List<RegistroPartida>  registroPartidas= new ArrayList<>();
 	private Integer puntos;
 	private Historial historial;
 	private Inventario Inventario;
 	
 	public Usuario() {
+		Inventario = new Inventario();
 	}
 
 	public Usuario(String nombre, String contraseña, ArrayList<Personaje> personajes, Integer puntos) {
@@ -32,6 +34,9 @@ public class Usuario implements Serializable {
 		this.contraseña = contraseña;
 		this.personajes = personajes;
 		this.puntos = puntos;
+		Inventario = new Inventario();
+		
+		
 	}
 
 	public String getNombre() {
@@ -81,6 +86,16 @@ public class Usuario implements Serializable {
 	public void setInventario(Inventario inventario) {
 		Inventario = inventario;
 	}
+
+	public List<RegistroPartida> getRegistroPartidas() {
+		return registroPartidas;
+	}
+
+	public void setRegistroPartidas(List<RegistroPartida> registroPartidas) {
+		this.registroPartidas = registroPartidas;
+	}
+	
+	
 	
 	
 }
