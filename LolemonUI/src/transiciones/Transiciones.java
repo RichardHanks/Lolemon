@@ -75,5 +75,24 @@ public class Transiciones {
 		t.setOnFinished(e -> Raining(c));
 		t.playFromStart();
 	}
+	
+	public static void fadeOut(Node node) {
+		FadeTransition fade= new FadeTransition();
+		fade.setNode(node);
+		fade.setCycleCount(1);
+		fade.setDuration(Duration.seconds(1));
+		fade.setToValue(0);
+		fade.playFromStart();
+	}
+	
+	public static void fadeIn(Node node) {
+		FadeTransition fade= new FadeTransition();
+		fade.setNode(node);
+		fade.setCycleCount(1);
+		fade.setDuration(Duration.seconds(1));
+		fade.setToValue(0.0);
+		fade.setToValue(1.0);
+		fade.playFromStart();
+	}
 
 }

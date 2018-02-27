@@ -185,8 +185,10 @@ public class IniciarSesionController implements Initializable {
 	}
 
 	private void animarMenu() {
+		usuarioText.clear();
+		passwordText.clear();
 		FadeTransition fade = new FadeTransition();
-		fade.setDuration(Duration.millis(900));
+		fade.setDuration(Duration.millis(1500));
 		fade.setFromValue(0.0);
 		fade.setToValue(1.0);
 		fade.setCycleCount(1);

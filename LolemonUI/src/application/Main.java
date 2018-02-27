@@ -12,7 +12,7 @@ import javafx.scene.image.Image;
 
 
 public class Main extends Application {
-	private IniciarSesionController controller;
+	private static IniciarSesionController controller;
 	private static Stage primaryStage;
 	private static Creacion crearDb;
 	
@@ -41,4 +41,9 @@ public class Main extends Application {
 	public static Stage getPrimaryStage() {
 		return primaryStage;
 	}
+	
+	public static IniciarSesionController getIniciarSesionController() {
+		return controller;
+	}
+	
 }

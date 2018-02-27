@@ -11,6 +11,7 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -46,22 +47,7 @@ public class PerfilController implements Initializable {
 	private Label vialesLabel;
 
 	@FXML
-	private TableView<RegistroPartidasModel> tablaRegistro;
-
-	@FXML
-	private TableColumn<RegistroPartidasModel, Personaje> personajeUsadoColumn;
-
-	@FXML
-	private TableColumn<RegistroPartidasModel, Personaje> personajeContrarioColumn;
-
-	@FXML
-	private TableColumn<RegistroPartidasModel, String> duracionColumn;
-
-	@FXML
-	private TableColumn<RegistroPartidasModel, String> puntosColumn;
-
-	@FXML
-	private TableColumn<RegistroPartidasModel, Resultado> resultadoColumn;
+    private Button atrasButton;
 
 	private ObjectProperty<LolemonController> controller = new SimpleObjectProperty<>(this, "");
 
@@ -75,6 +61,7 @@ public class PerfilController implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		atrasButton.setOnAction(e->Main.getPrimaryStage().getScene().setRoot(controller.get().getView()));
 		usuarioModel.addListener((o, ov, nv) -> {
 			if (nv != null) {
 				usuarioLabel.textProperty().bind(nv.nombreProperty());

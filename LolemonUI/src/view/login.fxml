@@ -21,39 +21,39 @@
                   <Image url="@fondooo.png" />
                </image>
             </ImageView>
-            <HBox alignment="CENTER" spacing="5.0">
+            <HBox alignment="CENTER" prefHeight="40.0" prefWidth="911.0" spacing="5.0">
                <children>
-                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="33.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@if_user-01_186382.png" />
                      </image>
                   </ImageView>
-                  <TextField fx:id="usuarioText" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="162.0" promptText="Usuario" />
+                  <TextField fx:id="usuarioText" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="40.0" prefWidth="187.0" promptText="Usuario" />
                </children>
             </HBox>
             <HBox alignment="CENTER" spacing="5.0">
                <children>
-                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="40.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@if_password_2639882.png" />
                      </image>
                   </ImageView>
-                  <PasswordField fx:id="passwordText" promptText="Contraseña" />
+                  <PasswordField fx:id="passwordText" prefHeight="46.0" prefWidth="185.0" promptText="Contraseña" />
                </children>
             </HBox>
-            <Button fx:id="loginButton" defaultButton="true" mnemonicParsing="false" text="Entrar" />
+            <Button fx:id="loginButton" defaultButton="true" mnemonicParsing="false" prefHeight="43.0" prefWidth="100.0" text="Entrar" />
          </children>
       </VBox>
    </center>
    <bottom>
-      <HBox alignment="TOP_RIGHT" spacing="10.0" BorderPane.alignment="CENTER">
+      <HBox alignment="TOP_RIGHT" prefHeight="55.0" prefWidth="911.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
-            <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="¿No tienes cuenta? " textFill="#fffefe">
+            <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="CopyBriteInt 2018    ¿No tienes cuenta? " textFill="#fffefe">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Button fx:id="registrarseButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Registrarse" />
+            <Button fx:id="registrarseButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="0.0" prefWidth="115.0" text="Registrarse" />
          </children>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

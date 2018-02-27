@@ -176,15 +176,11 @@ public class Consultas {
 	public Usuario getUsuario(String nombre) {
 		Usuario u = null;
 		try {
-			em.getTransaction().begin();
 			u=em.find(Usuario.class, nombre);
-			em.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		} finally {
-			if (u == null)
-				em.getTransaction().commit();
 		}
 		return u;
 

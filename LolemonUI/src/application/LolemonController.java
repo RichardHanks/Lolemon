@@ -28,6 +28,7 @@ import javafx.util.Duration;
 import lolemon.persistencia.modelo.Personaje;
 import lolemon.persistencia.modelo.Usuario;
 import model.UsuarioModel;
+import transiciones.Transiciones;
 
 public class LolemonController implements Initializable {
 
@@ -45,27 +46,29 @@ public class LolemonController implements Initializable {
 
 	@FXML
 	private Button tiendaButton;
-	
+
 	@FXML
 	private Button settingsButton;
-	
+
 	@FXML
 	private Button perfilButton;
-
 
 	@FXML
 	private Label usuarioLabel;
 
+	@FXML
+	private Button cambiarUsuarioButton;
+
 	private ObjectProperty<VerCampeonesController> verCampeonesController = new SimpleObjectProperty<>(this, "");
 	private ObjectProperty<CrearCampeonesController> crearChampsController = new SimpleObjectProperty<>(this,
 			"crear Champs controller");
-	private ObjectProperty<TiendaController> tiendaController = new SimpleObjectProperty<>(this,
-			"tienda controller");
+	private ObjectProperty<TiendaController> tiendaController = new SimpleObjectProperty<>(this, "tienda controller");
 	private ObjectProperty<ChampSelectController> champselectcontroller = new SimpleObjectProperty<>(this, "");
-	private ObjectProperty<SettingsController> settingsController = new SimpleObjectProperty<>(this, "settings controller");
-	private ObjectProperty<PostGameController> PostGameController= new SimpleObjectProperty<>(this,"PostGame Controller");
-	private ObjectProperty<PerfilController> perfilController= new SimpleObjectProperty<>(this,"Perfil controller");
-
+	private ObjectProperty<SettingsController> settingsController = new SimpleObjectProperty<>(this,
+			"settings controller");
+	private ObjectProperty<PostGameController> PostGameController = new SimpleObjectProperty<>(this,
+			"PostGame Controller");
+	private ObjectProperty<PerfilController> perfilController = new SimpleObjectProperty<>(this, "Perfil controller");
 
 	private ObjectProperty<UsuarioModel> usuarioModel = new SimpleObjectProperty<>(this, "usuario", new UsuarioModel());
 
@@ -78,34 +81,52 @@ public class LolemonController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		jugarButton.setOnAction(e->jugar(e));
+		crearCampeonButton.setDisable(true);
+		cambiarUsuarioButton.setOnAction(e->cambiarUsuario(e));
+		jugarButton.setOnAction(e -> jugar(e));
 		verCampeonesButton.setOnAction(e -> verCampeones(e));
 		crearCampeonButton.setOnAction(e -> crearCampeones(e));
 		tiendaButton.setOnAction(e -> verTienda(e));
-		settingsButton.setOnAction(e->settings(e));
+		settingsButton.setOnAction(e -> settings(e));
 		perfilButton.setOnAction(e -> verPerfil(e));
 
 		usuarioModel.addListener((o, ov, nv) -> {
 			usuarioLabel.textProperty().bind(Bindings.concat("Usuario: ").concat(usuarioModel.get().nombreProperty()
 					.concat(" Loles: ").concat(usuarioModel.get().puntosProperty())));
 		});
-		
-	
 
 	}
 
+	private void cambiarUsuario(ActionEvent e) {
+		
+		 FadeTransition ft = new FadeTransition();
+	      ft.setNode(view);
+	      ft.setDuration(new Duration(2000));
+	      ft.setFromValue(1.0);
+	      ft.setToValue(0.0);
+	      ft.setCycleCount(1);
+	      ft.setOnFinished(e2->{
+	    	  Main.getPrimaryStage().getScene().setRoot(Main.getIniciarSesionController().getView());
+	    	  Transiciones.fadeIn(view);
+	      });
+	      ft.playFromStart();
+	      
+		
+	}
+
+
 	private void settings(ActionEvent e) {
-			settingsController.get().show(Main.getPrimaryStage());
-		
-		
+		settingsController.get().show(Main.getPrimaryStage());
+
 	}
 
 	private void jugar(ActionEvent e) {
 		Main.getPrimaryStage().getScene().setRoot((champselectcontroller.get().getView()));
 	}
+
 	private void verPerfil(ActionEvent e) {
 		try {
-		Main.getPrimaryStage().getScene().setRoot((perfilController.get().getView()));
+			Main.getPrimaryStage().getScene().setRoot((perfilController.get().getView()));
 		} catch (Exception e2) {
 			e2.printStackTrace();
 		}
@@ -143,7 +164,6 @@ public class LolemonController implements Initializable {
 	public BorderPane getView() {
 		return view;
 	}
-
 
 	public final ObjectProperty<VerCampeonesController> verCampeonesControllerProperty() {
 		return this.verCampeonesController;
@@ -184,12 +204,10 @@ public class LolemonController implements Initializable {
 	public final ObjectProperty<TiendaController> tiendaControllerProperty() {
 		return this.tiendaController;
 	}
-	
 
 	public final TiendaController getTiendaController() {
 		return this.tiendaControllerProperty().get();
 	}
-	
 
 	public final void setTiendaController(final TiendaController tiendaController) {
 		this.tiendaControllerProperty().set(tiendaController);
@@ -198,12 +216,10 @@ public class LolemonController implements Initializable {
 	public final ObjectProperty<ChampSelectController> champselectcontrollerProperty() {
 		return this.champselectcontroller;
 	}
-	
 
 	public final ChampSelectController getChampselectcontroller() {
 		return this.champselectcontrollerProperty().get();
 	}
-	
 
 	public final void setChampselectcontroller(final ChampSelectController champselectcontroller) {
 		this.champselectcontrollerProperty().set(champselectcontroller);
@@ -212,12 +228,10 @@ public class LolemonController implements Initializable {
 	public final ObjectProperty<SettingsController> settingsControllerProperty() {
 		return this.settingsController;
 	}
-	
 
 	public final SettingsController getSettingsController() {
 		return this.settingsControllerProperty().get();
 	}
-	
 
 	public final void setSettingsController(final SettingsController settingsController) {
 		this.settingsControllerProperty().set(settingsController);
@@ -226,12 +240,10 @@ public class LolemonController implements Initializable {
 	public final ObjectProperty<PostGameController> PostGameControllerProperty() {
 		return this.PostGameController;
 	}
-	
 
 	public final PostGameController getPostGameController() {
 		return this.PostGameControllerProperty().get();
 	}
-	
 
 	public final void setPostGameController(final PostGameController PostGameController) {
 		this.PostGameControllerProperty().set(PostGameController);
@@ -240,24 +252,13 @@ public class LolemonController implements Initializable {
 	public final ObjectProperty<PerfilController> perfilControllerProperty() {
 		return this.perfilController;
 	}
-	
 
 	public final PerfilController getPerfilController() {
 		return this.perfilControllerProperty().get();
 	}
-	
 
 	public final void setPerfilController(final PerfilController perfilController) {
 		this.perfilControllerProperty().set(perfilController);
 	}
-	
-	
-	
-	
-	
-
-	
-	
-	
 
 }
