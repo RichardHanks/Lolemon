@@ -1,0 +1,467 @@
+------------------------------------------------------------------------------------------------------------------------
+
+[2018-02-25 15:53:16 #1 store] 
+Database 'C:\Users\Richard\Desktop\workspaces\Lolemon - copia\LolemonPersistencia\src\res\db\lolemon.odb' has been recovered (tr. 50-50)
+
+[2018-02-25 15:53:16 #2 store] 
+Database 'C:\Users\Richard\Desktop\workspaces\Lolemon - copia\LolemonPersistencia\src\res\db\lolemon.odb' is opened by 11796@DESKTOP-G2MVH2V
+
+[2018-02-25 15:53:16 #3 store] 
+Configuration path: ?
+
+[2018-02-25 15:53:16 #4 type] 
+Type lolemon.persistencia.modelo.Usuario is not enhanced.
+
+[2018-02-25 15:53:16 #5 type] 
+Type lolemon.persistencia.modelo.Inventario is not enhanced.
+
+[2018-02-25 15:53:16 #6 type] 
+Type lolemon.persistencia.modelo.Historial is not enhanced.
+
+[2018-02-25 15:53:16 #7 type] 
+Type lolemon.persistencia.modelo.Personaje is not enhanced.
+
+[2018-02-25 15:53:16 #8 type] 
+Type lolemon.persistencia.modelo.Movimiento is not enhanced.
+
+[2018-02-25 15:53:16 #9 type] 
+Type lolemon.persistencia.modelo.Item is not enhanced.
+
+[2018-02-25 15:53:16 #10 type] 
+Type lolemon.persistencia.modelo.Habilidad is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2018-02-25 15:58:17 #1 *] 
+Old JPA jar (C:\eclipse\eclipse\configuration\org.eclipse.osgi\639\0\.cp\lib\jaxrs-ri\ext\persistence-api-1.0.jar) is in the classpath before objectdb.jar
+
+[2018-02-25 15:58:19 #2 store] 
+Database 'C:\Users\Richard\Desktop\workspaces\Lolemon - copia\LolemonPersistencia\src\res\db\lolemon.odb' is opened by 7576@DESKTOP-G2MVH2V
+
+[2018-02-25 15:58:19 #3 store] 
+Configuration path: ?
+
+[2018-02-25 15:58:22 #4 type] 
+Type lolemon.persistencia.modelo.Usuario is not enhanced.
+
+[2018-02-25 15:58:22 #5 type] 
+Type lolemon.persistencia.modelo.Inventario is not enhanced.
+
+[2018-02-25 15:58:22 #6 type] 
+Type lolemon.persistencia.modelo.Historial is not enhanced.
+
+[2018-02-25 15:58:22 #7 type] 
+Type lolemon.persistencia.modelo.Personaje is not enhanced.
+
+[2018-02-25 15:58:22 #8 type] 
+Type lolemon.persistencia.modelo.Movimiento is not enhanced.
+
+[2018-02-25 15:58:23 #9 type] 
+Type lolemon.persistencia.modelo.Item is not enhanced.
+
+[2018-02-25 15:58:23 #10 type] 
+Type lolemon.persistencia.modelo.Habilidad is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2018-02-25 16:13:10 #1 store] 
+Database 'C:\Users\Richard\Desktop\workspaces\Lolemon - copia\LolemonPersistencia\src\res\db\lolemon.odb' is opened by 7400@DESKTOP-G2MVH2V
+
+[2018-02-25 16:13:10 #2 store] 
+Configuration path: ?
+
+[2018-02-25 16:13:10 #3 type] 
+Type lolemon.persistencia.modelo.Usuario is not enhanced.
+
+[2018-02-25 16:13:10 #4 type] 
+Type lolemon.persistencia.modelo.Inventario is not enhanced.
+
+[2018-02-25 16:13:10 #5 type] 
+Type lolemon.persistencia.modelo.Historial is not enhanced.
+
+[2018-02-25 16:13:10 #6 type] 
+Type lolemon.persistencia.modelo.Personaje is not enhanced.
+
+[2018-02-25 16:13:10 #7 type] 
+Type lolemon.persistencia.modelo.Movimiento is not enhanced.
+
+[2018-02-25 16:13:10 #8 type] 
+Type lolemon.persistencia.modelo.Item is not enhanced.
+
+[2018-02-25 16:13:10 #9 type] 
+Type lolemon.persistencia.modelo.Habilidad is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2018-02-25 16:18:50 #1 *] 
+Old JPA jar (C:\eclipse\eclipse\configuration\org.eclipse.osgi\639\0\.cp\lib\jaxrs-ri\ext\persistence-api-1.0.jar) is in the classpath before objectdb.jar
+
+[2018-02-25 16:18:51 #2 store] 
+Database 'C:\Users\Richard\Desktop\workspaces\Lolemon - copia\LolemonPersistencia\src\res\db\lolemon.odb' is opened by 11412@DESKTOP-G2MVH2V
+
+[2018-02-25 16:18:51 #3 store] 
+Configuration path: ?
+
+[2018-02-25 16:18:54 #4 type] 
+Type lolemon.persistencia.modelo.Usuario is not enhanced.
+
+[2018-02-25 16:18:55 #5 type] 
+Type lolemon.persistencia.modelo.Inventario is not enhanced.
+
+[2018-02-25 16:18:55 #6 type] 
+Type lolemon.persistencia.modelo.Historial is not enhanced.
+
+[2018-02-25 16:18:55 #7 type] 
+Type lolemon.persistencia.modelo.Personaje is not enhanced.
+
+[2018-02-25 16:18:55 #8 type] 
+Type lolemon.persistencia.modelo.Movimiento is not enhanced.
+
+[2018-02-25 16:18:55 #9 type] 
+Type lolemon.persistencia.modelo.Item is not enhanced.
+
+[2018-02-25 16:18:55 #10 type] 
+Type lolemon.persistencia.modelo.Habilidad is not enhanced.
+
+[2018-02-25 16:34:11 #11 *] 
+java.lang.IllegalStateException: zip file closed
+	at java.util.zip.ZipFile.ensureOpen(ZipFile.java:686)
+	at java.util.zip.ZipFile.getEntry(ZipFile.java:315)
+	at java.util.jar.JarFile.getEntry(JarFile.java:240)
+	at java.util.jar.JarFile.getJarEntry(JarFile.java:223)
+	at sun.misc.URLClassPath$JarLoader.getResource(URLClassPath.java:1042)
+	at sun.misc.URLClassPath.getResource(URLClassPath.java:239)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:365)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:362)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:361)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at java.net.FactoryURLClassLoader.loadClass(URLClassLoader.java:814)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	at com.objectdb.jpa.EMImpl.createQuery(EMImpl.java:927)
+	at com.objectdb.jpa.EMImpl.createQuery(EMImpl.java:904)
+	at lolemon.consultas.Consultas.getCampeonesReport(Consultas.java:45)
+	at reports.ReportController.fillPersonajes(ReportController.java:21)
+	at reports.ReportController.loadPersonajes(ReportController.java:16)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.sf.jasperreports.data.bean.BeanDataAdapterService.contributeParameters(BeanDataAdapterService.java:85)
+	at net.sf.jasperreports.engine.fill.JRFillDataset.contributeParameters(JRFillDataset.java:1150)
+	at net.sf.jasperreports.engine.fill.JRFillDataset.setParameterValues(JRFillDataset.java:662)
+	at net.sf.jasperreports.engine.fill.BaseReportFiller.setParameters(BaseReportFiller.java:427)
+	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:572)
+	at net.sf.jasperreports.engine.fill.BaseFillHandle$ReportFill.run(BaseFillHandle.java:123)
+	at java.lang.Thread.run(Thread.java:748)
+
+[2018-02-25 16:44:22 #12 *] 
+java.lang.IllegalStateException: zip file closed
+	at java.util.zip.ZipFile.ensureOpen(ZipFile.java:686)
+	at java.util.zip.ZipFile.getEntry(ZipFile.java:315)
+	at java.util.jar.JarFile.getEntry(JarFile.java:240)
+	at java.util.jar.JarFile.getJarEntry(JarFile.java:223)
+	at sun.misc.URLClassPath$JarLoader.getResource(URLClassPath.java:1042)
+	at sun.misc.URLClassPath.getResource(URLClassPath.java:239)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:365)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:362)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:361)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at java.net.FactoryURLClassLoader.loadClass(URLClassLoader.java:814)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	at com.objectdb.o.OBC.e(OBC.java:1538)
+	at com.objectdb.o.OBM.az(OBM.java:723)
+	at com.objectdb.jpa.EMImpl.begin(EMImpl.java:271)
+	at lolemon.consultas.Consultas.getCampeones(Consultas.java:35)
+	at reports.ReportController.fillPersonajes(ReportController.java:21)
+	at reports.ReportController.loadPersonajes(ReportController.java:16)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.sf.jasperreports.data.bean.BeanDataAdapterService.contributeParameters(BeanDataAdapterService.java:85)
+	at com.jaspersoft.studio.data.reader.DatasetReader.fillReport(DatasetReader.java:254)
+	at com.jaspersoft.studio.data.reader.DatasetReader.start(DatasetReader.java:334)
+	at com.jaspersoft.studio.property.dataset.preview.DataPreviewTable$5.run(DataPreviewTable.java:318)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+
+[2018-02-25 16:44:22 #13 *] 
+java.lang.IllegalStateException: zip file closed
+	at java.util.zip.ZipFile.ensureOpen(ZipFile.java:686)
+	at java.util.zip.ZipFile.getEntry(ZipFile.java:315)
+	at java.util.jar.JarFile.getEntry(JarFile.java:240)
+	at java.util.jar.JarFile.getJarEntry(JarFile.java:223)
+	at sun.misc.URLClassPath$JarLoader.getResource(URLClassPath.java:1042)
+	at sun.misc.URLClassPath.getResource(URLClassPath.java:239)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:365)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:362)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:361)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at java.net.FactoryURLClassLoader.loadClass(URLClassLoader.java:814)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	at com.objectdb.o.OBC.e(OBC.java:1538)
+	at com.objectdb.o.OBM.az(OBM.java:723)
+	at com.objectdb.jpa.EMImpl.begin(EMImpl.java:271)
+	at lolemon.consultas.Consultas.getCampeones(Consultas.java:35)
+	at reports.ReportController.fillPersonajes(ReportController.java:21)
+	at reports.ReportController.loadPersonajes(ReportController.java:16)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.sf.jasperreports.data.bean.BeanDataAdapterService.contributeParameters(BeanDataAdapterService.java:85)
+	at com.jaspersoft.studio.data.reader.DatasetReader.fillReport(DatasetReader.java:254)
+	at com.jaspersoft.studio.data.reader.DatasetReader.start(DatasetReader.java:334)
+	at com.jaspersoft.studio.property.dataset.preview.DataPreviewTable$5.run(DataPreviewTable.java:318)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+
+[2018-02-25 16:44:59 #14 *] 
+java.lang.IllegalStateException: zip file closed
+	at java.util.zip.ZipFile.ensureOpen(ZipFile.java:686)
+	at java.util.zip.ZipFile.getEntry(ZipFile.java:315)
+	at java.util.jar.JarFile.getEntry(JarFile.java:240)
+	at java.util.jar.JarFile.getJarEntry(JarFile.java:223)
+	at sun.misc.URLClassPath$JarLoader.getResource(URLClassPath.java:1042)
+	at sun.misc.URLClassPath.getResource(URLClassPath.java:239)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:365)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:362)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:361)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at java.net.FactoryURLClassLoader.loadClass(URLClassLoader.java:814)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	at com.objectdb.o.OBC.e(OBC.java:1538)
+	at com.objectdb.o.OBM.az(OBM.java:723)
+	at com.objectdb.jpa.EMImpl.begin(EMImpl.java:271)
+	at lolemon.consultas.Consultas.getCampeones(Consultas.java:35)
+	at reports.ReportController.fillPersonajes(ReportController.java:21)
+	at reports.ReportController.loadPersonajes(ReportController.java:16)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.sf.jasperreports.data.bean.BeanDataAdapterService.contributeParameters(BeanDataAdapterService.java:85)
+	at net.sf.jasperreports.engine.fill.JRFillDataset.contributeParameters(JRFillDataset.java:1150)
+	at net.sf.jasperreports.engine.fill.JRFillDataset.setParameterValues(JRFillDataset.java:662)
+	at net.sf.jasperreports.engine.fill.BaseReportFiller.setParameters(BaseReportFiller.java:427)
+	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:572)
+	at net.sf.jasperreports.engine.fill.BaseFillHandle$ReportFill.run(BaseFillHandle.java:123)
+	at java.lang.Thread.run(Thread.java:748)
+
+[2018-02-25 16:45:29 #15 *] 
+java.lang.IllegalStateException: zip file closed
+	at java.util.zip.ZipFile.ensureOpen(ZipFile.java:686)
+	at java.util.zip.ZipFile.getEntry(ZipFile.java:315)
+	at java.util.jar.JarFile.getEntry(JarFile.java:240)
+	at java.util.jar.JarFile.getJarEntry(JarFile.java:223)
+	at sun.misc.URLClassPath$JarLoader.getResource(URLClassPath.java:1042)
+	at sun.misc.URLClassPath.getResource(URLClassPath.java:239)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:365)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:362)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:361)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at java.net.FactoryURLClassLoader.loadClass(URLClassLoader.java:814)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	at com.objectdb.jpa.EMImpl.createQuery(EMImpl.java:927)
+	at com.objectdb.jpa.EMImpl.createQuery(EMImpl.java:904)
+	at lolemon.consultas.Consultas.getCampeonesReport(Consultas.java:45)
+	at reports.ReportController.fillPersonajes(ReportController.java:21)
+	at reports.ReportController.loadPersonajes(ReportController.java:16)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.sf.jasperreports.data.bean.BeanDataAdapterService.contributeParameters(BeanDataAdapterService.java:85)
+	at net.sf.jasperreports.engine.fill.JRFillDataset.contributeParameters(JRFillDataset.java:1150)
+	at net.sf.jasperreports.engine.fill.JRFillDataset.setParameterValues(JRFillDataset.java:662)
+	at net.sf.jasperreports.engine.fill.BaseReportFiller.setParameters(BaseReportFiller.java:427)
+	at net.sf.jasperreports.engine.fill.JRBaseFiller.fill(JRBaseFiller.java:572)
+	at net.sf.jasperreports.engine.fill.BaseFillHandle$ReportFill.run(BaseFillHandle.java:123)
+	at java.lang.Thread.run(Thread.java:748)
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2018-02-25 17:01:03 #1 store] 
+Database 'C:\Users\Richard\Desktop\workspaces\Lolemon - copia\LolemonPersistencia\src\res\db\lolemon.odb' is opened by 8376@DESKTOP-G2MVH2V
+
+[2018-02-25 17:01:03 #2 store] 
+Configuration path: ?
+
+[2018-02-25 17:01:03 #3 type] 
+Type lolemon.persistencia.modelo.Usuario is not enhanced.
+
+[2018-02-25 17:01:03 #4 type] 
+Type lolemon.persistencia.modelo.Inventario is not enhanced.
+
+[2018-02-25 17:01:03 #5 type] 
+Type lolemon.persistencia.modelo.Historial is not enhanced.
+
+[2018-02-25 17:01:03 #6 type] 
+Type lolemon.persistencia.modelo.Personaje is not enhanced.
+
+[2018-02-25 17:01:03 #7 type] 
+Type lolemon.persistencia.modelo.Movimiento is not enhanced.
+
+[2018-02-25 17:01:03 #8 type] 
+Type lolemon.persistencia.modelo.Item is not enhanced.
+
+[2018-02-25 17:01:03 #9 type] 
+Type lolemon.persistencia.modelo.Habilidad is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2018-02-25 17:06:55 #1 *] 
+Old JPA jar (C:\eclipse\eclipse\configuration\org.eclipse.osgi\639\0\.cp\lib\jaxrs-ri\ext\persistence-api-1.0.jar) is in the classpath before objectdb.jar
+
+[2018-02-25 17:06:56 #2 store] 
+Database 'C:\Users\Richard\Desktop\workspaces\Lolemon - copia\LolemonPersistencia\src\res\db\lolemon.odb' is opened by 220@DESKTOP-G2MVH2V
+
+[2018-02-25 17:06:56 #3 store] 
+Configuration path: ?
+
+[2018-02-25 17:06:59 #4 type] 
+Type lolemon.persistencia.modelo.Usuario is not enhanced.
+
+[2018-02-25 17:06:59 #5 type] 
+Type lolemon.persistencia.modelo.Inventario is not enhanced.
+
+[2018-02-25 17:06:59 #6 type] 
+Type lolemon.persistencia.modelo.Historial is not enhanced.
+
+[2018-02-25 17:07:00 #7 type] 
+Type lolemon.persistencia.modelo.Personaje is not enhanced.
+
+[2018-02-25 17:07:00 #8 type] 
+Type lolemon.persistencia.modelo.Movimiento is not enhanced.
+
+[2018-02-25 17:07:00 #9 type] 
+Type lolemon.persistencia.modelo.Item is not enhanced.
+
+[2018-02-25 17:07:00 #10 type] 
+Type lolemon.persistencia.modelo.Habilidad is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2018-02-25 17:22:35 #1 store] 
+Database 'C:\Users\Richard\Desktop\workspaces\Lolemon - copia\LolemonPersistencia\src\res\db\lolemon.odb' is opened by 11400@DESKTOP-G2MVH2V
+
+[2018-02-25 17:22:35 #2 store] 
+Configuration path: ?
+
+[2018-02-25 17:22:35 #3 type] 
+Type lolemon.persistencia.modelo.Usuario is not enhanced.
+
+[2018-02-25 17:22:35 #4 type] 
+Type lolemon.persistencia.modelo.Inventario is not enhanced.
+
+[2018-02-25 17:22:35 #5 type] 
+Type lolemon.persistencia.modelo.Historial is not enhanced.
+
+[2018-02-25 17:22:35 #6 type] 
+Type lolemon.persistencia.modelo.Personaje is not enhanced.
+
+[2018-02-25 17:22:35 #7 type] 
+Type lolemon.persistencia.modelo.Movimiento is not enhanced.
+
+[2018-02-25 17:22:35 #8 type] 
+Type lolemon.persistencia.modelo.Item is not enhanced.
+
+[2018-02-25 17:22:35 #9 type] 
+Type lolemon.persistencia.modelo.Habilidad is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2018-02-25 17:23:09 #1 store] 
+Database 'C:\Users\Richard\Desktop\workspaces\Lolemon - copia\LolemonPersistencia\src\res\db\lolemon.odb' is opened by 12436@DESKTOP-G2MVH2V
+
+[2018-02-25 17:23:09 #2 store] 
+Configuration path: ?
+
+[2018-02-25 17:23:09 #3 type] 
+Type lolemon.persistencia.modelo.Usuario is not enhanced.
+
+[2018-02-25 17:23:09 #4 type] 
+Type lolemon.persistencia.modelo.Inventario is not enhanced.
+
+[2018-02-25 17:23:09 #5 type] 
+Type lolemon.persistencia.modelo.Historial is not enhanced.
+
+[2018-02-25 17:23:09 #6 type] 
+Type lolemon.persistencia.modelo.Personaje is not enhanced.
+
+[2018-02-25 17:23:09 #7 type] 
+Type lolemon.persistencia.modelo.Movimiento is not enhanced.
+
+[2018-02-25 17:23:09 #8 type] 
+Type lolemon.persistencia.modelo.Item is not enhanced.
+
+[2018-02-25 17:23:09 #9 type] 
+Type lolemon.persistencia.modelo.Habilidad is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2018-02-25 17:24:56 #1 *] 
+Old JPA jar (C:\eclipse\eclipse\configuration\org.eclipse.osgi\639\0\.cp\lib\jaxrs-ri\ext\persistence-api-1.0.jar) is in the classpath before objectdb.jar
+
+[2018-02-25 17:24:57 #2 store] 
+Database 'C:\Users\Richard\Desktop\workspaces\Lolemon - copia\LolemonPersistencia\src\res\db\lolemon.odb' has been recovered (tr. 51-51)
+
+[2018-02-25 17:24:57 #3 store] 
+Database 'C:\Users\Richard\Desktop\workspaces\Lolemon - copia\LolemonPersistencia\src\res\db\lolemon.odb' is opened by 11132@DESKTOP-G2MVH2V
+
+[2018-02-25 17:24:57 #4 store] 
+Configuration path: ?
+
+[2018-02-25 17:25:01 #5 type] 
+Type lolemon.persistencia.modelo.Usuario is not enhanced.
+
+[2018-02-25 17:25:01 #6 type] 
+Type lolemon.persistencia.modelo.Inventario is not enhanced.
+
+[2018-02-25 17:25:01 #7 type] 
+Type lolemon.persistencia.modelo.Historial is not enhanced.
+
+[2018-02-25 17:25:01 #8 type] 
+Type lolemon.persistencia.modelo.Personaje is not enhanced.
+
+[2018-02-25 17:25:01 #9 type] 
+Type lolemon.persistencia.modelo.Movimiento is not enhanced.
+
+[2018-02-25 17:25:01 #10 type] 
+Type lolemon.persistencia.modelo.Item is not enhanced.
+
+[2018-02-25 17:25:01 #11 type] 
+Type lolemon.persistencia.modelo.Habilidad is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2018-02-25 19:35:33 #1 store] 
+Database 'C:\Users\Richard\Desktop\workspaces\Lolemon - copia\LolemonPersistencia\src\res\db\lolemon.odb' is opened by 7968@DESKTOP-G2MVH2V
+
+[2018-02-25 19:35:33 #2 store] 
+Configuration path: ?
+
+[2018-02-25 19:35:33 #3 type] 
+Type lolemon.persistencia.modelo.Usuario is not enhanced.
+
+[2018-02-25 19:35:33 #4 type] 
+Type lolemon.persistencia.modelo.Inventario is not enhanced.
+
+[2018-02-25 19:35:33 #5 type] 
+Type lolemon.persistencia.modelo.Historial is not enhanced.
+
+[2018-02-25 19:35:33 #6 type] 
+Type lolemon.persistencia.modelo.Personaje is not enhanced.
+
+[2018-02-25 19:35:33 #7 type] 
+Type lolemon.persistencia.modelo.Movimiento is not enhanced.
+
+[2018-02-25 19:35:33 #8 type] 
+Type lolemon.persistencia.modelo.Item is not enhanced.
+
+[2018-02-25 19:35:33 #9 type] 
+Type lolemon.persistencia.modelo.Habilidad is not enhanced.
+

@@ -19,6 +19,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextArea;
@@ -29,6 +30,7 @@ import javafx.stage.Stage;
 import lolemon.logicaDeNegocio.Clases.Contacto;
 import model.UsuarioModel;
 import music.MusicPlayer;
+import reports.ReportController;
 
 public class SettingsController implements Initializable {
 
@@ -58,6 +60,9 @@ public class SettingsController implements Initializable {
 	
 	@FXML
     private JFXButton enviarButton;
+	
+	@FXML
+	private Button generarReportbutton;
 
 	private Stage stage;
 	private Scene scene;
@@ -76,6 +81,7 @@ public class SettingsController implements Initializable {
 		musicaButton.setSelected(true);
 		musicaButton.setOnAction(e -> controlarMusica(e));
 		enviarButton.setOnAction(e->enviarCorreo(e));
+		generarReportbutton.setOnAction(e->ReportController.makeReport());
 		
 		IniciarSesionController.musicPlayer.getReproductor().volumeProperty().bind(volumenSlider.valueProperty().divide(100));
 		

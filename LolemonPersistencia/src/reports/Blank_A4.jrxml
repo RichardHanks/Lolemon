@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="531f7a7c-48b5-488c-8228-a9ff078ca458">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Campeones"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="vida" class="java.lang.Integer">
+		<fieldDescription><![CDATA[vida]]></fieldDescription>
+	</field>
+	<field name="defensa" class="java.lang.Integer">
+		<fieldDescription><![CDATA[defensa]]></fieldDescription>
+	</field>
+	<field name="nombre" class="java.lang.String">
+		<fieldDescription><![CDATA[nombre]]></fieldDescription>
+	</field>
+	<field name="aspecto" class="java.lang.String">
+		<fieldDescription><![CDATA[aspecto]]></fieldDescription>
+	</field>
+	<field name="energia" class="java.lang.Integer">
+		<fieldDescription><![CDATA[energia]]></fieldDescription>
+	</field>
+	<field name="recargo" class="java.lang.Double">
+		<fieldDescription><![CDATA[recargo]]></fieldDescription>
+	</field>
+	<field name="energiaTotal" class="java.lang.Integer">
+		<fieldDescription><![CDATA[energiaTotal]]></fieldDescription>
+	</field>
+	<field name="sprite" class="java.lang.String">
+		<fieldDescription><![CDATA[sprite]]></fieldDescription>
+	</field>
+	<field name="velocidad" class="java.lang.Integer">
+		<fieldDescription><![CDATA[velocidad]]></fieldDescription>
+	</field>
+	<field name="coste" class="java.lang.Integer">
+		<fieldDescription><![CDATA[coste]]></fieldDescription>
+	</field>
+	<field name="habilidades" class="java.util.List">
+		<fieldDescription><![CDATA[habilidades]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="90" splitType="Stretch">
+			<image>
+				<reportElement x="180" y="0" width="230" height="80" uuid="bcf85a34-a150-4347-8893-a8cc2cadc39a"/>
+				<imageExpression><![CDATA["file:/C:/Users/Richard/Desktop/workspaces/Lolemon%20-%20copia/LolemonUI/src/view/fondooo.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="43" splitType="Stretch">
+			<staticText>
+				<reportElement x="-10" y="0" width="585" height="43" uuid="f232202f-729d-4675-b563-f6bc64c950f6"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Personajes que forman el juego lolemon. 
+Datos extraidos del origen de datos, ObjectDB.]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="206" splitType="Stretch">
+			<textField>
+				<reportElement x="-11" y="10" width="120" height="30" uuid="bf056475-f885-46d2-b1c4-66a29331be62"/>
+				<textFieldExpression><![CDATA["Nombre : "+$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="-11" y="50" width="120" height="30" uuid="90181be2-4aa6-458d-8f30-62a1828d9668"/>
+				<textFieldExpression><![CDATA["Vida : "+$F{vida}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="-10" y="95" width="120" height="30" uuid="39054b79-bcbc-48f8-984e-51b9cfac2822"/>
+				<textFieldExpression><![CDATA["Defensa : "+$F{defensa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="-10" y="140" width="130" height="30" uuid="075742c9-d308-43f6-b34e-78ca2d660030"/>
+				<textFieldExpression><![CDATA["Velocidad : "+$F{velocidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="170" y="10" width="360" height="90" uuid="4d4b4b06-c585-4f69-9f9a-8c16d702e841"/>
+				<textFieldExpression><![CDATA["Habilidades : "+$F{habilidades}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement stretchType="ContainerHeight" x="-10" y="180" width="575" height="1" uuid="63cef710-569d-4bb3-94f2-132257df74c8"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="370" y="20" width="200" height="30" uuid="c1da4489-a082-4231-9d33-a7c26518d392"/>
+				<textFieldExpression><![CDATA["Desarollo de aplicaciones multiplataforma"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

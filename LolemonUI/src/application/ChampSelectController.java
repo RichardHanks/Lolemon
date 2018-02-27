@@ -158,6 +158,7 @@ public class ChampSelectController implements Initializable {
 	}
 
 	private void init() {
+		reverseTransition();
 		listaPersonajes.setAll(con.getCampeonesDesbloqueados(usuarioModel.get().getNombre()));
 		champ1.set(null);
 		champ2.set(null);
@@ -224,7 +225,6 @@ public class ChampSelectController implements Initializable {
 		countdown.setCycleCount(startValue);
 		countdown.play();
 		countdown.setOnFinished(e -> {
-			
 			iniciarBatallaController();
 		});
 	}
@@ -234,7 +234,7 @@ public class ChampSelectController implements Initializable {
 		FadeTransition fd = new FadeTransition();
 		fd.setNode(getView());
 		fd.setDuration(Duration.seconds(0.5));
-		fd.setCycleCount(2);
+		fd.setCycleCount(1);
 		fd.setToValue(0);
 		fd.setAutoReverse(true);
 		fd.playFromStart();
@@ -252,10 +252,20 @@ public class ChampSelectController implements Initializable {
 			}
 
 		});
+		
+		
 
 
 	}
 
+	public void reverseTransition() {
+		FadeTransition fd = new FadeTransition();
+		fd.setNode(getView());
+		fd.setDuration(Duration.seconds(0.5));
+		fd.setCycleCount(1);
+		fd.setToValue(100);
+		fd.play();
+	}
 
 
 	public BorderPane getView() {

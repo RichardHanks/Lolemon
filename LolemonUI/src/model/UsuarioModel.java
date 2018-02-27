@@ -9,6 +9,7 @@ import lolemon.consultas.Consultas;
 import lolemon.persistencia.modelo.Historial;
 import lolemon.persistencia.modelo.Inventario;
 import lolemon.persistencia.modelo.Personaje;
+import lolemon.persistencia.modelo.RegistroPartida;
 import lolemon.persistencia.modelo.Usuario;
 
 public class UsuarioModel {
@@ -16,7 +17,7 @@ public class UsuarioModel {
 	private StringProperty nombre;
 	private StringProperty contraseña;
 	private ListProperty<Personaje> personajes;
-	private ListProperty<RegistroPartidasModel> registroPartida;
+	private ListProperty<RegistroPartida> registroPartida;
 	private IntegerProperty puntos;
 	private ObjectProperty<Historial> historial;
 	private ObjectProperty<Inventario> Inventario;
@@ -116,17 +117,17 @@ public class UsuarioModel {
 
 	}
 
-	public final ListProperty<RegistroPartidasModel> registroPartidaProperty() {
+	public final ListProperty<RegistroPartida> registroPartidaProperty() {
 		return this.registroPartida;
 	}
 	
 
-	public final ObservableList<RegistroPartidasModel> getRegistroPartida() {
+	public final ObservableList<RegistroPartida> getRegistroPartida() {
 		return this.registroPartidaProperty().get();
 	}
 	
 
-	public final void setRegistroPartida(final ObservableList<RegistroPartidasModel> registroPartida) {
+	public final void setRegistroPartida(final ObservableList<RegistroPartida> registroPartida) {
 		this.registroPartidaProperty().set(registroPartida);
 	}
 	

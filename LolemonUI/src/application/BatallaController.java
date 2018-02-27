@@ -6,6 +6,10 @@ import java.nio.file.attribute.UserDefinedFileAttributeView;
 import java.util.ResourceBundle;
 
 import javafx.animation.FadeTransition;
+import javafx.animation.FillTransition;
+import javafx.animation.Interpolator;
+import javafx.animation.RotateTransition;
+import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.ObjectProperty;
@@ -325,6 +329,7 @@ public class BatallaController implements Initializable {
 		usuarioModel.get().getHistorial().setNumeroPartidas(usuarioModel.get().getHistorial().getNumeroPartidas() + 1);
 
 		con.actualizarUsuario(UsuarioModel.convertirEnUsuario(usuarioModel.get()));
+
 		IniciarSesionController.usuario.set(con.getUsuario(usuarioModel.get().getNombre()));
 		
 		if(victoria) {
@@ -340,7 +345,11 @@ public class BatallaController implements Initializable {
 		pgcontroller.get().setPuntosganados(combate.getPuntosGanador());
 		pgcontroller.get().setPersonajeUsado(personaje1);
 		pgcontroller.get().setValor(0);
-		Main.getPrimaryStage().getScene().setRoot(pgcontroller.get().getView());
+
+	
+	   Main.getPrimaryStage().getScene().setRoot(pgcontroller.get().getView());
+	   
+		
 
 	}
 

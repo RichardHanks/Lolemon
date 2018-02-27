@@ -55,25 +55,25 @@ public class IniciarSesionController implements Initializable {
 	private Button loginButton;
 
 	private Consultas con = new Consultas();
-	public static MusicPlayer musicPlayer= new MusicPlayer();
-	
+	public static MusicPlayer musicPlayer = new MusicPlayer();
+
 	private ObjectProperty<LolemonController> controller = new SimpleObjectProperty<>(this, "controller",
 			new LolemonController());
-	private ObjectProperty<VerCampeonesController> verChampsController = new SimpleObjectProperty<>(this, "ver champs controller",
-			new VerCampeonesController());
-	private ObjectProperty<CrearCampeonesController> crearChampsController = new SimpleObjectProperty<>(this, "crear Champs controller", 
-			new CrearCampeonesController());
+	private ObjectProperty<VerCampeonesController> verChampsController = new SimpleObjectProperty<>(this,
+			"ver champs controller", new VerCampeonesController());
+	private ObjectProperty<CrearCampeonesController> crearChampsController = new SimpleObjectProperty<>(this,
+			"crear Champs controller", new CrearCampeonesController());
 	private ObjectProperty<TiendaController> tiendaController = new SimpleObjectProperty<>(this, "tienda controller",
 			new TiendaController());
-	private ObjectProperty<ChampSelectController> champSelectController = new SimpleObjectProperty<>(this, "champ select", 
-			new ChampSelectController());
-	private ObjectProperty<SettingsController> settingsController = new SimpleObjectProperty<>(this, "settings controller",
-			new SettingsController());
-	private ObjectProperty<PostGameController> PostGameController= new SimpleObjectProperty<>(this,"PostGame Controller",
-			new PostGameController());
-	private ObjectProperty<PerfilController> perfilController= new SimpleObjectProperty<>(this,"Perfil controller",
+	private ObjectProperty<ChampSelectController> champSelectController = new SimpleObjectProperty<>(this,
+			"champ select", new ChampSelectController());
+	private ObjectProperty<SettingsController> settingsController = new SimpleObjectProperty<>(this,
+			"settings controller", new SettingsController());
+	private ObjectProperty<PostGameController> PostGameController = new SimpleObjectProperty<>(this,
+			"PostGame Controller", new PostGameController());
+	private ObjectProperty<PerfilController> perfilController = new SimpleObjectProperty<>(this, "Perfil controller",
 			new PerfilController());
-	
+
 	public static ObjectProperty<Usuario> usuario = new SimpleObjectProperty<>();
 
 	private ObjectProperty<UsuarioModel> usuarioModel = new SimpleObjectProperty<>(this, "usuario", new UsuarioModel());
@@ -88,26 +88,22 @@ public class IniciarSesionController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		Transiciones.lloverCirculos(view);
-				
-		usuario.addListener((o, ov, nv)->{
+
+		usuario.addListener((o, ov, nv) -> {
 			System.out.println(nv);
-			if(nv!=null) {
+			if (nv != null) {
 				UsuarioModel u = convertirEnUsuarioModel();
 				usuarioModel.set(u);
-				System.out.println();
-				System.out.println("Numero de partidas "+u.getHistorial().getNumeroPartidas());
-				System.out.println("Numero de victorias "+u.getHistorial().getNumeroVictorias());
-				
+
 			}
 		});
 
-		
 		loginButton.setOnAction(e -> login(e));
 		loginButton.disableProperty()
 				.bind(usuarioText.textProperty().isEmpty().or(passwordText.textProperty().isEmpty()));
 
-		registrarseButton.setOnAction(e->registrarse());
-		
+		registrarseButton.setOnAction(e -> registrarse());
+
 		// Bindeos del usuario con properties
 		controller.get().usuarioModelProperty().bindBidirectional(usuarioModel);
 		verChampsController.get().usuarioModelProperty().bindBidirectional(usuarioModel);
@@ -125,7 +121,6 @@ public class IniciarSesionController implements Initializable {
 		PostGameController.get().controllerProperty().bindBidirectional(controller);
 		perfilController.get().controllerProperty().bindBidirectional(controller);
 
-
 		controller.get().verCampeonesControllerProperty().bindBidirectional(verChampsController);
 		controller.get().crearChampsControllerProperty().bindBidirectional(crearChampsController);
 		controller.get().tiendaControllerProperty().bindBidirectional(tiendaController);
@@ -133,28 +128,28 @@ public class IniciarSesionController implements Initializable {
 		controller.get().settingsControllerProperty().bindBidirectional(settingsController);
 		controller.get().PostGameControllerProperty().bindBidirectional(PostGameController);
 		controller.get().perfilControllerProperty().bindBidirectional(perfilController);
-		
 
-		
-		//pasar el postgamecontroller (chambergada)
-	    champSelectController.get().setPgcontroller(PostGameController.get());
+		// pasar el postgamecontroller (chambergada)
+		champSelectController.get().setPgcontroller(PostGameController.get());
 
 	}
 
 	private void login(ActionEvent e) {
 
-
-		usuario.set(con.getUsuario(usuarioText.getText()));
+		try {
+			usuario.set(con.getUsuario(usuarioText.getText()));
 			if (usuario.get().getContraseña().equals(passwordText.getText())) {
-				PostGameController.get().setPuntosganados(10);
-				Main.getPrimaryStage().getScene().setRoot(PostGameController.get().getView());
+				Main.getPrimaryStage().getScene().setRoot(controller.get().getView());
 				animarMenu();
 			} else
 				error();
-
+		} catch (Exception e2) {
+			error();
+		}
+		
 
 	}
-	
+
 	private void registrarse() {
 		RegistrarseController registrarse;
 		try {
@@ -163,8 +158,7 @@ public class IniciarSesionController implements Initializable {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	
-		
+
 	}
 
 	private void error() {
@@ -183,8 +177,9 @@ public class IniciarSesionController implements Initializable {
 		u.setInventario(usuario.get().getInventario());
 		u.setNombre(usuario.get().getNombre());
 		u.setPersonajes(FXCollections.observableArrayList(usuario.get().getPersonajes()));
-		//u.setRegistroPartida(FXCollections.observableArrayList(usuario.get().getRegistroPartidas()));
-		//no funciona porque al usuario model le paso un registro partidas model, no un registro partidas.
+		// u.setRegistroPartida(FXCollections.observableArrayList(usuario.get().getRegistroPartidas()));
+		// no funciona porque al usuario model le paso un registro partidas model, no un
+		// registro partidas.
 		u.setPuntos(usuario.get().getPuntos());
 		return u;
 	}
@@ -199,7 +194,6 @@ public class IniciarSesionController implements Initializable {
 		fade.play();
 	}
 
-	
 	public BorderPane getView() {
 		return view;
 	}
