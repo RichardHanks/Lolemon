@@ -10,9 +10,7 @@ public class Combate {
 	private static Personaje p1;
 	private static Personaje p2;
 	private static int numturno;
-	private static Habilidad ultimaUsada;
 	private int puntosGanador;
-	private int puntosPerdedor;
 	private Boolean ganaJ1;
 	private static Boolean turno;
 	private Inventario inventario;
@@ -25,7 +23,10 @@ public class Combate {
 		this.inventario = inventario;
 
 	}
-
+    /**
+     * Método que calcula el daño total hecho en el combate por cada jugador.
+     * @param i cantidad de daño hecha en el turno.
+     */
 	public void calcularDmg(int i) {
 		if (getTurno()) {
 			dañoj1 += i;
@@ -38,7 +39,10 @@ public class Combate {
 			System.out.println("adios");
 		}
 	}
-
+    /**
+     * Método que hace que los Personajes recuperen energía encada turno.
+     * @param p12 personaje que recargara energía
+     */
 	public void recargar(Personaje p12) {
 		// TODO Auto-generated method stub
 
@@ -55,7 +59,14 @@ public class Combate {
 			System.out.println(p12.getNombre() + " ha recargado");
 		}
 	}
-
+    /**
+     * Método que determina y hace los cambios de estadísticas entre los personajes al usar habilidades.
+     * es el algoritmo principal del combate.
+     * @param numHabilidad entero que determina la posición de la habilidad
+     * @param p1 personaje que atacará
+     * @param p2 personaje que recibirá el ataque
+     * @return String que nos indica si ha fallado, si no tiene energía para atacar o si ha sido critico.
+     */
 	public String Atacar(int numHabilidad, Personaje p1, Personaje p2) {
 
 		String mensaje = "";
@@ -64,7 +75,7 @@ public class Combate {
 
 		int random = (int) ((Math.random() * 100) + 1);
 
-		if (p1.getEnergia() > p1.getHabilidades().get(numHabilidad).getCoste()) {
+		if (p1.getEnergia() >= p1.getHabilidades().get(numHabilidad).getCoste()) {
 			if (random < p1.getHabilidades().get(numHabilidad).getPrecision()) {
 				String[] critico = critico(usada);
 				if (usada.isRobovida()) {
@@ -100,7 +111,11 @@ public class Combate {
 
 		return mensaje;
 	}
-
+    /**
+     * Método que suma vida a un personaje a cambio de usar un item 
+     * @param p1 Personaje que recuperará vida 
+     * @return devuelve un boolean que determina si es usada o no.
+     */
 	public boolean UsarPocion(Personaje p1) {
 		boolean usada = false;
 		int curacion = inventario.getPocionesList().get(0).getIncremento();
@@ -120,12 +135,15 @@ public class Combate {
 		}
 		return usada;
 	}
-
+    /**
+     * Método que suma energía a cambio de usar un item
+     * @param p1 Personaje que recuperará energía
+     */
 	public void UsarElixir(Personaje p1) {
 		int recarga = inventario.getElixiresList().get(0).getIncremento();
 
 		if (p1.getEnergiaTotal() == p1.getEnergia()) {
-			System.out.println("La Energía está completa, no se puede usar una poción");
+			System.out.println("La Energía está completa, no se puede usar una Elixir");
 		} else if (p1.getEnergiaTotal() - p1.getEnergia() > recarga) {
 			p1.setEnergia(p1.getEnergia() + recarga);
 		} else {
@@ -133,13 +151,18 @@ public class Combate {
 
 		}
 	}
-
+    /**
+     * Método que suma defensa a un personaje a cambio de usar un item.
+     * @param p1 Personaje que ganará defensa
+     */
 	public void UsarVial(Personaje p1) {
 
 		p1.setDefensa(p1.getDefensa() + inventario.getVialesList().get(0).getIncremento());
 
 	}
-
+    /**
+     * Método que cambia el turno.
+     */
 	public void cambiarturno() {
 		// TODO Auto-generated method stub
 
@@ -150,7 +173,11 @@ public class Combate {
 		}
 
 	}
-
+    /**
+     * Método que determina si al usar una habilidad es golpe crítico.
+     * @param usada Habilidad de la cuál obtendremos el daño critico a sumar
+     * @return se devuelve un array de tamaño 2 que indica un mensaje de si ha sido crtico o no, y el daño extra que se hace.
+     */
 	private static String[] critico(Habilidad usada) {
 
 		int random = (int) (Math.random() * 100);
@@ -170,42 +197,78 @@ public class Combate {
 
 		return devolver;
 	}
-	// TENGO QUE CAMBIAR ESTA FUNCIÓN
+	/**
+	 * Método que reconoce el tipo e robo de vida que se aplicará y la ecuación que determina la cantidad de vida a robar.
+	 * @param usada habilidad dela que obtendremos el porcentaje y el tipo de robo de vida 
+	 * @param p1 personaje que ganará vida
+	 * @param rival personaje enemigo del cual obtendremos estadisticas para robar vida dependiendo del tipo.
+	 */
 
 	private static void robarvida(Habilidad usada, Personaje p1, Personaje rival) {
+		double robo;
 		if (usada.getTipoRobovida() == TiposRobosVida.VidaActual) {
-			p1.setVida((int) (p1.getVida() + p1.getVida() * usada.getPorcentajeRV()));
+			robo= p1.getVida() * usada.getPorcentajeRV();
+			RobovidaActual(p1,robo);
 			System.out.println(p1.getNombre() + "ha robado vida 1");
 		} // Robo vida en base a la vida actual
 		else if (usada.getTipoRobovida() == TiposRobosVida.VidaEnemigaActual) {
-			p1.setVida((int) (p1.getVida() + rival.getVida() * usada.getPorcentajeRV()));
+			robo=rival.getVida()*usada.getPorcentajeRV();
+			RobovidaActual(p1,robo);
 			System.out.println(p1.getNombre() + "ha robado vida 2");
 
 		} // Robo vida en base a la vida actual del enemigo
 		else if (usada.getTipoRobovida() == TiposRobosVida.VidaPropiaMaxima) {
-			p1.setVida((int) (p1.getVida() + p1.getVidaTotal() * usada.getPorcentajeRV()));
+			robo=p1.getVidaTotal()*usada.getPorcentajeRV();
+			RobovidaActual(p1,robo);
 			System.out.println(p1.getNombre() + "ha robado vida 3");
 			// Robo vida en base a vida max.
 		} else if (usada.getTipoRobovida() == TiposRobosVida.VidaEnemigaMaxima) {
 			System.out.println(p1.getVida());
 			System.out.println(rival.getVidaTotal());
 			System.out.println(usada.getPorcentajeRV());
-			p1.setVida((int) (p1.getVida() + rival.getVidaTotal() * usada.getPorcentajeRV()));
+			
+			robo=rival.getVidaTotal() * usada.getPorcentajeRV();
+			RobovidaActual(p1,robo);
 			System.out.println(p1.getNombre() + "ha robado vida 4");
 		} // Robo vida en base a la vida máx enemiga.
 		else if (usada.getTipoRobovida() == TiposRobosVida.VidaFaltantePropia) {
-			p1.setVida((int) (p1.getVida() + (p1.getVidaTotal() - p1.getVida()) * usada.getPorcentajeRV()));
+			robo=(p1.getVidaTotal() - p1.getVida()) * usada.getPorcentajeRV();
+			RobovidaActual(p1,robo);
 			System.out.println(p1.getNombre() + "ha robado vida 5");
 		}
 		// Robo vida en base a la vida que falta
 		else if (usada.getTipoRobovida() == TiposRobosVida.VidaFaltanteEnemiga) {
-			p1.setVida((int) (p1.getVida() + (rival.getVidaTotal() - rival.getVida()) * usada.getPorcentajeRV()));
+			robo=(rival.getVidaTotal() - rival.getVida()) * usada.getPorcentajeRV();
+			RobovidaActual(p1,robo);
 			System.out.println(p1.getNombre() + "ha robado vida 6");
 		} else {
 
 		}
 	}
-
+	/**
+	 * función que determina la forma en que ganará vida para que el personaje no sobrepase la vidaTotal.
+	 * @param p1 Personaje que ganará vida
+	 * @param robo cantidad de vida que ganará
+	 */
+	private static void RobovidaActual(Personaje p1,double robo) {
+		
+		int vidafaltante= p1.getVidaTotal()-p1.getVida();
+		
+		if(p1.getVida().equals(p1.getVidaTotal())){
+			System.out.println("No hace falta robarVida");
+		}else if(vidafaltante<robo) {
+			p1.setVida( (int) (p1.getVida()+robo-(robo-vidafaltante)));
+		}else {
+			p1.setVida((int) (p1.getVida()+robo));
+		}
+		
+		
+	}
+    /**
+     * Función que determina quién empezará el combate.
+     * @param p1 Personaje 1 del que se obtendrá  velocidad
+     * @param p2 Personaje 2 del que se obtendrña velocidad
+     */
 	public static void turno(Personaje p1, Personaje p2) {
 
 		if (p1.getVelocidad() >= p2.getVelocidad()) {
@@ -265,13 +328,6 @@ public class Combate {
 		Combate.turno = turno;
 	}
 
-	public Habilidad getUltimaUsada() {
-		return ultimaUsada;
-	}
-
-	public void setUltimaUsada(Habilidad ultimaUsada) {
-		this.ultimaUsada = ultimaUsada;
-	}
 
 	public int getPuntosGanador() {
 		return puntosGanador;
@@ -279,14 +335,6 @@ public class Combate {
 
 	public void setPuntosGanador(int puntosGanador) {
 		this.puntosGanador = puntosGanador;
-	}
-
-	public int getPuntosPerdedor() {
-		return puntosPerdedor;
-	}
-
-	public void setPuntosPerdedor(int puntosPerdedor) {
-		this.puntosPerdedor = puntosPerdedor;
 	}
 
 	public Boolean getGanaJ1() {
