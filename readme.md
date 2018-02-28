@@ -18,6 +18,6 @@ Se hará uso del framework JavaFx para el desarollo.
 
 **[Análisis general del proyecto](https://github.com/RichardHanks/Lolemon/blob/master/docs/analisisGeneral.md)**
 
-**[Análisis de los campeones](http://www.limni.net)**
+**[Análisis de los campeones](https://github.com/RichardHanks/Lolemon/blob/master/docs/analisisCampeones.md)**
 
 **[Diseño de la interfaz](http://www.limni.net)**
