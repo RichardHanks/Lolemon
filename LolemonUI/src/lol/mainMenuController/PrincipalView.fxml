@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="view" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="553.0" prefWidth="888.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <VBox alignment="TOP_CENTER" spacing="20.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label styleClass="labelProject" text="LOLEMON">
+               <font>
+                  <Font name="Pokemon Solid Normal" size="65.0" />
+               </font>
+            </Label>
+            <Button fx:id="jugarButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="201.0" text="Jugar">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="perfilButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="201.0" text="Perfil">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="verCampeonesButton" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="201.0" text="Ver Campeones">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="crearCampeonButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="201.0" text="Crear Campeón">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="tiendaButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="201.0" text="Tienda">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+         </children>
+         <BorderPane.margin>
+            <Insets top="70.0" />
+         </BorderPane.margin>
+      </VBox>
+   </center>
+   <top>
+      <HBox alignment="CENTER_RIGHT" fillHeight="false" spacing="5.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="usuarioLabel" styleClass="labelProject" text="Label" />
+            <Button fx:id="settingsButton" mnemonicParsing="false">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../res/iconSettings.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="cambiarUsuarioButton" mnemonicParsing="false">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../res/changeUser.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </BorderPane.margin>
+      </HBox>
+   </top>
+</BorderPane>

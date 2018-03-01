@@ -1,5 +1,5 @@
 .root{
-	-fx-background-image: url("/application/postGame.jpg");
+	-fx-background-image: url("/res/postGame.jpg");
 	-fx-background-size: stretch;
 	-fx-background-repeat: no-repeat;
 	
@@ -44,7 +44,7 @@
 
 
 .list-view .list-cell {
--fx-background-image: url("/application/gradiente.jpg");
+-fx-background-image: url("/res/gradiente.jpg");
 -fx-background-size: 800;
 -fx-background-position: top;
  -fx-text-alignment: center;

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="view" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="449.0" prefWidth="606.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <VBox alignment="TOP_CENTER" spacing="30.0" BorderPane.alignment="TOP_CENTER">
+         <children>
+            <TextField fx:id="nombreText" promptText="Nombre" />
+            <ComboBox fx:id="habilidad1Combo" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="Q" />
+            <ComboBox fx:id="habilidad2Combo" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="W" />
+            <ComboBox fx:id="habilidad3Combo" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="E" />
+            <ComboBox fx:id="habilidad4Combo" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="R" />
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="20.0" right="5.0" top="20.0" />
+         </padding>
+      </VBox>
+   </left>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+               <children>
+                  <ImageView fx:id="campeonImage" fitHeight="317.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="30.0">
+               <children>
+                  <Button fx:id="anteriorButton" mnemonicParsing="false" text="Anterior" />
+                  <Button fx:id="siguienteButton" mnemonicParsing="false" text="Siguiente" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+               <children>
+                  <Button fx:id="guardarButton" alignment="CENTER" defaultButton="true" mnemonicParsing="false" text="Guardar" />
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </VBox>
+   </center>
+   <right>
+      <HBox alignment="BASELINE_RIGHT" spacing="5.0" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </HBox>
+   </right>
+   <top>
+      <Button fx:id="atrasButton" mnemonicParsing="false" BorderPane.alignment="TOP_LEFT">
+         <BorderPane.margin>
+            <Insets left="5.0" top="5.0" />
+         </BorderPane.margin>
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@previous.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </top>
+</BorderPane>

@@ -43,10 +43,13 @@
 	</background>
 	<title>
 		<band height="90" splitType="Stretch">
-			<image>
-				<reportElement x="180" y="0" width="230" height="80" uuid="bcf85a34-a150-4347-8893-a8cc2cadc39a"/>
-				<imageExpression><![CDATA["file:/C:/Users/Richard/Desktop/workspaces/Lolemon%20-%20copia/LolemonUI/src/view/fondooo.png"]]></imageExpression>
-			</image>
+			<frame>
+				<reportElement x="180" y="0" width="230" height="80" uuid="c0139b4e-8365-4d24-8a12-06dbbe307849"/>
+				<image>
+					<reportElement x="0" y="0" width="230" height="80" uuid="bcf85a34-a150-4347-8893-a8cc2cadc39a"/>
+					<imageExpression><![CDATA["file:/C:/Users/Richard/Desktop/workspaces/Lolemon%20-%20copia/LolemonUI/src/res/fondooo.png"]]></imageExpression>
+				</image>
+			</frame>
 		</band>
 	</title>
 	<pageHeader>

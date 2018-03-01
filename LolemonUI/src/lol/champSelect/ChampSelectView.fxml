@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="view" prefHeight="544.0" prefWidth="884.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+   <bottom>
+      <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="turnoLabel" styleClass="labelProject" text="Label">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Label>
+            <ListView fx:id="campeonesList" prefHeight="100.0" styleClass="lista">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ListView>
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </VBox>
+   </bottom>
+   <center>
+      <HBox alignment="TOP_CENTER" spacing="150.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets left="5.0" right="5.0" top="5.0" />
+         </BorderPane.margin>
+         <children>
+            <VBox alignment="CENTER" fillWidth="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="5.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <ImageView fx:id="champ1Foto" fitHeight="380.0" fitWidth="250.0" pickOnBounds="true" smooth="false" VBox.vgrow="ALWAYS" />
+                  <Label fx:id="champ1Label" styleClass="labelProject" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font></Label>
+                  <Button fx:id="bloquearButton1" mnemonicParsing="false" text="Fijar" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label prefHeight="53.0" prefWidth="59.0" styleClass="labelProject" text="VS">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" fillWidth="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="5.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <ImageView fx:id="champ2Foto" fitHeight="380.0" fitWidth="250.0" pickOnBounds="true" smooth="false" />
+                  <Label fx:id="champ2Label" styleClass="labelProject" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font></Label>
+                  <Button fx:id="bloquearButton2" mnemonicParsing="false" text="Fijar" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </center>
+   <top>
+      <VBox BorderPane.alignment="TOP_LEFT">
+         <BorderPane.margin>
+            <Insets left="5.0" top="5.0" />
+         </BorderPane.margin>
+         <children>
+            <Button fx:id="atrasButton" mnemonicParsing="false">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../res/previous.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <HBox alignment="TOP_CENTER" spacing="5.0">
+               <children>
+                  <Label styleClass="labelProject" text="Mapa" />
+                  <ComboBox fx:id="mapasCombo" prefWidth="150.0" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </top>
+</BorderPane>
