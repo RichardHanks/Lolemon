@@ -42,13 +42,13 @@ public class Creacion {
 		if(!existeDB()) {
 			em.getTransaction().begin();
 			// Pociones
-			Item poVida = new Item(20, Tipo.VIDA);
+			Item poVida = new Item(50, Tipo.VIDA);
 			poVida.setNombre("PocionVida");
 			poVida.setCoste(50);
-			Item poEnergia = new Item(20, Tipo.ENERGIA);
+			Item poEnergia = new Item(40, Tipo.ENERGIA);
 			poEnergia.setNombre("PocionEnergia");
 			poEnergia.setCoste(50);
-			Item poDefensa = new Item(20, Tipo.DEFENSA);
+			Item poDefensa = new Item(3, Tipo.DEFENSA);
 			poDefensa.setNombre("PocionDefensa");
 			poDefensa.setCoste(50);
 
@@ -59,7 +59,7 @@ public class Creacion {
 			Usuario u = new Usuario();
 			u.setNombre("richard");
 			u.setContraseña("2018");
-			u.setPuntos(10000);
+			u.setPuntos(50000);
 			u.setInventario(inventario);
 			u.setHistorial(historial);
 
@@ -68,12 +68,12 @@ public class Creacion {
 			ahri.setNombre("Ahri");
 			ahri.setCoste(2000);
 			ahri.setVida(450);
-			ahri.setEnergia(120);
+			ahri.setEnergia(130);
 			ahri.setDefensa(25);
 			ahri.setRecargo(0.10);
 			ahri.setVelocidad(75);
 			ahri.setVidaTotal(450);
-			ahri.setEnergiaTotal(120);
+			ahri.setEnergiaTotal(130);
 			ahri.setMensajes(new ArrayList<String>());
 			ahri.setAspecto("/54/ahri/splash/ahri.jpg");
 			ahri.setSprite("54/ahri/sprite/ahri.png");
@@ -95,7 +95,7 @@ public class Creacion {
 			ahri2.setNombre("Fuego zorruno");
 			ahri2.setDescripcion("Ahri lanza tres fuegos zorrunos que fijan y \n atacan a los enemigos cercanos");
 			ahri2.setDaño(55);
-			ahri2.setCoste(15);
+			ahri2.setCoste(25);
 			ahri2.setCritico(30);
 			ahri2.setDmgverdadero(false);
 			ahri2.setRobovida(false);
@@ -137,12 +137,12 @@ public class Creacion {
 			Personaje brand = new Personaje();
 			brand.setNombre("Brand");
 			brand.setVida(450);
-			brand.setEnergia(150);
+			brand.setEnergia(180);
 			brand.setDefensa(20);
 			brand.setRecargo(0.08);
 			brand.setVelocidad(70);
 			brand.setVidaTotal(450);
-			brand.setEnergiaTotal(150);
+			brand.setEnergiaTotal(180);
 			brand.setMensajes(new ArrayList<String>());
 			brand.setAspecto("/54/brand/splash/brand.jpg");
 			brand.setSprite("/54/brand/sprite/brand.png");
@@ -153,32 +153,32 @@ public class Creacion {
 			Habilidad brand1 = new Habilidad();
 			brand1.setNumHabilidad(0);
 			brand1.setNombre("Abrasar");
-			brand1.setDescripcion("Brand lanza una bola de fuego que inflige daño mágico");
+			brand1.setDescripcion("Brand lanza una bola de fuego que inflige daño");
 			brand1.setDaño(80);
 			brand1.setCoste(40);
 			brand1.setCritico(0);
 			brand1.setDmgverdadero(false);
 			brand1.setRobovida(false);
-			brand1.setPrecision(70);
+			brand1.setPrecision(80);
 
 			Habilidad brand2 = new Habilidad();
 			brand2.setNumHabilidad(1);
 			brand2.setNombre("Pilar de llamas");
 			brand2.setDescripcion(
-					"Brand crea un Pilar de llamas en la ubicación \n del objetivo que inflige daño mágico a las unidades enemigas");
+					"Brand crea un Pilar de llamas en la ubicación \n del objetivo que inflige daño a las unidades enemigas");
 			brand2.setDaño(70);
 			brand2.setCoste(35);
 			brand2.setCritico(15);
 			brand2.setDmgverdadero(false);
 			brand2.setRobovida(false);
-			brand2.setPrecision(70);
+			brand2.setPrecision(75);
 
 			Habilidad brand3 = new Habilidad();
 			brand3.setNumHabilidad(2);
 			brand3.setNombre("Incendio");
-			brand3.setDescripcion("Brand lanza un ataque poderoso a su objetivo y le inflige daño mágico.");
+			brand3.setDescripcion("Brand lanza un ataque poderoso a su objetivo y le inflige daño.");
 			brand3.setDaño(55);
-			brand3.setCoste(10);
+			brand3.setCoste(20);
 			brand3.setCritico(20);
 			brand3.setDmgverdadero(false);
 			brand3.setRobovida(false);
@@ -187,7 +187,7 @@ public class Creacion {
 			Habilidad brand4 = new Habilidad();
 			brand4.setNumHabilidad(3);
 			brand4.setNombre("Detonación ígnea");
-			brand4.setDescripcion("Brand libera un devastador torrente de fuego que inflige daño mágico.");
+			brand4.setDescripcion("Brand libera un devastador torrente de fuego que inflige daño.");
 			brand4.setDaño(250);
 			brand4.setCoste(100);
 			brand4.setCritico(350);
@@ -206,12 +206,12 @@ public class Creacion {
 			Personaje darius = new Personaje();
 			darius.setNombre("Darius");
 			darius.setVida(560);
-			darius.setEnergia(100);
+			darius.setEnergia(130);
 			darius.setDefensa(35);
 			darius.setRecargo(0.12);
 			darius.setVelocidad(68);
 			darius.setVidaTotal(560);
-			darius.setEnergiaTotal(100);
+			darius.setEnergiaTotal(130);
 			darius.setMensajes(new ArrayList<String>());
 			darius.setAspecto("/54/darius/splash/darius.jpg");
 			darius.setSprite("/54/darius/sprite/darius.png");
@@ -237,7 +237,7 @@ public class Creacion {
 			darius2.setNombre("Golpe atroz");
 			darius2.setDescripcion("El siguiente ataque de Darius alcanza al enemigo en una arteria vital.");
 			darius2.setDaño(55);
-			darius2.setCoste(20);
+			darius2.setCoste(30);
 			darius2.setCritico(15);
 			darius2.setDmgverdadero(false);
 			darius2.setRobovida(false);
@@ -248,7 +248,7 @@ public class Creacion {
 			darius3.setNombre("Atrapar");
 			darius3.setDescripcion("Brand lanza un ataque poderoso a su objetivo y le inflige daño mágico.");
 			darius3.setDaño(50);
-			darius3.setCoste(20);
+			darius3.setCoste(40);
 			darius3.setCritico(0);
 			darius3.setDmgverdadero(true);
 			darius3.setRobovida(false);
@@ -260,7 +260,7 @@ public class Creacion {
 			darius4.setDescripcion(
 					"Darius pone a punto su hacha, lo cual provoca que, de forma pasiva,\nsu daño físico ignore un porcentaje de la armadura de su objetivo");
 			darius4.setDaño(150);
-			darius4.setCoste(50);
+			darius4.setCoste(60);
 			darius4.setCritico(150);
 			darius4.setDmgverdadero(false);
 			darius4.setRobovida(true);
@@ -282,12 +282,12 @@ public class Creacion {
 			Diana.setNombre("Diana");
 			Diana.setCoste(2500);
 			Diana.setVida(480);
-			Diana.setEnergia(120);
+			Diana.setEnergia(150);
 			Diana.setDefensa(30);
 			Diana.setRecargo(0.10);
 			Diana.setVelocidad(72);
 			Diana.setVidaTotal(480);
-			Diana.setEnergiaTotal(120);
+			Diana.setEnergiaTotal(150);
 			Diana.setMensajes(new ArrayList<String>());
 			Diana.setAspecto("/54/diana/splash/diana.jpg");
 			Diana.setSprite("/54/diana/sprite/Diana.png");
@@ -302,14 +302,14 @@ public class Creacion {
 			Diana1.setCritico(80);
 			Diana1.setDmgverdadero(false);
 			Diana1.setRobovida(false);
-			Diana1.setPrecision(65);
+			Diana1.setPrecision(70);
 
 			Habilidad diana2 = new Habilidad();
 			diana2.setNumHabilidad(1);
 			diana2.setNombre("Cascada pálida");
 			diana2.setDescripcion("Crea tres esferas que orbitan y explotan al impactar con los enemigos");
 			diana2.setDaño(50);
-			diana2.setCoste(10);
+			diana2.setCoste(30);
 			diana2.setCritico(15);
 			diana2.setDmgverdadero(false);
 			diana2.setRobovida(false);
@@ -319,12 +319,12 @@ public class Creacion {
 			diana3.setNumHabilidad(2);
 			diana3.setNombre("Lluvia de luna");
 			diana3.setDescripcion("Diana atrae a todos los enemigos cercanos y les hace daño.");
-			diana3.setDaño(65);
+			diana3.setDaño(60);
 			diana3.setCoste(0);
 			diana3.setCritico(0);
 			diana3.setDmgverdadero(false);
 			diana3.setRobovida(false);
-			diana3.setPrecision(60);
+			diana3.setPrecision(70);
 
 			Habilidad diana4 = new Habilidad();
 			diana4.setNumHabilidad(3);
@@ -332,7 +332,7 @@ public class Creacion {
 			diana4.setDescripcion(
 					"Diana corre hacia un enemigo y le inflige daño mágico.");
 			diana4.setDaño(100);
-			diana4.setCoste(50);
+			diana4.setCoste(60);
 			diana4.setCritico(150);
 			diana4.setDmgverdadero(false);
 			diana4.setRobovida(false);
@@ -353,12 +353,12 @@ public class Creacion {
 			jayce.setNombre("Jayce");
 			jayce.setCoste(2500);
 			jayce.setVida(450);
-			jayce.setEnergia(90);
+			jayce.setEnergia(120);
 			jayce.setDefensa(30);
-			jayce.setRecargo(0.15);
+			jayce.setRecargo(0.12);
 			jayce.setVelocidad(80);
 			jayce.setVidaTotal(450);
-			jayce.setEnergiaTotal(90);
+			jayce.setEnergiaTotal(120);
 			jayce.setMensajes(new ArrayList<String>());
 			jayce.setAspecto("/54/jayce/splash/jayce.jpg");
 			jayce.setSprite("/54/jayce/sprite/Jayce.png");
@@ -369,7 +369,7 @@ public class Creacion {
 			jayce1.setNombre("Explosión eléctrica");
 			jayce1.setDescripcion("Lanza un orbe de electricidad que detona al golpear a un enemigo");
 			jayce1.setDaño(100);
-			jayce1.setCoste(40);
+			jayce1.setCoste(50);
 			jayce1.setCritico(25);
 			jayce1.setDmgverdadero(false);
 			jayce1.setRobovida(false);
@@ -380,7 +380,7 @@ public class Creacion {
 			jayce2.setNombre("Campo de rayos");
 			jayce2.setDescripcion("Crea un campo de rayos que daña a los enemigos cercanos");
 			jayce2.setDaño(65);
-			jayce2.setCoste(15);
+			jayce2.setCoste(20);
 			jayce2.setCritico(25);
 			jayce2.setDmgverdadero(false);
 			jayce2.setRobovida(false);
@@ -391,7 +391,7 @@ public class Creacion {
 			jayce3.setNombre("Golpe tormentoso");
 			jayce3.setDescripcion("Golpe de martillo que Inflige daño.");
 			jayce3.setDaño(40);
-			jayce3.setCoste(15);
+			jayce3.setCoste(20);
 			jayce3.setCritico(25);
 			jayce3.setDmgverdadero(true);
 			jayce3.setRobovida(false);
@@ -403,7 +403,7 @@ public class Creacion {
 			jayce4.setDescripcion(
 					"Jayce desprende toda la energía acumulada en su martillo y causa mucho daño.");
 			jayce4.setDaño(200);
-			jayce4.setCoste(60);
+			jayce4.setCoste(70);
 			jayce4.setCritico(25);
 			jayce4.setDmgverdadero(false);
 			jayce4.setRobovida(true);
@@ -424,12 +424,12 @@ public class Creacion {
 			lucian.setNombre("Lucian");
 			lucian.setCoste(3000);
 			lucian.setVida(410);
-			lucian.setEnergia(120);
+			lucian.setEnergia(150);
 			lucian.setDefensa(20);
 			lucian.setRecargo(0.10);
 			lucian.setVelocidad(85);
 			lucian.setVidaTotal(410);
-			lucian.setEnergiaTotal(120);
+			lucian.setEnergiaTotal(150);
 			lucian.setMensajes(new ArrayList<String>());
 			lucian.setAspecto("/54/lucian/splash/lucian.jpg");
 			lucian.setSprite("/54/lucian/sprite/Lucian.png");
@@ -440,7 +440,7 @@ public class Creacion {
 			lucian1.setNombre("Luz lacerante");
 			lucian1.setDescripcion("Lucian dispara un rayo de luz lacerante a través de un enemigo.");
 			lucian1.setDaño(75);
-			lucian1.setCoste(45);
+			lucian1.setCoste(40);
 			lucian1.setCritico(50);
 			lucian1.setDmgverdadero(false);
 			lucian1.setRobovida(false);
@@ -450,7 +450,7 @@ public class Creacion {
 			lucian2.setNumHabilidad(1);
 			lucian2.setNombre("Resplandor ardiente");
 			lucian2.setDescripcion("Lucian dispara un misil que explota en forma de estrella");
-			lucian2.setDaño(50);
+			lucian2.setDaño(55);
 			lucian2.setCoste(40);
 			lucian2.setCritico(30);
 			lucian2.setDmgverdadero(true);
@@ -462,7 +462,7 @@ public class Creacion {
 			lucian3.setNombre("Persecución implacable");
 			lucian3.setDescripcion("Lucian se desplaza una corta distancia e inflinge daño.");
 			lucian3.setDaño(50);
-			lucian3.setCoste(20);
+			lucian3.setCoste(25);
 			lucian3.setCritico(20);
 			lucian3.setDmgverdadero(false);
 			lucian3.setRobovida(true);
@@ -500,12 +500,12 @@ public class Creacion {
 			lux.setNombre("Lux");
 			lux.setCoste(3000);
 			lux.setVida(450);
-			lux.setEnergia(150);
+			lux.setEnergia(180);
 			lux.setDefensa(20);
 			lux.setRecargo(0.08);
 			lux.setVelocidad(73);
 			lux.setVidaTotal(450);
-			lux.setEnergiaTotal(150);
+			lux.setEnergiaTotal(180);
 			lux.setMensajes(new ArrayList<String>());
 			lux.setAspecto("/54/lux/splash/lux.jpg");
 			lux.setSprite("/54/lux/sprite/Lux.png");
@@ -516,7 +516,7 @@ public class Creacion {
 			lux1.setNombre("Enlace de luz");
 			lux1.setDescripcion("Lux lanza una esfera de luz que causa daño.");
 			lux1.setDaño(70);
-			lux1.setCoste(40);
+			lux1.setCoste(50);
 			lux1.setCritico(50);
 			lux1.setDmgverdadero(false);
 			lux1.setRobovida(false);
@@ -527,11 +527,11 @@ public class Creacion {
 			lux2.setNombre("Barrera prismática");
 			lux2.setDescripcion("Lanza su varita y deforma la luz alrededor causando daño");
 			lux2.setDaño(55);
-			lux2.setCoste(30);
+			lux2.setCoste(25);
 			lux2.setCritico(100);
 			lux2.setDmgverdadero(false);
 			lux2.setRobovida(false);
-			lux2.setPrecision(60);
+			lux2.setPrecision(70);
 
 			Habilidad lux3 = new Habilidad();
 			lux3.setNumHabilidad(2);
@@ -550,11 +550,11 @@ public class Creacion {
 			lux4.setDescripcion(
 					"Tras reunir la energía necesaria, Lux lanza un rayo de luz que daña a todos los objetivos de la zona.");
 			lux4.setDaño(280);
-			lux4.setCoste(70);
+			lux4.setCoste(90);
 			lux4.setCritico(40);
 			lux4.setDmgverdadero(false);
 			lux4.setRobovida(false);
-			lux4.setPrecision(70);
+			lux4.setPrecision(80);
 
 			ArrayList<Habilidad> hlux = new ArrayList<>();
 			 hlux.add(lux1);
@@ -572,12 +572,12 @@ public class Creacion {
 			myi.setNombre("Maestro Yi");
 			myi.setCoste(3500);
 			myi.setVida(480);
-			myi.setEnergia(100);
+			myi.setEnergia(130);
 			myi.setDefensa(30);
 			myi.setRecargo(0.12);
 			myi.setVelocidad(82);
 			myi.setVidaTotal(480);
-			myi.setEnergiaTotal(100);
+			myi.setEnergiaTotal(130);
 			myi.setMensajes(new ArrayList<String>());
 			myi.setAspecto("/54/yi/splash/yi.jpg");
 			myi.setSprite("/54/yi/sprite/MasterYi.png");
@@ -589,7 +589,7 @@ public class Creacion {
 			yi1.setDescripcion("El Maestro Yi se teleporta por el campo de batalla a toda velocidad y"
 					+ " daña a múltiples unidades a su paso, sin que nadie pueda tocarlo.");
 			yi1.setDaño(60);
-			yi1.setCoste(30);
+			yi1.setCoste(40);
 			yi1.setCritico(60);
 			yi1.setDmgverdadero(true);
 			yi1.setRobovida(false);
@@ -611,7 +611,7 @@ public class Creacion {
 			yi3.setNombre("Estilo Wuju");
 			yi3.setDescripcion("El Maestro Yi aplica una técnica wuju ");
 			yi3.setDaño(55);
-			yi3.setCoste(15);
+			yi3.setCoste(35);
 			yi3.setCritico(0);
 			yi3.setDmgverdadero(false);
 			yi3.setRobovida(true);
@@ -650,12 +650,12 @@ public class Creacion {
 			riven.setNombre("Riven");
 			riven.setCoste(3500);
 			riven.setVida(480);
-			riven.setEnergia(120);
+			riven.setEnergia(150);
 			riven.setDefensa(30);
 			riven.setRecargo(0.10);
 			riven.setVelocidad(81);
 			riven.setVidaTotal(480);
-			riven.setEnergiaTotal(120);
+			riven.setEnergiaTotal(150);
 			riven.setMensajes(new ArrayList<String>());
 			riven.setAspecto("/54/Riven/splash/riven.jpg");
 			riven.setSprite("/54/Riven/sprite/Riven.png");
@@ -666,7 +666,7 @@ public class Creacion {
 			riven1.setNombre("Alas rotas");
 			riven1.setDescripcion("Riven lanza una serie de golpes.");
 			riven1.setDaño(65);
-			riven1.setCoste(40);
+			riven1.setCoste(50);
 			riven1.setCritico(35);
 			riven1.setDmgverdadero(true);
 			riven1.setRobovida(false);
@@ -699,12 +699,12 @@ public class Creacion {
 			riven4.setNombre("Cuchillada de Viento");
 			riven4.setDescripcion(
 					"Riven lanza una onda de choque que inflige daño .");
-			riven4.setDaño(500);
+			riven4.setDaño(400);
 			riven4.setCoste(100);
 			riven4.setCritico(60);
 			riven4.setDmgverdadero(false);
 			riven4.setRobovida(false);
-            riven4.setPrecision(20);
+            riven4.setPrecision(25);
 
 			ArrayList<Habilidad> hriven = new ArrayList<>();
 			hriven.add(riven1);
@@ -722,12 +722,12 @@ public class Creacion {
 			sivir.setNombre("Sivir");
 			sivir.setCoste(3500);
 			sivir.setVida(410);
-			sivir.setEnergia(150);
+			sivir.setEnergia(180);
 			sivir.setDefensa(20);
 			sivir.setRecargo(0.08);
 			sivir.setVelocidad(84);
 			sivir.setVidaTotal(410);
-			sivir.setEnergiaTotal(150);
+			sivir.setEnergiaTotal(180);
 			sivir.setMensajes(new ArrayList<String>());
 			sivir.setAspecto("/54/sivir/splash/sivir.jpg");
 			sivir.setSprite("/54/sivir/sprite/Sivir.png");
@@ -738,7 +738,7 @@ public class Creacion {
 			sivir1.setNombre("Cuchilla bumerán");
 			sivir1.setDescripcion("Sivir arroja su arma como un bumerán, causando daño.");
 			sivir1.setDaño(90);
-			sivir1.setCoste(50);
+			sivir1.setCoste(60);
 			sivir1.setCritico(30);
 			sivir1.setDmgverdadero(false);
 			sivir1.setRobovida(false);
@@ -800,12 +800,12 @@ public class Creacion {
 			thresh.setNombre("Thresh");
 			thresh.setCoste(3500);
 			thresh.setVida(620);
-			thresh.setEnergia(90);
-			thresh.setDefensa(35);
-			thresh.setRecargo(0.10);
+			thresh.setEnergia(120);
+			thresh.setDefensa(30);
+			thresh.setRecargo(0.08);
 			thresh.setVelocidad(69);
 			thresh.setVidaTotal(620);
-			thresh.setEnergiaTotal(90);
+			thresh.setEnergiaTotal(120);
 			thresh.setMensajes(new ArrayList<String>());
 			thresh.setAspecto("/54/thresh/splash/thresh.jpg");
 			thresh.setSprite("/54/thresh/sprite/Thresh.png");
@@ -820,7 +820,7 @@ public class Creacion {
 			thresh1.setCritico(25);
 			thresh1.setDmgverdadero(false);
 			thresh1.setRobovida(false);
-			thresh1.setPrecision(60);
+			thresh1.setPrecision(70);
 
 			Habilidad thresh2 = new Habilidad();
 			thresh2.setNumHabilidad(1);
@@ -837,25 +837,25 @@ public class Creacion {
 			thresh3.setNumHabilidad(2);
 			thresh3.setNombre("Despellejar");
 			thresh3.setDescripcion("Thresh barre la zona con sus cadenas y derriba a todos los enemigos ");
-			thresh3.setDaño(35);
+			thresh3.setDaño(45);
 			thresh3.setCoste(0);
 			thresh3.setCritico(15);
-			thresh3.setDmgverdadero(true);
+			thresh3.setDmgverdadero(false);
 			thresh3.setRobovida(false);
-		    thresh3.setPrecision(100);
+		    thresh3.setPrecision(70);
 
 			Habilidad thresh4 = new Habilidad();
 			thresh4.setNumHabilidad(3);
 			thresh4.setNombre("La caja");
 			thresh4.setDescripcion(
 					"Una prisión de muros que se estrechan hasta causar un gran daño.");
-			thresh4.setDaño(80);
-			thresh4.setCoste(75);
-			thresh4.setCritico(0);
+			thresh4.setDaño(65);
+			thresh4.setCoste(70);
+			thresh4.setCritico(40);
 			thresh4.setDmgverdadero(false);
 			thresh4.setRobovida(true);
 			thresh4.setTipoRobovida(TiposRobosVida.VidaFaltantePropia);
-			thresh4.setPorcentajeRV(0.5);
+			thresh4.setPorcentajeRV(0.40);
 			thresh4.setPrecision(80);
 
 			ArrayList<Habilidad> hthresh = new ArrayList<>();
@@ -877,12 +877,12 @@ public class Creacion {
 			yasuo.setNombre("Yasuo");
 			yasuo.setCoste(3500);
 			yasuo.setVida(450);
-			yasuo.setEnergia(100);
+			yasuo.setEnergia(130);
 			yasuo.setDefensa(20);
 			yasuo.setRecargo(0.10);
 			yasuo.setVelocidad(90);
 			yasuo.setVidaTotal(450);
-			yasuo.setEnergiaTotal(100);
+			yasuo.setEnergiaTotal(130);
 			yasuo.setMensajes(new ArrayList<String>());
 			yasuo.setAspecto("/54/yasuo/splash/yasuo.jpg");
 			yasuo.setSprite("/54/yasuo/sprite/Yasuo.png");
@@ -897,7 +897,7 @@ public class Creacion {
 			yasuo1.setCritico(100);
 			yasuo1.setDmgverdadero(false);
 			yasuo1.setRobovida(false);
-			yasuo1.setPrecision(50);
+			yasuo1.setPrecision(65);
 
 			Habilidad yasuo2 = new Habilidad();
 			yasuo2.setNumHabilidad(1);
@@ -908,19 +908,19 @@ public class Creacion {
 			yasuo2.setCritico(70);
 			yasuo2.setDmgverdadero(true);
 			yasuo2.setRobovida(false);
-			yasuo2.setPrecision(50);
+			yasuo2.setPrecision(70);
 
 			Habilidad yasuo3 = new Habilidad();
 			yasuo3.setNumHabilidad(2);
 			yasuo3.setNombre("Hoja cortante");
 			yasuo3.setDescripcion("Se desliza a través de una unidad e inflige una cantidad de daño ");
 			yasuo3.setDaño(50);
-			yasuo3.setCoste(20);
+			yasuo3.setCoste(25);
 			yasuo3.setCritico(50);
 			yasuo3.setDmgverdadero(false);
 			yasuo3.setRobovida(true);
 			yasuo3.setTipoRobovida(TiposRobosVida.VidaEnemigaActual);
-		    yasuo3.setPrecision(70);
+		    yasuo3.setPrecision(100);
 
 			Habilidad yasuo4 = new Habilidad();
 			yasuo4.setNumHabilidad(3);

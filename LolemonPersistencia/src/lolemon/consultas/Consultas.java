@@ -320,7 +320,7 @@ public class Consultas {
 
 	public Item getPocion(){
 		em.getTransaction().begin();
-		Item pocion = new Item(20, Tipo.VIDA);
+		Item pocion = new Item(50, Tipo.VIDA);
 		pocion.setCoste(50);
 		pocion.setNombre("pocionnnn"+String.valueOf(Math.random()+100));
 		em.persist(pocion);
@@ -330,7 +330,7 @@ public class Consultas {
 	
 	public Item getVial(){
 		em.getTransaction().begin();
-		Item vial = new Item(20, Tipo.DEFENSA);
+		Item vial = new Item(3, Tipo.DEFENSA);
 		vial.setCoste(50);
 		vial.setNombre("pocionnnn"+String.valueOf(Math.random()+100));
 		em.persist(vial);
@@ -340,7 +340,7 @@ public class Consultas {
 	
 	public Item getElixir(){
 		em.getTransaction().begin();
-		Item elixir = new Item(20, Tipo.ENERGIA);
+		Item elixir = new Item(50, Tipo.ENERGIA);
 		elixir.setCoste(50);
 		elixir.setNombre("pocionnnn"+String.valueOf(Math.random()+100));
 		em.persist(elixir);

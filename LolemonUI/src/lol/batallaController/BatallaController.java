@@ -38,6 +38,7 @@ import lol.mainMenuController.LolemonController;
 import lol.postGameController.PostGameController;
 import lolemon.consultas.Consultas;
 import lolemon.logicaDeNegocio.Clases.Combate;
+import lolemon.persistencia.modelo.Habilidad;
 import lolemon.persistencia.modelo.Personaje;
 import lolemon.persistencia.modelo.Tipo;
 import model.PersonajeModel;
@@ -378,38 +379,61 @@ public class BatallaController implements Initializable {
 		btnItem1.setText("Pociones " + "x" + u.getInventario().getPocionesList().size());
 		if (u.getInventario().getPocionesList().size() == 0 | combate.getPocionesusadas()>=3)
 			btnItem1.setDisable(true);
-		btnItem1.setTooltip(new Tooltip("+20 de vida"));
+		btnItem1.setTooltip(new Tooltip("+50 de vida"));
 
 		btnItem2.setText("Elixires " + "x" + u.getInventario().getElixiresList().size());
 		if (u.getInventario().getElixiresList().size() == 0 | combate.getPocionesusadas()>=3)
 			btnItem2.setDisable(true);
-		btnItem2.setTooltip(new Tooltip("+20 de energia"));
+		btnItem2.setTooltip(new Tooltip("+50 de energia"));
 
 		btnItem3.setText("Viales " + "x" + u.getInventario().getVialesList().size());
 		if (u.getInventario().getVialesList().size() == 0 | combate.getPocionesusadas()>=3)
 			btnItem3.setDisable(true);
-		btnItem3.setTooltip(new Tooltip("+20 de defensa"));
+		btnItem3.setTooltip(new Tooltip("+3 de defensa"));
 	}
 
 	private void cambiarBotones(PersonajeModel p) {
 		
 		btn1.setText(p.getHabilidades().get(0).getNombre());
 		btn1.setTooltip(new Tooltip(
-				"Coste: " + p.getHabilidades().get(0).getCoste() + "\nDaño: " + p.getHabilidades().get(0).getDaño()));
+				"Coste: " + p.getHabilidades().get(0).getCoste() + "\nDaño: " + p.getHabilidades().get(0).getDaño()+
+				"\nCrítico:"+p.getHabilidades().get(0).getCritico()+"\nPrecisión:"+p.getHabilidades().get(0).getPrecision()+
+				comprobarRV(p.getHabilidades().get(0))+comprobarDaño(p.getHabilidades().get(0))));
 
 		btn2.setText(p.getHabilidades().get(1).getNombre());
 		btn2.setTooltip(new Tooltip(
-				"Coste: " + p.getHabilidades().get(1).getCoste() + "\nDaño: " + p.getHabilidades().get(1).getDaño()));
+				"Coste: " + p.getHabilidades().get(1).getCoste() + "\nDaño: " + p.getHabilidades().get(1).getDaño()+
+				"\nCrítico:"+p.getHabilidades().get(1).getCritico()+"\nPrecisión:"+p.getHabilidades().get(1).getPrecision()+
+				comprobarRV(p.getHabilidades().get(1))+comprobarDaño(p.getHabilidades().get(1))));
 
 		btn3.setText(p.getHabilidades().get(2).getNombre());
 		btn3.setTooltip(new Tooltip(
-				"Coste: " + p.getHabilidades().get(2).getCoste() + "\nDaño: " + p.getHabilidades().get(2).getDaño()));
+				"Coste: " + p.getHabilidades().get(2).getCoste() + "\nDaño: " + p.getHabilidades().get(2).getDaño()+
+				"\nCrítico:"+p.getHabilidades().get(2).getCritico()+"\nPrecisión:"+p.getHabilidades().get(2).getPrecision()+
+				comprobarRV(p.getHabilidades().get(2))+comprobarDaño(p.getHabilidades().get(2))));
 
 		btn4.setText(p.getHabilidades().get(3).getNombre());
 		btn4.setTooltip(new Tooltip(
-				"Coste: " + p.getHabilidades().get(3).getCoste() + "\nDaño: " + p.getHabilidades().get(3).getDaño()));
+				"Coste: " + p.getHabilidades().get(3).getCoste() + "\nDaño: " + p.getHabilidades().get(3).getDaño()+
+				"\nCrítico:"+p.getHabilidades().get(3).getCritico()+"\nPrecisión:"+p.getHabilidades().get(3).getPrecision()+
+				comprobarRV(p.getHabilidades().get(3))+comprobarDaño(p.getHabilidades().get(3))));
 	}
 
+	private String comprobarDaño(Habilidad habilidad) {
+		// TODO Auto-generated method stub
+		String valor="\nTipo daño: Normal";
+		if(habilidad.isDmgverdadero())
+			valor="\nTipo daño: Verdadero";
+		return valor;
+	}
+	
+	private String comprobarRV(Habilidad habilidad) {
+		String valor="";
+		if(habilidad.getPorcentajeRV()>0.0)
+			valor="\nRobo de vida:"+habilidad.getPorcentajeRV();
+		return valor;
+		
+	};
 	public final ObjectProperty<LolemonController> controllerProperty() {
 		return this.controller;
 	}
