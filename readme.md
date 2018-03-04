@@ -1,4 +1,4 @@
-
+﻿
 # LOLEMON
 ## DESAROLLO DE APLICACIONES MULTIPLATAFORMA 
 Desarrolladores:
@@ -20,4 +20,6 @@ Se hará uso del framework JavaFx para el desarollo.
 
 **[Análisis de los campeones](https://github.com/RichardHanks/Lolemon/blob/master/docs/analisisCampeones.md)**
 
-**[Diseño de la interfaz](http://www.limni.net)**
+**[Análisis de las habilidades](https://github.com/RichardHanks/Lolemon/blob/master/docs/analisishabilidades.md)**
+
+**[Diseño de la interfaz](https://github.com/RichardHanks/Lolemon/blob/master/docs/interfaz.md)**
