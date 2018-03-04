@@ -22,7 +22,8 @@ Las caracteristicas de las habilidades son:
 **Robo de vida :** Siendo un boolean que nos indica si esta habilidad roba vida.
 
 **Tipo de robo de vida:** En caso de que la habilidad tenga robo de vida, existen varios tipos, siendo estos: 
-VidaActual,VidaEnemigaActual,
+
+	VidaActual,VidaEnemigaActual,
 
     	VidaPropiaMaxima,VidaEnemigaMaxima,
 
