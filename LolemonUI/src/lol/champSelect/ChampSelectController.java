@@ -26,12 +26,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Orientation;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Tooltip;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -42,6 +44,7 @@ import javafx.scene.paint.Color;
 import javafx.util.Callback;
 import javafx.util.Duration;
 import lol.batallaController.BatallaController;
+import lol.iniciarSesionController.IniciarSesionController;
 import lol.mainMenuController.LolemonController;
 import lol.postGameController.PostGameController;
 import lolemon.consultas.Consultas;
@@ -76,8 +79,8 @@ public class ChampSelectController implements Initializable {
 	private ComboBox<String> mapasCombo;
 
 	private ObjectProperty<UsuarioModel> usuarioModel = new SimpleObjectProperty<>(this, "usuario", new UsuarioModel());
-	private ObjectProperty<Personaje> champ1 = new SimpleObjectProperty<>(this, "perosnaje 1", new Personaje());
-	private ObjectProperty<Personaje> champ2 = new SimpleObjectProperty<>(this, "perosnaje 2", new Personaje());
+	private ObjectProperty<Personaje> champ1 = new SimpleObjectProperty<>(this, "perosnaje 1");
+	private ObjectProperty<Personaje> champ2 = new SimpleObjectProperty<>(this, "perosnaje 2");
 	private ListProperty<Personaje> listaPersonajes = new SimpleListProperty<>(this, "lista de personajes",
 			FXCollections.observableArrayList());
 	private StringProperty turno = new SimpleStringProperty(this, "turno", "Primera selección");
@@ -106,6 +109,7 @@ public class ChampSelectController implements Initializable {
 		atrasButton.setOnAction(e -> atras(e));
 		campeonesList.setOrientation(Orientation.HORIZONTAL);
 		campeonesList.setCellFactory(customHorizontalListView());
+
 
 		campeonesList.getSelectionModel().selectedItemProperty().addListener((o, ov, nv) -> {
 			if (primeraSeleccion)
@@ -167,6 +171,7 @@ public class ChampSelectController implements Initializable {
 		champ1.set(null);
 		champ2.set(null);
 		campeonesList.setDisable(false);
+		atrasButton.setDisable(false);
 		bloquearButton1.setDisable(false);
 		bloquearButton2.setDisable(false);
 		turno.set("Primera seleccion");
@@ -206,31 +211,53 @@ public class ChampSelectController implements Initializable {
 	}
 
 	private void bloqueo() {
+		if(champ1.get()==null) {
+			Alert alert = new Alert(AlertType.WARNING);
+			alert.setTitle("ChampSelect");
+			alert.initOwner(Main.getPrimaryStage());
+			alert.setHeaderText("Selcciona un campeon");
+			alert.showAndWait();
+		}else {
 		primeraSeleccion = false;
 		Transiciones.brilloImagen(champ1Foto, Color.CRIMSON);
 		bloquearButton1.setDisable(true);
 		turno.set("Segunda selección");
+		}
 	}
 
 	private void bloqueo2(ActionEvent e) {
+		if(champ2.get()==null) {
+			Alert alert = new Alert(AlertType.WARNING);
+			alert.setTitle("ChampSelect");
+			alert.initOwner(Main.getPrimaryStage());
+			alert.setHeaderText("Selcciona un campeon");
+			alert.showAndWait();
+		}else {
 		Transiciones.brilloImagen(champ2Foto, Color.CRIMSON);
 		campeonesList.setDisable(true);
 		bloquearButton1.setDisable(true);
 		bloquearButton2.setDisable(true);
 		cuentaAtras();
+		}
 
 	}
 
 	private void cuentaAtras() {
 		int startValue = 10;
 		turno.set("10");
-		Timeline countdown = new Timeline(
-				new KeyFrame(Duration.seconds(1), e -> turno.set(String.valueOf((Integer.valueOf(turno.get()) - 1)))));
-		countdown.setCycleCount(startValue);
-		countdown.play();
-		countdown.setOnFinished(e -> {
-			iniciarBatallaController();
-		});
+		try {
+			Timeline countdown = new Timeline(
+					new KeyFrame(Duration.seconds(1), e -> turno.set(String.valueOf((Integer.valueOf(turno.get()) - 1)))));
+			countdown.setCycleCount(startValue);
+			countdown.play();
+			atrasButton.setDisable(true);
+			countdown.setOnFinished(e -> {
+				iniciarBatallaController();
+			});
+		} catch (Exception e) {
+			
+		}
+	
 	}
 
 	private void iniciarBatallaController() {

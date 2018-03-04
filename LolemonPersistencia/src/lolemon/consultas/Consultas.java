@@ -6,7 +6,6 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import com.objectdb.o.ITE;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;

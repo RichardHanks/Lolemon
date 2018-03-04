@@ -44,11 +44,6 @@
                   <Font name="Bell MT Bold" size="30.0" />
                </font>
             </Label>
-            <Label fx:id="labelMensaje" text="Mensaje del campeon" textFill="WHITE">
-               <font>
-                  <Font name="Bell MT Bold" size="30.0" />
-               </font>
-            </Label>
             <Label fx:id="dmgLabel" text="Label" textFill="WHITE">
                <font>
                   <Font name="Bell MT Bold" size="30.0" />

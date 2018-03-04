@@ -89,6 +89,7 @@ public class LolemonController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		crearCampeonButton.setDisable(true);
 		cambiarUsuarioButton.setOnAction(e->cambiarUsuario(e));
 		jugarButton.setOnAction(e -> jugar(e));
 		verCampeonesButton.setOnAction(e -> verCampeones(e));

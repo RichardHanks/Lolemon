@@ -60,9 +60,6 @@ public class PostGameController implements Initializable {
 	private Label labelPuntos;
 
 	@FXML
-	private Label labelMensaje;
-
-	@FXML
 	private Label dmgLabel;
 
 	@FXML
@@ -152,14 +149,6 @@ public class PostGameController implements Initializable {
 
 	public void setImageViewChamp(ImageView imageViewChamp) {
 		this.imageViewChamp = imageViewChamp;
-	}
-
-	public Label getLabelMensaje() {
-		return labelMensaje;
-	}
-
-	public void setLabelMensaje(Label labelMensaje) {
-		this.labelMensaje = labelMensaje;
 	}
 
 	public Label getLabelPuntos() {

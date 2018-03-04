@@ -151,7 +151,7 @@ public class Habilidad extends Movimiento implements Serializable  {
 	
 	@Override
 	public String toString() {
-		return getNombre() +" [Daño: "+getDaño()+" Coste: "+getCoste()+"]";
+		return getNombre() +" [Daño: "+getDaño()+" Coste: "+getCoste()+"]\n";
 	}
 	
 }

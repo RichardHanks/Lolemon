@@ -3,10 +3,9 @@ package application;
 import java.io.IOException;
 
 import javafx.application.Application;
-import javafx.concurrent.Task;
+import javafx.application.Platform;
 import javafx.stage.Stage;
 import lol.iniciarSesionController.IniciarSesionController;
-import lolemon.persistencia.base.Conexion;
 import lolemon.persistencia.base.Creacion;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -26,6 +25,7 @@ public class Main extends Application {
 			scene.getStylesheets().add("/application/application.css");
 			primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/res/icono.png")));
 			primaryStage.setScene(scene);
+			primaryStage.setOnCloseRequest(e->{Platform.exit();System.exit(0);});
 			primaryStage.show();
 		} catch(Exception e1) {
 			e1.printStackTrace();

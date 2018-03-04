@@ -91,7 +91,6 @@ public class VerCampeonesController implements Initializable {
 		filtroBusquedaCombo.getItems().add("Todos");
 		filtroBusquedaCombo.getItems().add("En posesion");
 		filtroBusquedaCombo.getItems().add("No en posesión");
-		filtroBusquedaCombo.getItems().add("Creaciones propias");
 	}
 
 	@Override
@@ -153,10 +152,6 @@ public class VerCampeonesController implements Initializable {
 			case "No en posesión":
 				campeonesList.getItems().clear();
 				list.setAll(consultas.getCampeonesBloqueados(usuarioModel.get().getNombre()));
-				/*
-				 * TODO pendiente de hacer una consulta que devuelva las creaciones propias
-				 * seguramente habra que modificar la base de datos
-				 */
 				break;
 			default:
 				break;
@@ -177,7 +172,9 @@ public class VerCampeonesController implements Initializable {
 			Image im = new Image(nv.getAspecto());
 			campeonImage.setImage(im);
 		} else {
-			vidaLabel.setText("");
+			Image im = new Image("/res/if_password_2639882.png");
+			campeonImage.setImage(im);
+			vidaLabel.setText(null);
 			campeonImage.setImage(null);
 			manaLabel.setText(null);
 			defensaLabel.setText(null);

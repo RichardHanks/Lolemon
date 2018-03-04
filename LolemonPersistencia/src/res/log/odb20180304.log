@@ -1,0 +1,687 @@
+------------------------------------------------------------------------------------------------------------------------
+
+[2018-03-04 10:12:37 #1 store] 
+Database 'C:\Users\Richard\Desktop\workspaces\Lolemon - copia\LolemonPersistencia\src\res\db\lolemon.odb' is opened by 7200@DESKTOP-G2MVH2V
+
+[2018-03-04 10:12:37 #2 store] 
+Configuration path: ?
+
+[2018-03-04 10:12:37 #3 type] 
+Type lolemon.persistencia.modelo.Usuario is not enhanced.
+
+[2018-03-04 10:12:37 #4 type] 
+Type lolemon.persistencia.modelo.Inventario is not enhanced.
+
+[2018-03-04 10:12:37 #5 type] 
+Type lolemon.persistencia.modelo.Historial is not enhanced.
+
+[2018-03-04 10:12:37 #6 type] 
+Type lolemon.persistencia.modelo.RegistroPartida is not enhanced.
+
+[2018-03-04 10:12:37 #7 type] 
+Type lolemon.persistencia.modelo.Personaje is not enhanced.
+
+[2018-03-04 10:12:37 #8 type] 
+Type lolemon.persistencia.modelo.Movimiento is not enhanced.
+
+[2018-03-04 10:12:37 #9 type] 
+Type lolemon.persistencia.modelo.Item is not enhanced.
+
+[2018-03-04 10:12:37 #10 type] 
+Type lolemon.persistencia.modelo.Habilidad is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2018-03-04 10:15:37 #1 store] 
+Database 'C:\Users\Richard\Desktop\workspaces\Lolemon - copia\LolemonPersistencia\src\res\db\lolemon.odb' is opened by 5396@DESKTOP-G2MVH2V
+
+[2018-03-04 10:15:37 #2 store] 
+Configuration path: ?
+
+[2018-03-04 10:15:37 #3 type] 
+Type lolemon.persistencia.modelo.Usuario is not enhanced.
+
+[2018-03-04 10:15:37 #4 type] 
+Type lolemon.persistencia.modelo.Inventario is not enhanced.
+
+[2018-03-04 10:15:37 #5 type] 
+Type lolemon.persistencia.modelo.Historial is not enhanced.
+
+[2018-03-04 10:15:37 #6 type] 
+Type lolemon.persistencia.modelo.RegistroPartida is not enhanced.
+
+[2018-03-04 10:15:37 #7 type] 
+Type lolemon.persistencia.modelo.Personaje is not enhanced.
+
+[2018-03-04 10:15:37 #8 type] 
+Type lolemon.persistencia.modelo.Movimiento is not enhanced.
+
+[2018-03-04 10:15:37 #9 type] 
+Type lolemon.persistencia.modelo.Item is not enhanced.
+
+[2018-03-04 10:15:37 #10 type] 
+Type lolemon.persistencia.modelo.Habilidad is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2018-03-04 10:21:44 #1 store] 
+Database 'C:\Users\Richard\Desktop\workspaces\Lolemon - copia\LolemonPersistencia\src\res\db\lolemon.odb' is opened by 7976@DESKTOP-G2MVH2V
+
+[2018-03-04 10:21:44 #2 store] 
+Configuration path: ?
+
+[2018-03-04 10:21:44 #3 type] 
+Type lolemon.persistencia.modelo.Usuario is not enhanced.
+
+[2018-03-04 10:21:44 #4 type] 
+Type lolemon.persistencia.modelo.Inventario is not enhanced.
+
+[2018-03-04 10:21:44 #5 type] 
+Type lolemon.persistencia.modelo.Historial is not enhanced.
+
+[2018-03-04 10:21:44 #6 type] 
+Type lolemon.persistencia.modelo.RegistroPartida is not enhanced.
+
+[2018-03-04 10:21:44 #7 type] 
+Type lolemon.persistencia.modelo.Personaje is not enhanced.
+
+[2018-03-04 10:21:44 #8 type] 
+Type lolemon.persistencia.modelo.Movimiento is not enhanced.
+
+[2018-03-04 10:21:44 #9 type] 
+Type lolemon.persistencia.modelo.Item is not enhanced.
+
+[2018-03-04 10:21:44 #10 type] 
+Type lolemon.persistencia.modelo.Habilidad is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2018-03-04 10:32:40 #1 store] 
+Database 'C:\Users\Richard\Desktop\workspaces\Lolemon - copia\LolemonPersistencia\src\res\db\lolemon.odb' is opened by 8628@DESKTOP-G2MVH2V
+
+[2018-03-04 10:32:40 #2 store] 
+Configuration path: ?
+
+[2018-03-04 10:32:40 #3 type] 
+Type lolemon.persistencia.modelo.Usuario is not enhanced.
+
+[2018-03-04 10:32:40 #4 type] 
+Type lolemon.persistencia.modelo.Inventario is not enhanced.
+
+[2018-03-04 10:32:40 #5 type] 
+Type lolemon.persistencia.modelo.Historial is not enhanced.
+
+[2018-03-04 10:32:40 #6 type] 
+Type lolemon.persistencia.modelo.RegistroPartida is not enhanced.
+
+[2018-03-04 10:32:40 #7 type] 
+Type lolemon.persistencia.modelo.Personaje is not enhanced.
+
+[2018-03-04 10:32:40 #8 type] 
+Type lolemon.persistencia.modelo.Movimiento is not enhanced.
+
+[2018-03-04 10:32:40 #9 type] 
+Type lolemon.persistencia.modelo.Item is not enhanced.
+
+[2018-03-04 10:32:40 #10 type] 
+Type lolemon.persistencia.modelo.Habilidad is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2018-03-04 10:34:42 #1 store] 
+Database 'C:\Users\Richard\Desktop\workspaces\Lolemon - copia\LolemonPersistencia\src\res\db\lolemon.odb' is opened by 7292@DESKTOP-G2MVH2V
+
+[2018-03-04 10:34:42 #2 store] 
+Configuration path: ?
+
+[2018-03-04 10:34:42 #3 type] 
+Type lolemon.persistencia.modelo.Usuario is not enhanced.
+
+[2018-03-04 10:34:42 #4 type] 
+Type lolemon.persistencia.modelo.Inventario is not enhanced.
+
+[2018-03-04 10:34:42 #5 type] 
+Type lolemon.persistencia.modelo.Historial is not enhanced.
+
+[2018-03-04 10:34:42 #6 type] 
+Type lolemon.persistencia.modelo.RegistroPartida is not enhanced.
+
+[2018-03-04 10:34:42 #7 type] 
+Type lolemon.persistencia.modelo.Personaje is not enhanced.
+
+[2018-03-04 10:34:42 #8 type] 
+Type lolemon.persistencia.modelo.Movimiento is not enhanced.
+
+[2018-03-04 10:34:42 #9 type] 
+Type lolemon.persistencia.modelo.Item is not enhanced.
+
+[2018-03-04 10:34:42 #10 type] 
+Type lolemon.persistencia.modelo.Habilidad is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2018-03-04 10:37:05 #1 store] 
+Database 'C:\Users\Richard\Desktop\workspaces\Lolemon - copia\LolemonPersistencia\src\res\db\lolemon.odb' has been recovered (tr. 102-102)
+
+[2018-03-04 10:37:05 #2 store] 
+Database 'C:\Users\Richard\Desktop\workspaces\Lolemon - copia\LolemonPersistencia\src\res\db\lolemon.odb' is opened by 12736@DESKTOP-G2MVH2V
+
+[2018-03-04 10:37:05 #3 store] 
+Configuration path: ?
+
+[2018-03-04 10:37:05 #4 type] 
+Type lolemon.persistencia.modelo.Usuario is not enhanced.
+
+[2018-03-04 10:37:05 #5 type] 
+Type lolemon.persistencia.modelo.Inventario is not enhanced.
+
+[2018-03-04 10:37:05 #6 type] 
+Type lolemon.persistencia.modelo.Historial is not enhanced.
+
+[2018-03-04 10:37:06 #7 type] 
+Type lolemon.persistencia.modelo.RegistroPartida is not enhanced.
+
+[2018-03-04 10:37:06 #8 type] 
+Type lolemon.persistencia.modelo.Personaje is not enhanced.
+
+[2018-03-04 10:37:06 #9 type] 
+Type lolemon.persistencia.modelo.Movimiento is not enhanced.
+
+[2018-03-04 10:37:06 #10 type] 
+Type lolemon.persistencia.modelo.Item is not enhanced.
+
+[2018-03-04 10:37:06 #11 type] 
+Type lolemon.persistencia.modelo.Habilidad is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2018-03-04 10:38:44 #1 store] 
+Database 'C:\Users\Richard\Desktop\workspaces\Lolemon - copia\LolemonPersistencia\src\res\db\lolemon.odb' is opened by 3372@DESKTOP-G2MVH2V
+
+[2018-03-04 10:38:44 #2 store] 
+Configuration path: ?
+
+[2018-03-04 10:38:44 #3 type] 
+Type lolemon.persistencia.modelo.Usuario is not enhanced.
+
+[2018-03-04 10:38:44 #4 type] 
+Type lolemon.persistencia.modelo.Inventario is not enhanced.
+
+[2018-03-04 10:38:44 #5 type] 
+Type lolemon.persistencia.modelo.Historial is not enhanced.
+
+[2018-03-04 10:38:44 #6 type] 
+Type lolemon.persistencia.modelo.RegistroPartida is not enhanced.
+
+[2018-03-04 10:38:44 #7 type] 
+Type lolemon.persistencia.modelo.Personaje is not enhanced.
+
+[2018-03-04 10:38:44 #8 type] 
+Type lolemon.persistencia.modelo.Movimiento is not enhanced.
+
+[2018-03-04 10:38:44 #9 type] 
+Type lolemon.persistencia.modelo.Item is not enhanced.
+
+[2018-03-04 10:38:44 #10 type] 
+Type lolemon.persistencia.modelo.Habilidad is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2018-03-04 10:39:44 #1 store] 
+Database 'C:\Users\Richard\Desktop\workspaces\Lolemon - copia\LolemonPersistencia\src\res\db\lolemon.odb' is opened by 11704@DESKTOP-G2MVH2V
+
+[2018-03-04 10:39:44 #2 store] 
+Configuration path: ?
+
+[2018-03-04 10:39:44 #3 type] 
+Type lolemon.persistencia.modelo.Usuario is not enhanced.
+
+[2018-03-04 10:39:44 #4 type] 
+Type lolemon.persistencia.modelo.Inventario is not enhanced.
+
+[2018-03-04 10:39:44 #5 type] 
+Type lolemon.persistencia.modelo.Historial is not enhanced.
+
+[2018-03-04 10:39:44 #6 type] 
+Type lolemon.persistencia.modelo.RegistroPartida is not enhanced.
+
+[2018-03-04 10:39:44 #7 type] 
+Type lolemon.persistencia.modelo.Personaje is not enhanced.
+
+[2018-03-04 10:39:44 #8 type] 
+Type lolemon.persistencia.modelo.Movimiento is not enhanced.
+
+[2018-03-04 10:39:44 #9 type] 
+Type lolemon.persistencia.modelo.Item is not enhanced.
+
+[2018-03-04 10:39:44 #10 type] 
+Type lolemon.persistencia.modelo.Habilidad is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2018-03-04 10:40:42 #1 store] 
+Database 'C:\Users\Richard\Desktop\workspaces\Lolemon - copia\LolemonPersistencia\src\res\db\lolemon.odb' is opened by 6280@DESKTOP-G2MVH2V
+
+[2018-03-04 10:40:42 #2 store] 
+Configuration path: ?
+
+[2018-03-04 10:40:42 #3 type] 
+Type lolemon.persistencia.modelo.Usuario is not enhanced.
+
+[2018-03-04 10:40:42 #4 type] 
+Type lolemon.persistencia.modelo.Inventario is not enhanced.
+
+[2018-03-04 10:40:42 #5 type] 
+Type lolemon.persistencia.modelo.Historial is not enhanced.
+
+[2018-03-04 10:40:42 #6 type] 
+Type lolemon.persistencia.modelo.RegistroPartida is not enhanced.
+
+[2018-03-04 10:40:42 #7 type] 
+Type lolemon.persistencia.modelo.Personaje is not enhanced.
+
+[2018-03-04 10:40:42 #8 type] 
+Type lolemon.persistencia.modelo.Movimiento is not enhanced.
+
+[2018-03-04 10:40:42 #9 type] 
+Type lolemon.persistencia.modelo.Item is not enhanced.
+
+[2018-03-04 10:40:42 #10 type] 
+Type lolemon.persistencia.modelo.Habilidad is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2018-03-04 10:44:33 #1 store] 
+Database 'C:\Users\Richard\Desktop\workspaces\Lolemon - copia\LolemonPersistencia\src\res\db\lolemon.odb' is opened by 3776@DESKTOP-G2MVH2V
+
+[2018-03-04 10:44:33 #2 store] 
+Configuration path: ?
+
+[2018-03-04 10:44:34 #3 type] 
+Type lolemon.persistencia.modelo.Usuario is not enhanced.
+
+[2018-03-04 10:44:34 #4 type] 
+Type lolemon.persistencia.modelo.Inventario is not enhanced.
+
+[2018-03-04 10:44:34 #5 type] 
+Type lolemon.persistencia.modelo.Historial is not enhanced.
+
+[2018-03-04 10:44:34 #6 type] 
+Type lolemon.persistencia.modelo.RegistroPartida is not enhanced.
+
+[2018-03-04 10:44:34 #7 type] 
+Type lolemon.persistencia.modelo.Personaje is not enhanced.
+
+[2018-03-04 10:44:34 #8 type] 
+Type lolemon.persistencia.modelo.Movimiento is not enhanced.
+
+[2018-03-04 10:44:34 #9 type] 
+Type lolemon.persistencia.modelo.Item is not enhanced.
+
+[2018-03-04 10:44:34 #10 type] 
+Type lolemon.persistencia.modelo.Habilidad is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2018-03-04 10:46:47 #1 store] 
+Database 'C:\Users\Richard\Desktop\workspaces\Lolemon - copia\LolemonPersistencia\src\res\db\lolemon.odb' is opened by 7636@DESKTOP-G2MVH2V
+
+[2018-03-04 10:46:47 #2 store] 
+Configuration path: ?
+
+[2018-03-04 10:46:48 #3 type] 
+Type lolemon.persistencia.modelo.Usuario is not enhanced.
+
+[2018-03-04 10:46:48 #4 type] 
+Type lolemon.persistencia.modelo.Inventario is not enhanced.
+
+[2018-03-04 10:46:48 #5 type] 
+Type lolemon.persistencia.modelo.Historial is not enhanced.
+
+[2018-03-04 10:46:48 #6 type] 
+Type lolemon.persistencia.modelo.RegistroPartida is not enhanced.
+
+[2018-03-04 10:46:48 #7 type] 
+Type lolemon.persistencia.modelo.Personaje is not enhanced.
+
+[2018-03-04 10:46:48 #8 type] 
+Type lolemon.persistencia.modelo.Movimiento is not enhanced.
+
+[2018-03-04 10:46:48 #9 type] 
+Type lolemon.persistencia.modelo.Item is not enhanced.
+
+[2018-03-04 10:46:48 #10 type] 
+Type lolemon.persistencia.modelo.Habilidad is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2018-03-04 10:53:53 #1 store] 
+Database 'C:\Users\Richard\Desktop\workspaces\Lolemon - copia\LolemonPersistencia\src\res\db\lolemon.odb' has been recovered (tr. 103-103)
+
+[2018-03-04 10:53:53 #2 store] 
+Database 'C:\Users\Richard\Desktop\workspaces\Lolemon - copia\LolemonPersistencia\src\res\db\lolemon.odb' is opened by 6424@DESKTOP-G2MVH2V
+
+[2018-03-04 10:53:53 #3 store] 
+Configuration path: ?
+
+[2018-03-04 10:53:53 #4 type] 
+Type lolemon.persistencia.modelo.Usuario is not enhanced.
+
+[2018-03-04 10:53:53 #5 type] 
+Type lolemon.persistencia.modelo.Inventario is not enhanced.
+
+[2018-03-04 10:53:53 #6 type] 
+Type lolemon.persistencia.modelo.Historial is not enhanced.
+
+[2018-03-04 10:53:53 #7 type] 
+Type lolemon.persistencia.modelo.RegistroPartida is not enhanced.
+
+[2018-03-04 10:53:53 #8 type] 
+Type lolemon.persistencia.modelo.Personaje is not enhanced.
+
+[2018-03-04 10:53:53 #9 type] 
+Type lolemon.persistencia.modelo.Movimiento is not enhanced.
+
+[2018-03-04 10:53:53 #10 type] 
+Type lolemon.persistencia.modelo.Item is not enhanced.
+
+[2018-03-04 10:53:53 #11 type] 
+Type lolemon.persistencia.modelo.Habilidad is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2018-03-04 17:39:21 #1 *] 
+Old JPA jar (C:\eclipse\eclipse\configuration\org.eclipse.osgi\639\0\.cp\lib\jaxrs-ri\ext\persistence-api-1.0.jar) is in the classpath before objectdb.jar
+
+[2018-03-04 17:39:22 #2 store] 
+Database 'C:\Users\Richard\Desktop\workspaces\Lolemon - copia\LolemonPersistencia\src\res\db\lolemon.odb' has been recovered (tr. 105-105)
+
+[2018-03-04 17:39:22 #3 store] 
+Database 'C:\Users\Richard\Desktop\workspaces\Lolemon - copia\LolemonPersistencia\src\res\db\lolemon.odb' is opened by 12424@DESKTOP-G2MVH2V
+
+[2018-03-04 17:39:22 #4 store] 
+Configuration path: ?
+
+[2018-03-04 17:39:26 #5 type] 
+Type lolemon.persistencia.modelo.Usuario is not enhanced.
+
+[2018-03-04 17:39:26 #6 type] 
+Type lolemon.persistencia.modelo.Inventario is not enhanced.
+
+[2018-03-04 17:39:26 #7 type] 
+Type lolemon.persistencia.modelo.Historial is not enhanced.
+
+[2018-03-04 17:39:26 #8 type] 
+Type lolemon.persistencia.modelo.RegistroPartida is not enhanced.
+
+[2018-03-04 17:39:26 #9 type] 
+Type lolemon.persistencia.modelo.Personaje is not enhanced.
+
+[2018-03-04 17:39:26 #10 type] 
+Type lolemon.persistencia.modelo.Movimiento is not enhanced.
+
+[2018-03-04 17:39:26 #11 type] 
+Type lolemon.persistencia.modelo.Item is not enhanced.
+
+[2018-03-04 17:39:27 #12 type] 
+Type lolemon.persistencia.modelo.Habilidad is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2018-03-04 17:51:52 #1 store] 
+Database 'C:\Users\Richard\Desktop\workspaces\Lolemon - copia\LolemonPersistencia\src\res\db\lolemon.odb' is opened by 8992@DESKTOP-G2MVH2V
+
+[2018-03-04 17:51:52 #2 store] 
+Configuration path: ?
+
+[2018-03-04 17:51:53 #3 type] 
+Type lolemon.persistencia.modelo.Usuario is not enhanced.
+
+[2018-03-04 17:51:53 #4 type] 
+Type lolemon.persistencia.modelo.Inventario is not enhanced.
+
+[2018-03-04 17:51:53 #5 type] 
+Type lolemon.persistencia.modelo.Historial is not enhanced.
+
+[2018-03-04 17:51:53 #6 type] 
+Type lolemon.persistencia.modelo.RegistroPartida is not enhanced.
+
+[2018-03-04 17:51:53 #7 type] 
+Type lolemon.persistencia.modelo.Personaje is not enhanced.
+
+[2018-03-04 17:51:53 #8 type] 
+Type lolemon.persistencia.modelo.Movimiento is not enhanced.
+
+[2018-03-04 17:51:53 #9 type] 
+Type lolemon.persistencia.modelo.Item is not enhanced.
+
+[2018-03-04 17:51:53 #10 type] 
+Type lolemon.persistencia.modelo.Habilidad is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2018-03-04 17:55:01 #1 *] 
+Old JPA jar (C:\eclipse\eclipse\configuration\org.eclipse.osgi\639\0\.cp\lib\jaxrs-ri\ext\persistence-api-1.0.jar) is in the classpath before objectdb.jar
+
+[2018-03-04 17:55:03 #2 store] 
+Database 'C:\Users\Richard\Desktop\workspaces\Lolemon - copia\LolemonPersistencia\src\res\db\lolemon.odb' is opened by 2788@DESKTOP-G2MVH2V
+
+[2018-03-04 17:55:03 #3 store] 
+Configuration path: ?
+
+[2018-03-04 17:55:06 #4 type] 
+Type lolemon.persistencia.modelo.Usuario is not enhanced.
+
+[2018-03-04 17:55:07 #5 type] 
+Type lolemon.persistencia.modelo.Inventario is not enhanced.
+
+[2018-03-04 17:55:07 #6 type] 
+Type lolemon.persistencia.modelo.Historial is not enhanced.
+
+[2018-03-04 17:55:07 #7 type] 
+Type lolemon.persistencia.modelo.RegistroPartida is not enhanced.
+
+[2018-03-04 17:55:07 #8 type] 
+Type lolemon.persistencia.modelo.Personaje is not enhanced.
+
+[2018-03-04 17:55:07 #9 type] 
+Type lolemon.persistencia.modelo.Movimiento is not enhanced.
+
+[2018-03-04 17:55:07 #10 type] 
+Type lolemon.persistencia.modelo.Item is not enhanced.
+
+[2018-03-04 17:55:07 #11 type] 
+Type lolemon.persistencia.modelo.Habilidad is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2018-03-04 17:56:20 #1 store] 
+Database 'C:\Users\Richard\Desktop\workspaces\Lolemon - copia\LolemonPersistencia\src\res\db\lolemon.odb' is opened by 1448@DESKTOP-G2MVH2V
+
+[2018-03-04 17:56:20 #2 store] 
+Configuration path: ?
+
+[2018-03-04 17:56:20 #3 type] 
+Type lolemon.persistencia.modelo.Usuario is not enhanced.
+
+[2018-03-04 17:56:20 #4 type] 
+Type lolemon.persistencia.modelo.Inventario is not enhanced.
+
+[2018-03-04 17:56:20 #5 type] 
+Type lolemon.persistencia.modelo.Historial is not enhanced.
+
+[2018-03-04 17:56:20 #6 type] 
+Type lolemon.persistencia.modelo.RegistroPartida is not enhanced.
+
+[2018-03-04 17:56:20 #7 type] 
+Type lolemon.persistencia.modelo.Personaje is not enhanced.
+
+[2018-03-04 17:56:20 #8 type] 
+Type lolemon.persistencia.modelo.Movimiento is not enhanced.
+
+[2018-03-04 17:56:20 #9 type] 
+Type lolemon.persistencia.modelo.Item is not enhanced.
+
+[2018-03-04 17:56:20 #10 type] 
+Type lolemon.persistencia.modelo.Habilidad is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2018-03-04 17:59:15 #1 store] 
+Database 'C:\Users\Richard\Desktop\workspaces\Lolemon - copia\LolemonPersistencia\src\res\db\lolemon.odb' is opened by 10824@DESKTOP-G2MVH2V
+
+[2018-03-04 17:59:15 #2 store] 
+Configuration path: ?
+
+[2018-03-04 17:59:15 #3 type] 
+Type lolemon.persistencia.modelo.Usuario is not enhanced.
+
+[2018-03-04 17:59:15 #4 type] 
+Type lolemon.persistencia.modelo.Inventario is not enhanced.
+
+[2018-03-04 17:59:15 #5 type] 
+Type lolemon.persistencia.modelo.Historial is not enhanced.
+
+[2018-03-04 17:59:15 #6 type] 
+Type lolemon.persistencia.modelo.RegistroPartida is not enhanced.
+
+[2018-03-04 17:59:15 #7 type] 
+Type lolemon.persistencia.modelo.Personaje is not enhanced.
+
+[2018-03-04 17:59:15 #8 type] 
+Type lolemon.persistencia.modelo.Movimiento is not enhanced.
+
+[2018-03-04 17:59:15 #9 type] 
+Type lolemon.persistencia.modelo.Item is not enhanced.
+
+[2018-03-04 17:59:15 #10 type] 
+Type lolemon.persistencia.modelo.Habilidad is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2018-03-04 18:00:00 #1 store] 
+Database 'C:\Users\Richard\Desktop\workspaces\Lolemon - copia\LolemonPersistencia\src\res\db\lolemon.odb' is opened by 3784@DESKTOP-G2MVH2V
+
+[2018-03-04 18:00:00 #2 store] 
+Configuration path: ?
+
+[2018-03-04 18:00:01 #3 type] 
+Type lolemon.persistencia.modelo.Usuario is not enhanced.
+
+[2018-03-04 18:00:01 #4 type] 
+Type lolemon.persistencia.modelo.Inventario is not enhanced.
+
+[2018-03-04 18:00:01 #5 type] 
+Type lolemon.persistencia.modelo.Historial is not enhanced.
+
+[2018-03-04 18:00:01 #6 type] 
+Type lolemon.persistencia.modelo.RegistroPartida is not enhanced.
+
+[2018-03-04 18:00:01 #7 type] 
+Type lolemon.persistencia.modelo.Personaje is not enhanced.
+
+[2018-03-04 18:00:01 #8 type] 
+Type lolemon.persistencia.modelo.Movimiento is not enhanced.
+
+[2018-03-04 18:00:01 #9 type] 
+Type lolemon.persistencia.modelo.Item is not enhanced.
+
+[2018-03-04 18:00:01 #10 type] 
+Type lolemon.persistencia.modelo.Habilidad is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2018-03-04 18:00:42 #1 store] 
+Database 'C:\Users\Richard\Desktop\workspaces\Lolemon - copia\LolemonPersistencia\src\res\db\lolemon.odb' is opened by 5776@DESKTOP-G2MVH2V
+
+[2018-03-04 18:00:42 #2 store] 
+Configuration path: ?
+
+[2018-03-04 18:00:42 #3 type] 
+Type lolemon.persistencia.modelo.Usuario is not enhanced.
+
+[2018-03-04 18:00:42 #4 type] 
+Type lolemon.persistencia.modelo.Inventario is not enhanced.
+
+[2018-03-04 18:00:42 #5 type] 
+Type lolemon.persistencia.modelo.Historial is not enhanced.
+
+[2018-03-04 18:00:42 #6 type] 
+Type lolemon.persistencia.modelo.RegistroPartida is not enhanced.
+
+[2018-03-04 18:00:42 #7 type] 
+Type lolemon.persistencia.modelo.Personaje is not enhanced.
+
+[2018-03-04 18:00:42 #8 type] 
+Type lolemon.persistencia.modelo.Movimiento is not enhanced.
+
+[2018-03-04 18:00:42 #9 type] 
+Type lolemon.persistencia.modelo.Item is not enhanced.
+
+[2018-03-04 18:00:42 #10 type] 
+Type lolemon.persistencia.modelo.Habilidad is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2018-03-04 18:04:11 #1 store] 
+Database 'C:\Users\Richard\Desktop\workspaces\Lolemon - copia\LolemonPersistencia\src\res\db\lolemon.odb' is opened by 1232@DESKTOP-G2MVH2V
+
+[2018-03-04 18:04:11 #2 store] 
+Configuration path: ?
+
+[2018-03-04 18:04:11 #3 type] 
+Type lolemon.persistencia.modelo.Usuario is not enhanced.
+
+[2018-03-04 18:04:11 #4 type] 
+Type lolemon.persistencia.modelo.Inventario is not enhanced.
+
+[2018-03-04 18:04:11 #5 type] 
+Type lolemon.persistencia.modelo.Historial is not enhanced.
+
+[2018-03-04 18:04:11 #6 type] 
+Type lolemon.persistencia.modelo.RegistroPartida is not enhanced.
+
+[2018-03-04 18:04:11 #7 type] 
+Type lolemon.persistencia.modelo.Personaje is not enhanced.
+
+[2018-03-04 18:04:11 #8 type] 
+Type lolemon.persistencia.modelo.Movimiento is not enhanced.
+
+[2018-03-04 18:04:11 #9 type] 
+Type lolemon.persistencia.modelo.Item is not enhanced.
+
+[2018-03-04 18:04:11 #10 type] 
+Type lolemon.persistencia.modelo.Habilidad is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2018-03-04 18:05:58 #1 store] 
+Database 'C:\Users\Richard\Desktop\workspaces\Lolemon - copia\LolemonPersistencia\src\res\db\lolemon.odb' is opened by 2764@DESKTOP-G2MVH2V
+
+[2018-03-04 18:05:58 #2 store] 
+Configuration path: ?
+
+[2018-03-04 18:05:58 #3 type] 
+Type lolemon.persistencia.modelo.Usuario is not enhanced.
+
+[2018-03-04 18:05:59 #4 type] 
+Type lolemon.persistencia.modelo.Inventario is not enhanced.
+
+[2018-03-04 18:05:59 #5 type] 
+Type lolemon.persistencia.modelo.Historial is not enhanced.
+
+[2018-03-04 18:05:59 #6 type] 
+Type lolemon.persistencia.modelo.RegistroPartida is not enhanced.
+
+[2018-03-04 18:05:59 #7 type] 
+Type lolemon.persistencia.modelo.Personaje is not enhanced.
+
+[2018-03-04 18:05:59 #8 type] 
+Type lolemon.persistencia.modelo.Movimiento is not enhanced.
+
+[2018-03-04 18:05:59 #9 type] 
+Type lolemon.persistencia.modelo.Item is not enhanced.
+
+[2018-03-04 18:05:59 #10 type] 
+Type lolemon.persistencia.modelo.Habilidad is not enhanced.
+

@@ -1,10 +1,8 @@
 package lolemon.logicaDeNegocio.Clases;
 
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.util.Base64;
+
 import java.util.Properties;
 
 import javax.mail.Authenticator;
@@ -18,9 +16,12 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 import javafx.concurrent.Task;
+import javafx.concurrent.WorkerStateEvent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 public class Contacto {
-	boolean enviado=false;
+	boolean enviado;
 	public Contacto() {
 		
 	}
@@ -31,7 +32,7 @@ public class Contacto {
 	   Use Authentication: Yes
 	   Port for SSL: 465
 	 */
-	public boolean enviar(String correo, String cabecera, String cuerpo) {
+	public void enviar(String correo, String cabecera, String cuerpo) {
 		
 		final String fromEmail = "rilhi22@gmail.com"; //requires valid gmail id
 		final String password = "gdhhrhxwujfmgjlq"; // correct password for gmail id
@@ -71,8 +72,9 @@ public class Contacto {
 					return true;
 				}
 			};
-			tarea.setOnSucceeded(e->enviado=true);
-			tarea.setOnFailed(e->enviado=false);
+			
+			tarea.setOnSucceeded(e->alertSucess(e));
+			tarea.setOnFailed(e->alertFail(e));
 			new Thread(tarea).start();
 			
 			} catch (AddressException e) {
@@ -82,8 +84,22 @@ public class Contacto {
 			} catch (UnsupportedEncodingException e) {
 				e.printStackTrace();
 			}
-		return enviado;
+
 		
+	}
+
+	private void alertFail(WorkerStateEvent e) {
+		Alert alert= new Alert(AlertType.ERROR);
+		alert.setTitle("Error");
+		alert.setHeaderText("Ha habido un error");
+		alert.showAndWait();
+	}
+
+	private void alertSucess(WorkerStateEvent e) {
+		Alert alert= new Alert(AlertType.INFORMATION);
+		alert.setTitle("Enviado");
+		alert.setHeaderText("Mensaje enviado");
+		alert.showAndWait();
 	}
 	
 		

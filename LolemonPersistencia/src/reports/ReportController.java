@@ -38,7 +38,7 @@ public class ReportController {
 
 	}
 
-	public static void makeReport() {
+	public static void makeReport(String path) {
 
 		try {
 			InputStream is = ReportController.class.getResourceAsStream("Blank_A4.jasper");
@@ -48,14 +48,14 @@ public class ReportController {
 
 			JasperPrint jp = JasperFillManager.fillReport(is, parametros,new JRBeanCollectionDataSource(loadPersonajes()));
 
-			JasperExportManager.exportReportToPdfFile(jp, "informe.pdf");
-			Desktop.getDesktop().open(new File("informe.pdf"));
+			JasperExportManager.exportReportToPdfFile(jp, path);
+			//Desktop.getDesktop().open(new File("informe.pdf"));
 			
 		} catch (JRException e) {
 			e.printStackTrace();
-		} catch (IOException e) {
+		} /*catch (IOException e) {
 			e.printStackTrace();
-		}
+		}*/
 
 	}
 }

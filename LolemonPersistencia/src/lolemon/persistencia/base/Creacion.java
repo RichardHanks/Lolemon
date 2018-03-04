@@ -76,7 +76,7 @@ public class Creacion {
 			ahri.setEnergiaTotal(130);
 			ahri.setMensajes(new ArrayList<String>());
 			ahri.setAspecto("/54/ahri/splash/ahri.jpg");
-			ahri.setSprite("54/ahri/sprite/ahri.png");
+			ahri.setSprite("/54/ahri/sprite/ahri.png");
 
 			// habilidades ligadas al personaje
 			Habilidad ahri1 = new Habilidad();
@@ -657,8 +657,8 @@ public class Creacion {
 			riven.setVidaTotal(480);
 			riven.setEnergiaTotal(150);
 			riven.setMensajes(new ArrayList<String>());
-			riven.setAspecto("/54/Riven/splash/riven.jpg");
-			riven.setSprite("/54/Riven/sprite/Riven.png");
+			riven.setAspecto("/54/riven/splash/riven.jpg");
+			riven.setSprite("/54/riven/sprite/Riven.png");
 
 			// habilidades ligadas al personaje
 			Habilidad riven1 = new Habilidad();

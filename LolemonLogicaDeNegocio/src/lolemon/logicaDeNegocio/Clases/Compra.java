@@ -21,7 +21,7 @@ public class Compra {
 	
 	public Usuario comprarItem(Item i) {
 		Usuario u=null;
-		if(usuario.getPuntos()>i.getCoste()) {
+		if(usuario.getPuntos()>=i.getCoste()) {
 			Consultas consulta= new Consultas();
 			u=consulta.comprarItem(usuario, i);
 			
@@ -32,7 +32,7 @@ public class Compra {
 	
 	public Usuario comprarPersonaje(Personaje personaje) {
 		Usuario u=null;
-		if(usuario.getPuntos()>personaje.getCoste()) {
+		if(usuario.getPuntos()>=personaje.getCoste()) {
 			Consultas consulta= new Consultas();
 			u=consulta.comprarPersonaje(usuario, personaje);
 			}

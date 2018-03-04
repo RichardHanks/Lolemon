@@ -10,7 +10,7 @@ public class MusicPlayer {
 	private  MediaPlayer reproductor;
 	
 	public MusicPlayer() {
-		reproductor =new MediaPlayer(new Media(MusicPlayer.class.getResource(Musica.INICIAL.getNombreCancion()).toExternalForm()));
+		reproductor =new MediaPlayer(new Media(MusicPlayer.class.getResource(Musica.POSTGAME.getNombreCancion()).toExternalForm()));
 		reproductor.setCycleCount(MediaPlayer.INDEFINITE);
 		reproductor.play();
 	}

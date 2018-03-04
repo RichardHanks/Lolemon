@@ -73,9 +73,10 @@ public class TiendaController implements Initializable {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("TiendaView.fxml"));
 		loader.setController(this);
 		loader.load();
-		compra=new Compra(null);
+		compra = new Compra(null);
 		usuarioModel.addListener((o, ov, nv) -> {
 			init(nv);
+			System.out.println(nv.puntosProperty());
 		});
 
 	}
@@ -135,80 +136,105 @@ public class TiendaController implements Initializable {
 		comprarButton.disableProperty().bind(seleccionado.isNull());
 
 		// estoy hay que mirarlo, lo bueno es pasar el item desde una consulta
-		potas1Button.setOnAction(e->comprarPocion());
-		potas2Button.setOnAction(e->comprarElixir());
-		potas3Button.setOnAction(e->comprarVial());
+		potas1Button.setOnAction(e -> comprarPocion());
+		potas2Button.setOnAction(e -> comprarElixir());
+		potas3Button.setOnAction(e -> comprarVial());
 
 	}
 
 	private void ComprarCampeon() {
 		// Faltaría poner avisos y esas cosas.
 		String nombre = seleccionado.get().getNombre();
-		Usuario u=compra.comprarPersonaje(seleccionado.get());
-		if (u!=null){
-			//Setea el usuario al controller principal, este user ya esta persistido
+		Usuario u = compra.comprarPersonaje(seleccionado.get());
+		if (u != null) {
+			// Setea el usuario al controller principal, este user ya esta persistido
 			IniciarSesionController.usuario.set(u);
-			
-			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.initOwner(Main.getPrimaryStage());
-			alert.getDialogPane().getStyleClass().add("myDialog");
-			alert.setTitle("Comprado");
-			alert.setHeaderText("Has comprado a " + nombre+" Tus nuevos loles son :" + usuarioModel.get().getPuntos());
-			alert.showAndWait();
-		}else {
-			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.initOwner(Main.getPrimaryStage());
-			alert.getDialogPane().getStyleClass().add("myDialog");
-			alert.setTitle("Error");
-			alert.setHeaderText("No has podido comprar a " + nombre+" Tus Loles no son suficientes :(");
-			alert.showAndWait();
+
+			alertCompraCampeon(nombre);
+		} else {
+			alertErrorCompraCampeon(nombre);
 		}
 	}
 
 	private void comprarPocion() {
-		Usuario u=compra.comprarItem(con.getPocion());
-		Alert alert = new Alert(AlertType.INFORMATION);
-		alert.initOwner(Main.getPrimaryStage());
-		alert.getDialogPane().getStyleClass().add("myDialog");
-		alert.setTitle("Comprado");
-		alert.setHeaderText("Tus nuevos loles son :" + usuarioModel.get().getPuntos());
-		alert.showAndWait();
-		
-		//Setea el usuario al controller principal, este user ya esta persistido
-		IniciarSesionController.usuario.set(u);
+		Usuario u = compra.comprarItem(con.getPocion());
+		if(u!=null) {
+			// Setea el usuario al controller principal, este user ya esta persistido
+			IniciarSesionController.usuario.set(u);
+			alertCompraPocion();
+		}
+		else
+			alertErrorCompraPocion();
+
+
 	}
-	
+
 	private void comprarVial() {
-		Usuario u=compra.comprarItem(con.getVial());
-		Alert alert = new Alert(AlertType.INFORMATION);
-		alert.initOwner(Main.getPrimaryStage());
-		alert.getDialogPane().getStyleClass().add("myDialog");
-		alert.setTitle("Comprado");
-		alert.setHeaderText("Tus nuevos loles son :" + usuarioModel.get().getPuntos());
-		alert.showAndWait();
-		
-		//Setea el usuario al controller principal, este user ya esta persistido
-		IniciarSesionController.usuario.set(u);
-		
+		Usuario u = compra.comprarItem(con.getVial());
+		if(u!=null) {
+			// Setea el usuario al controller principal, este user ya esta persistido
+			IniciarSesionController.usuario.set(u);
+			alertCompraPocion();
+		}
+		else
+			alertErrorCompraPocion();
+
+
+
 	}
-	
+
 	private void comprarElixir() {
-		Usuario u=compra.comprarItem(con.getElixir());
+		Usuario u = compra.comprarItem(con.getElixir());
+		if(u!=null) {
+			// Setea el usuario al controller principal, este user ya esta persistido
+			IniciarSesionController.usuario.set(u);
+			alertCompraPocion();
+		}
+		else
+			alertErrorCompraPocion();
+
+
+	}
+
+	private void alertErrorCompraPocion() {
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.initOwner(Main.getPrimaryStage());
+		alert.getDialogPane().getStyleClass().add("myDialog");
+		alert.setTitle("Error");
+		alert.setHeaderText("Que pena, no tienes suficentes loles");
+		alert.showAndWait();
+	}
+
+	private void alertCompraPocion() {
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.initOwner(Main.getPrimaryStage());
 		alert.getDialogPane().getStyleClass().add("myDialog");
 		alert.setTitle("Comprado");
 		alert.setHeaderText("Tus nuevos loles son :" + usuarioModel.get().getPuntos());
 		alert.showAndWait();
-		
-		//Setea el usuario al controller principal, este user ya esta persistido
-		IniciarSesionController.usuario.set(u);
 	}
-	
 
 	private void atras() {
 		init(usuarioModel.get());
 		Main.getPrimaryStage().getScene().setRoot(controller.get().getView());
+	}
+
+	private void alertErrorCompraCampeon(String nombre) {
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.initOwner(Main.getPrimaryStage());
+		alert.getDialogPane().getStyleClass().add("myDialog");
+		alert.setTitle("Error");
+		alert.setHeaderText("No has podido comprar a " + nombre + " Tus Loles no son suficientes :(");
+		alert.showAndWait();
+	}
+
+	private void alertCompraCampeon(String nombre) {
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.initOwner(Main.getPrimaryStage());
+		alert.getDialogPane().getStyleClass().add("myDialog");
+		alert.setTitle("Comprado");
+		alert.setHeaderText("Has comprado a " + nombre + " Tus nuevos loles son :" + usuarioModel.get().getPuntos());
+		alert.showAndWait();
 	}
 
 	public BorderPane getView() {
